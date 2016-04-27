@@ -17,3 +17,13 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/anna', function()
+{
+	return View::make('hello');
+});
+
+Route::get('/sayhello', function()
+{
+    return "Hello, Codeup!";
+});
