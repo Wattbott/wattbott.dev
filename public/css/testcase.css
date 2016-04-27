@@ -1,0 +1,62 @@
+@font-face{
+	font-family: "Avenir";
+	src: url("/fonts/avenir/AvenirNextLTPro-Regular.otf") format("opentype");
+}
+body{
+	background-color: #a26666;
+}
+#mainformbody{
+	background-color: #f1d8d8;
+	z-index: 1;
+	position: relative;
+	margin-top: 150px;
+	width:50%;
+	left:10%;
+	border: 8px solid white;
+	border-radius: 32px;
+}
+.font3{
+	font-family: "Avenir";
+}
+.formsegment{
+	position: relative;
+	display: flex;
+	max-width: 80%;
+
+	margin: 40px auto;
+}
+.coolformtext{
+	max-width: 30%;
+	position: absolute;
+	right:10%;
+}
+input.coolformtext{
+	border:0px;
+	border-radius: 32px;
+	text-align: center;
+	overflow: hidden;
+}
+.labeltext{
+	color: white;
+	text-align: center;
+	width:auto+20px;
+}
+.outercboxcircle{
+	display: block;
+	width:30px;
+	height:30px;
+	background-color: white;
+}
+.foscheck input{
+	display: none;
+}
+.foscheck label{
+	display: block;
+	width:20px;
+	height:20px;
+	background: red;
+	cursor: pointer;
+}
+#roofsame:checked + label{
+	background: blue;
+}
