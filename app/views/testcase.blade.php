@@ -40,14 +40,14 @@
 		</div>
 		<div class="formsegment foscheck font3 fontmidlarge" id="grosscheckseg">
 				<span class="fontcolor1 fontmid easymargin">Is roof size not the same as floor size?</span>
-				<div class="fakecheck">
+				<div class="fakecheck" id="check0">
 					<div class="checkback">
 					</div>
 				</div>
 		</div>
 		<div class="formsegment foscheck font3 fontmidlarge" id="grosscheckseg">
 				<span class="fontcolor1 fontmid easymargin">Do You Have Your Utility Bills?</span>
-				<div class="fakecheck">
+				<div class="fakecheck" id="check1">
 					<div class="checkback">
 					</div>
 				</div>

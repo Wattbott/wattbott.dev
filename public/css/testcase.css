@@ -73,7 +73,21 @@ input.coolformtext{
 	border-radius: 32px;
 	z-index:7;
 }
-#fakeselect li{
+#fakeselectB{
+	position:relative;
+	display: block;
+	list-style-type: none;
+	width:40%;
+	height:48px;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+	background-color: white;
+	overflow: hidden;
+	border-radius: 32px;
+	z-index:7;
+}
+#fakeselect li, #fakeselectB li{
 	font-size: 20px;
 	height:38px;
 	padding-left: 8px;
@@ -84,15 +98,28 @@ input.coolformtext{
 	background-color: transparent;
 	text-align: left;
 }
+
 .fakecheck{
+	position: absolute;
 	height:40px;
 	width:40px;
 	background-color: white;
 	border-radius: 50%;
-	position: absolute;
 	right:10%;
 }
-.checkback{
+.fakeradio{
+	height:40px;
+	width:40px;
+	background-color: white;
+	border-radius: 50%;
+	display: inline-block;
+	position: relative;
+}
+#radioselectoptions1 .fakeradio{
+	left: 10%;
+	margin: 10px;
+}
+.checkback,.radioback{
 	position: relative;
 	top:20px;
 	left:20px;
@@ -117,4 +144,24 @@ input.coolformtext{
 }
 .easymargin{
 	margin-right: 40px;
+}
+.centertextdiv{
+	position: relative;
+	display: block;
+	min-width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+#radioselectoptions1{
+	display: inline-block;
+	position: relative;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#radioselectoptions1 span{
+	margin: 5px;
+	position: absolute;
+	right:10%;
 }
