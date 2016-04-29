@@ -7,9 +7,13 @@
 	var listoptions = $('#fakeselect li').length;
 	var faketrue = false;
 	var faketrue1 = false;
+	var upAlready = [false,false];
 	var checkBool = [];
 	var checkBoolRad = [];
-	var checkBoolRadInserts = ['<div class="formsegment font3 fontmidlarge" id="annformseg1"><label for="kwhannual" class="labeltext">kW/h</label><input name="kwhannual" class="coolformtext font3 fontmidlarge" type="text"></div>','<div id="totalseg"><div class="formsegment font3 fontmidlarge" id="monthselectseg"><ul id="fakeselectB"><li>January</li><li>Feburary</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><span id="buildlisttri2" class="triangledown"></span></ul></div><div class="formsegment font3 fontmidlarge" id="monthitemseg"><label for="kwhannual" class="labeltext">kW/h</label><input class="coolformtext font3 fontmidlarge" name="kwhannual" type="text"></div></div></div>'];
+	var monthsData = [];
+
+	var checkBoolRadInserts = ['<div class="formsegment font3 fontmidlarge" id="annformseg1"><label for="kwhannual" class="labeltext">kW/h</label><input name="kwhannual" class="coolformtext font3 fontmidlarge" type="text"></div>','<div id="totalseg"><div class="formsegment font3 fontmidlarge" id="monthselectseg"><ul id="fakeselectB"><div id="fsnumtwo" class="fakeselectitem"></div><li>January</li><li>Feburary</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li>September</li><li>October</li><li>November</li><li>December</li><span id="buildlisttri2" class="triangledown"></span></ul></div><div class="formsegment font3 fontmidlarge" id="monthitemseg"><label for="kwhmonth" class="labeltext">kW/h</label><input class="coolformtext font3 fontmidlarge" id="kwhmonth" name="kwhmonth" type="text"></div><div class="formsegment font3 fontmidlarge" id="monthcostseg"><label for="costmonth" class="labeltext">Cost</label><input class="coolformtext font3 fontmidlarge" id="costmonth" name="costmonth" type="text"></div><button id="enter">Submit Month</button></div>'];
+	var checkTwoInserts = ['<div class="formsegment font3 fontmidlarge" id="gasmonthseg"><label for="kBTUmonth" class="labeltext">kBTU</label><input class="coolformtext font3 fontmidlarge" id="kBTUmonth" name="kBTUmonth" type="text"></div>','<div class="formsegment font3 fontmidlarge" id="gasmonthcostseg"><label for="gascostmonth" class="labeltext">Cost</label><input class="coolformtext font3 fontmidlarge" id="gascostmonth" name="gascostmonth" type="text"></div>']
 	var cbrid = ["#annformseg1","#totalseg"];
 	console.log(listheight,listoptions,listheight*listoptions);
 	function fakecheckVarPopulate(arr)
@@ -54,23 +58,8 @@
 			formCheck1(indi);
 		});
 	}
-	function formCheck1(index)
+	function commitStuff()
 	{
-		var len = $('.fakeradio').length;
-		for (var i = 0; i < len; i++)
-		{
-			if (i == index)
-			{
-				console.log(checkBoolRadInserts[index]);
-				$(checkBoolRadInserts[index]).insertAfter("#annualormonthseg");
-			}
-			else
-			{
-				console.log(i);
-				console.log(cbrid[i]);
-				$(cbrid[i]).remove();
-			}
-		}
 		$("#totalseg").ready(function(){
 			var listheight1 = $('#fakeselectB li').height();
 			var listoptions1 = $('#fakeselectB li').length;
@@ -94,8 +83,8 @@
 				{
 					//$('#hiddenstuff2').val(newval);
 					faketrue1 = false;
-					var that = $(this).detach();
-					that.prependTo($('#fakeselectB'));
+					$('#fsnumtwo').text(newval);
+					dataCheck(newval);
 					$(this).css({
 						"top": "10px"
 					});
@@ -106,7 +95,118 @@
 					console.log(faketrue1);
 				}
 			});
+			$("#enter").click(function(){
+
+				var i = monthsData.length;
+				var truestuffs = true;
+				if (checkBool[2] == true)
+				{
+					if ($('#kwhmonth').val() !== '' && $('#costmonth').val() !== '' && $('#fsnumtwo').text() !== '' && $('#kBTUmonth').val() !== ' &&' $('#gascostmonth').val() !== '')
+					{
+						for (var j = 0; j < i; j++)
+						{
+							if ($('#fsnumtwo').text() == monthsData[j].month)
+							{
+								truestuffs = false;
+								monthsData[j] = {"month":$('#fsnumtwo').text(),"kwh":$('#kwhmonth').val(),"kwhcost":$('#costmonth').val(),"kBTU":$('#kBTUmonth').val(),"gascost":$('#gascostmonth').val()};
+								break;
+							}
+							else
+							{
+								truestuffs = true;
+							}
+						}
+						if (truestuffs == true)
+						{
+							monthsData[i] = "month":$('#fsnumtwo').text(),"kwh":$('#kwhmonth').val(),"kwhcost":$('#costmonth').val(),"kBTU":$('#kBTUmonth').val(),"gascost":$('#gascostmonth').val()};
+							$('#fsnumtwo').text('');
+							$('#kwhmonth').val('');
+							$('#costmonth').val('');
+							$('#gascostmonth').val('');
+							$('#kBTUmonth').val('');
+							console.log(monthsData);
+						}
+					}
+				}
+				else
+				{
+					if ($('#kwhmonth').val() !== '' && $('#costmonth').val() !== '' && $('#fsnumtwo').text() !== '')
+					{
+						for (var j = 0; j < i; j++)
+						{
+							if ($('#fsnumtwo').text() == monthsData[j].month)
+							{
+								truestuffs = false;
+								monthsData[j] = {"month":$('#fsnumtwo').text(),"kwh":$('#kwhmonth').val(),"kwhcost":$('#costmonth').val()};
+								break;
+							}
+							else
+							{
+								truestuffs = true;
+							}
+						}
+						if (truestuffs == true)
+						{
+							monthsData[i] = "month":$('#fsnumtwo').text(),"kwh":$('#kwhmonth').val(),"kwhcost":$('#costmonth').val()};
+							$('#fsnumtwo').text('');
+							$('#kwhmonth').val('');
+							$('#costmonth').val('');
+							console.log(monthsData);
+						}
+					}
+				}
+				graphPlot(monthsData);
+			});
 		});
+	}
+	function dataCheck(month)
+	{
+		for (var i = 0; i < monthsData.length; i++) {
+			if (month == monthsData[i].month)
+			{
+				$("#kwhmonth").val(monthsData[i].kwh);
+				$('#costmonth').val(monthsData[i].cost);
+
+			}
+			else
+			{
+				$("#kwhmonth").val('');
+				$('#costmonth').val('');
+			}
+		};
+	}
+	function graphPlot(data)
+	{
+		var totalkwh;
+		var totalcost;
+		for (var i = 0; i < data.length; i++) {
+			totalkwh += data[i].kwh;
+			totalcost += data[i].cost;
+		};
+		totalcost = totalcost/data.length;
+		var totalkbtu = totalkwh * 3412;
+		var sqrfoot = $('#grossfloorarea').val();
+	}
+	function formCheck1(index)
+	{
+		var len = $('.fakeradio').length;
+		for (var i = 0; i < len; i++)
+		{
+			if (i == index && upAlready[index] !== true)
+			{
+				upAlready[i] = true;
+				console.log(checkBoolRadInserts[index]);
+				$(checkBoolRadInserts[index]).insertAfter("#annualormonthseg");
+			}
+			else
+			{
+				upAlready[i] = false;
+				console.log(i);
+				console.log(cbrid[i]);
+				$(cbrid[i]).remove();
+			}
+		}
+		commitStuff();
 	}
 	function doubleTake(index, bool)
 	{
@@ -160,13 +260,40 @@
 				$('#formbody2').remove();
 			}
 		}
+		else if (index == 2)
+		{
+			console.log("HERE!");
+			if (bool == true)
+			{
+				console.log("HERE!!");
+				var waitingSet = setInterval(function(){
+					if ($('#gasmonthseg').length > 0 && $("#gasmonthcostseg").length > 0 && $('#totalseg').length > 0)
+					{
+						console.log("DONE!!");
+						clearInterval(waitingSet);
+					}
+					else
+					{
+						console.log("HERE!!");
+						$(checkTwoInserts[0]).insertAfter('#monthcostseg');
+						$(checkTwoInserts[1]).insertAfter('#gasmonthseg');
+					}
+
+				},500);
+			}
+			else
+			{
+				$('#gasmonthcostseg').remove();
+				$('#gasmonthseg').remove();
+			}
+		}
 	}
 	$("#fakeselect").click(function(){
 		if (faketrue == false && ($(this).height() < listheight*1.5))
 		{
 			faketrue = true;
 			$("#fakeselect").animate({
-				"height": (listheight*listoptions)+12+"px"
+				"height": (listheight*(listoptions+1))+12+"px"
 			},500);
 		}
 	});
@@ -178,8 +305,7 @@
 		{
 			$('#hiddenstuff').val(newval);
 			faketrue = false;
-			var that = $(this).detach();
-			that.prependTo($('#fakeselect'));
+			$('#fsnumone').text(newval);
 			$(this).css({
 				"top": "10px"
 			});

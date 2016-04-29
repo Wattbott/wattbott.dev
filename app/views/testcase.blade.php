@@ -5,6 +5,19 @@
 @stop
 
 @section('content')
+<div class="sideformbody fontcolor1">
+	<div id="graph">
+	</div>
+	<div id="xaxis"></div>
+	<div class="seperator"></div>
+	<div id="gassystuff" class="font3 fontmidsmall">
+		<span>Do you have gas in your building?</span>
+		<div class="fakecheck" id="check2">
+			<div class="checkback">
+			</div>
+		</div>
+	</div>
+</div>
 <div id="formbody1" class="mainformbody">
 	{{ Form::open(array(
 		'action' => 'HomeController@testForm',
@@ -25,6 +38,7 @@
 		<div class="formsegment font3 fontmidlarge" id="buildnameseg">
 		{{Form::label('buildtype', 'Building Type', $attributes = [ 'class' => 'labeltext'])}}
 		<ul id="fakeselect">
+			<div id="fsnumone" class="fakeselectitem"></div>
 			<li id="buildsel1">K-12 School</li>
 			<li id="buildsel2">Supermarket</li>
 			<li id="buildsel3">Hospital</li>
@@ -57,6 +71,7 @@
 	{{ Form::submit() }}
 	{{ Form::close() }}
 	</div>
+
 @stop
 
 @section('scripts')
