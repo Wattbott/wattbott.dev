@@ -101,7 +101,7 @@
 				var truestuffs = true;
 				if (checkBool[2] == true)
 				{
-					if ($('#kwhmonth').val() !== '' && $('#costmonth').val() !== '' && $('#fsnumtwo').text() !== '' && $('#kBTUmonth').val() !== ' &&' $('#gascostmonth').val() !== '')
+					if ($('#kwhmonth').val() !== '' && $('#costmonth').val() !== '' && $('#fsnumtwo').text() !== '' && $('#kBTUmonth').val() !== '' && $('#gascostmonth').val() !== '')
 					{
 						for (var j = 0; j < i; j++)
 						{
@@ -118,7 +118,7 @@
 						}
 						if (truestuffs == true)
 						{
-							monthsData[i] = "month":$('#fsnumtwo').text(),"kwh":$('#kwhmonth').val(),"kwhcost":$('#costmonth').val(),"kBTU":$('#kBTUmonth').val(),"gascost":$('#gascostmonth').val()};
+							monthsData[i] = {"month":$('#fsnumtwo').text(),"kwh":$('#kwhmonth').val(),"kwhcost":$('#costmonth').val(),"kBTU":$('#kBTUmonth').val(),"gascost":$('#gascostmonth').val()};
 							$('#fsnumtwo').text('');
 							$('#kwhmonth').val('');
 							$('#costmonth').val('');
@@ -147,7 +147,7 @@
 						}
 						if (truestuffs == true)
 						{
-							monthsData[i] = "month":$('#fsnumtwo').text(),"kwh":$('#kwhmonth').val(),"kwhcost":$('#costmonth').val()};
+							monthsData[i] = {"month":$('#fsnumtwo').text(),"kwh":$('#kwhmonth').val(),"kwhcost":$('#costmonth').val()};
 							$('#fsnumtwo').text('');
 							$('#kwhmonth').val('');
 							$('#costmonth').val('');
