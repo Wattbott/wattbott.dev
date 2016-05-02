@@ -2,8 +2,15 @@
 
 class Run extends BaseModel
 {
+
+	public function getExampleData()
+	{
+		include "sample.php";
+		$run->example = $runSample;
+	}
+
 	public static $rules = array(
-		//rules go here
+
 	);
 
 	public function getSystemCapacity($roof_area)
