@@ -66,17 +66,28 @@
 					'gas' => [0.8,'$/therm']
 				]
 			],
-			'user_output' => [
-        		'postal_code' => 78248,
-				'primaryFunction' => 'School',
-				'grossFloorArea' => 12000,
-				'system_capacity' => 20
-			],
 			'api_output' => [
-        		'postal_code' => 78248,
-				'primaryFunction' => 'School',
-				'grossFloorArea' => 12000,
-				'system_capacity' => 20
+	        	'eui' => [
+	        		'design_site_intensity' => 40,
+					'design_energy_cost' => 9152,
+					'median_site_intensity' => 70,
+					'median_energy_cost' => 16016
+				],
+				'pv' => [
+					'ac_annual' => 9850
+				]
+			],
+			'user_output' => [
+        		'eui' => [
+        			'design_site_intensity' => 40,
+					'design_energy_cost' => 9152,
+					'median_site_intensity' => 70,
+					'median_energy_cost' => 16016
+        		],
+				'pv' => [
+					'roi' => 10,
+					'percent_savings' => 0.1
+				]
 			]
     ];
 
