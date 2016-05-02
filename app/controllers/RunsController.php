@@ -1,9 +1,18 @@
 <?php
 class RunsController extends BaseController {
 	
-	public function create(){
+	public function create()
+	{
 		return View::make('create');
 		//this redirects from intro page to form page
+	}
+
+	public function show($id) 
+	{
+		// we need to create the find function on our runs class
+		// $run = $this->find($id); 
+		$run = "test it like a like a - heck yes!";
+		return View::make('create')->with('run',$run);
 	}
 
 	public function store() {
@@ -36,5 +45,14 @@ class RunsController extends BaseController {
 			return "Did not satisfy any path requirements";
 		}
 	}
+
+	public function result() 
+	{
+		// we need use find function on our results
+		// $run = $this->find($id); 
+		$run = 'some junk, sweet awesome rock my world junk';
+		return View::make('result')->with('run',$run);
+	}
+
 
 }
