@@ -16,8 +16,6 @@ class RunsController extends BaseController {
 	}
 
 	public function store() {
-		
-		dd(Ass::get('pv_usable_roof'));
 		$run = new Run();
 		//these are set by us no matter what; move these to the Run class itself??
 		$run->module_type = $default_module_type;
@@ -29,9 +27,13 @@ class RunsController extends BaseController {
 		$run->measurementSystem = $default_measurementSystem;
 		//and now the required Input::'s
 		$run->postal_code = Input::get('postal_code');
+		$run->lat = Geocode::getLat($run->postal_code);
+		$run->lon = Geocode::getLon($run->postal_code);
+		$run->state = Geocode::getState($this->postal_code);
+		$run->country = Geocode::getCountry($run->postal_code);
 		$run->primaryFunction = Input::get('primaryFunction');
 		$run->grossFloorArea = Input::get('grossFloorArea');
-		$run->system_capacity = Run::getSystemCapacity(Input::get('grossFloorArea'));
+		$run->system_capacity = Run::getSystemCapacity($this->grossFloorArea));
 		//optional properties autofilled if left blank:
 		if (Input::get() == false) {
 			$this->path4();
