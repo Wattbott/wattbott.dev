@@ -8,7 +8,7 @@ class Run extends BaseModel
 
 	public function getSystemCapacity($roof_area)
 	{
-		$systemCapacity = $roof_area * $ass_usable_area * $ass_TBD;
+		$systemCapacity = $roof_area * Ass::get('pv_usable_roof') * $somethingToBeDetermined;
 		return $systemCapacity;
 	}
 
