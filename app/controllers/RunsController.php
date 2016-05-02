@@ -1,13 +1,21 @@
 <?php
 class RunsController extends BaseController {
-
-	public function create(){
+	
+	public function create()
+	{
 		return View::make('create');
 		//this redirects from intro page to form page
 	}
 
-	public function store() {
+	public function show($id) 
+	{
+		// we need to create the find function on our runs class
+		// $run = $this->find($id); 
+		$run = "test it like a like a - heck yes!";
+		return View::make('create')->with('run',$run);
+	}
 
+	public function store() {
 		$run = new Run();
 		//these are set by us no matter what; move these to the Run class itself??
 		$run->module_type = $default_module_type;
@@ -19,21 +27,32 @@ class RunsController extends BaseController {
 		$run->measurementSystem = $default_measurementSystem;
 		//and now the required Input::'s
 		$run->postal_code = Input::get('postal_code');
+		$run->lat = Geocode::getLat($run->postal_code);
+		$run->lon = Geocode::getLon($run->postal_code);
+		$run->state = Geocode::getState($this->postal_code);
+		$run->country = Geocode::getCountry($run->postal_code);
 		$run->primaryFunction = Input::get('primaryFunction');
 		$run->grossFloorArea = Input::get('grossFloorArea');
-		$run->system_capacity = Run::getSystemCapacity(Input::get('grossFloorArea'));
+		$run->system_capacity = Run::getSystemCapacity($this->grossFloorArea);
 		//optional properties autofilled if left blank:
-		if (Input::get() = ) {
+		if (Input::get() == false) {
 			$this->path4();
-		} else if (Input::get() = ) {
+		} else if (Input::get() == false) {
 			$this->path3();
-		} else if (Input::get() = ) {
+		} else if (Input::get() == false ) {
 			$this->path2();
-		} else if (Input::get() = ) {
+		} else if (Input::get() == false ) {
 			$this->path1();
 		} else {
 			return "Did not satisfy any path requirements";
 		}
 	}
+
+	public function result() 
+	{
+		$run = Run::find(1); 
+		return View::make('result')->with('run',$run->run);
+	}
+
 
 }

@@ -6,9 +6,19 @@ class Run extends BaseModel
 		//rules go here
 	);
 
+	public function getRunAttribute($value)
+    {
+        return unserialize($value);
+    }
+
+    public function setRunAttribute($value)
+    {
+        $this->attributes['run'] = serialize($value);
+    }
+
 	public function getSystemCapacity($roof_area)
 	{
-		$systemCapacity = $roof_area * $ass_usable_area * $ass_TBD;
+		$systemCapacity = $roof_area * Ass::get('pv_usable_roof') * $somethingToBeDetermined;
 		return $systemCapacity;
 	}
 
