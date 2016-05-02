@@ -1,6 +1,6 @@
 <?php
 
- $run = (object) [
+ $run = [
 
         	'user_input' => [
         		'run_name' => 'first try for my building',
@@ -91,4 +91,3 @@
 			]
     ];
 
-var_dump($run);
