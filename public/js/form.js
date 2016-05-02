@@ -14,6 +14,8 @@
 	var checkBool = [];
 	var checkBoolRad = [];
 	var monthsData = [];
+	var fakenumkey = '';
+	var fakerkey = '';
 	var maxlength = 0;
 
 	var checkBoolRadInserts = ['<div id="anntotalseg"><div class="formsegment font3 fontmidlarge" id="annformseg1"><label for="kwhannual" class="labeltext">kW/h</label><input name="kwhannual" id="kwhannual" class="coolformtext font3 fontmidlarge" type="text"></div><div class="formsegment font3 fontmidlarge" id="annformseg2"><label for="costannual" class="labeltext">Cost</label><input name="costannual" id="costannual" class="coolformtext font3 fontmidlarge" type="text"></div></div>','<div id="totalseg"><div class="formsegment font3 fontmidlarge" id="monthselectseg"><ul id="fakeselectB"><div id="fsnumtwo" class="fakeselectitem"></div><li>January</li><li>Feburary</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li>September</li><li>October</li><li>November</li><li>December</li><span id="buildlisttri2" class="triangledown"></span></ul></div><div class="formsegment font3 fontmidlarge" id="monthitemseg"><label for="kwhmonth" class="labeltext">kW/h</label><input class="coolformtext font3 fontmidlarge" id="kwhmonth" name="kwhmonth" type="text"></div><div class="formsegment font3 fontmidlarge" id="monthcostseg"><label for="costmonth" class="labeltext">Cost</label><input class="coolformtext font3 fontmidlarge" id="costmonth" name="costmonth" type="text"></div><div id="enter">Submit Month</button></div>'];
@@ -40,6 +42,11 @@
 	}
 	function charted(data)
 	{	
+		if (fakerkey !== '')
+		{
+			console.log(fakenumkey,fakerkey,data[fakenumkey][fakerkey]);
+			maxlength = data[fakenumkey][fakerkey];
+		}
 
 		for (var i = data.length -1; i >= 0; i--)
 		{
@@ -48,6 +55,8 @@
 				if (data[i][key] > maxlength && key !== 'month')
 				{
 					maxlength = data[i][key];
+					fakenumkey = i;
+					fakerkey = key;
 				}
 			}
 			console.log(maxlength);
@@ -89,7 +98,7 @@
 				console.log("No! I'm Broken here!",monthgraph,$('#'+monthgraph+'graph .bargraphkwh').length);
 				$('#'+monthgraph+'graph .bargraphkwh').animate({
 					"width":newwidth+"%"
-				});
+				}).text(data[i].kwh);
 			}
 			if ($('#'+monthgraph+'graph .bargraphkwhcost').length < 1)
 			{
@@ -105,7 +114,7 @@
 			{
 				$('#'+monthgraph+'graph .bargraphkwhcost').animate({
 					"width":width2+"%"
-				});
+				}).text(data[i].kwhcost);
 			}
 		}
 	}
