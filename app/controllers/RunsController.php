@@ -33,7 +33,7 @@ class RunsController extends BaseController {
 		$run->country = Geocode::getCountry($run->postal_code);
 		$run->primaryFunction = Input::get('primaryFunction');
 		$run->grossFloorArea = Input::get('grossFloorArea');
-		$run->system_capacity = Run::getSystemCapacity($this->grossFloorArea));
+		$run->system_capacity = Run::getSystemCapacity($this->grossFloorArea);
 		//optional properties autofilled if left blank:
 		if (Input::get() == false) {
 			$this->path4();
@@ -50,10 +50,8 @@ class RunsController extends BaseController {
 
 	public function result() 
 	{
-		// we need use find function on our results
-		// $run = $this->find($id); 
-		$run = 'some junk, sweet awesome rock my world junk';
-		return View::make('result')->with('run',$run);
+		$run = Run::find(1); 
+		return View::make('result')->with('run',$run->run);
 	}
 
 
