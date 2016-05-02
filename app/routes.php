@@ -15,5 +15,6 @@
 
 Route::get('/', 'HomeController@testForm');
 
+Route::get('/ass', 'RunsController@store');
 
 
