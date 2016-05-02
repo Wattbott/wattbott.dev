@@ -2,6 +2,8 @@
 
 class Run extends BaseModel
 {
+	protected $table = 'runs';
+
 	public static $rules = array(
 		//rules go here
 	);
