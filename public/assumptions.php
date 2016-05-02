@@ -10,7 +10,7 @@ $assumptions = [
 	// energy conversion factors
 	'unit_kwh_mmbtu' => [0.003412,'mmBtu/kWh'],
 	'unit_therm_mmbtu' => [0.100,'mmBtu/therm'],
-	'unit_cff_mmbtu' => [0.1027,'mmBtu/cff','assumes typical natural gas']
+	'unit_cff_mmbtu' => [0.1027,'mmBtu/cff','assumes typical natural gas'],
 
 	// used for pv ROI 
 	'pv_installed_cost' => [7,'$/kWatt','cost for pv materials and installation'],
