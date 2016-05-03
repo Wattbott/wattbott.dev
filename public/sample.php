@@ -7,13 +7,12 @@
         		'email' => 'annajmorton@gmail.com',
         		'zipcode' => 78248,
 				'bldg_type' => 'School',
-				'gross_flr_area' => 12000,
+				']' => 12000,
 				'gross_roof_area' => 12000,
 				'energy data' => [
 					'elec' => [
 						'cost' => [
-							'total' => 8000
-						],
+							'total' => 8000],
 						'energy' => [
 							'total' =>  98500,
 							'jan' => 8208,
@@ -33,8 +32,8 @@
 					],
 					'gas' =>[
 						'cost' => [
-						'total' => 1152
-						],
+							'total' => 1152
+							],
 						'energy' => [
 							'total' =>  1440,
 							'jan' => 120,
