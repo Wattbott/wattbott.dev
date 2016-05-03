@@ -21,7 +21,6 @@
 	var checkBoolRadInserts = ['<div id="anntotalseg"><div class="formsegment font3 fontmidlarge" id="annformseg1"><label for="kwhannual" class="labeltext">kW/h</label><input name="kwhannual" id="kwhannual" class="coolformtext font3 fontmidlarge" type="text"></div><div class="formsegment font3 fontmidlarge" id="annformseg2"><label for="costannual" class="labeltext">Cost</label><input name="costannual" id="costannual" class="coolformtext font3 fontmidlarge" type="text"></div></div>','<div id="totalseg"><div class="formsegment font3 fontmidlarge" id="monthselectseg"><ul id="fakeselectB"><div id="fsnumtwo" class="fakeselectitem"></div><li>January</li><li>Feburary</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li>September</li><li>October</li><li>November</li><li>December</li><span id="buildlisttri2" class="triangledown"></span></ul></div><div class="formsegment font3 fontmidlarge" id="monthitemseg"><label for="kwhmonth" class="labeltext">kW/h</label><input class="coolformtext font3 fontmidlarge" id="kwhmonth" name="kwhmonth" type="text"></div><div class="formsegment font3 fontmidlarge" id="monthcostseg"><label for="costmonth" class="labeltext">Cost</label><input class="coolformtext font3 fontmidlarge" id="costmonth" name="costmonth" type="text"></div><div id="enter">Submit Month</button></div>'];
 	var checkTwoInserts = ['<div class="formsegment font3 fontmidlarge" id="gasmonthseg"><label for="kBTUmonth" class="labeltext">kBTU</label><input class="coolformtext font3 fontmidlarge" id="kBTUmonth" name="kBTUmonth" type="text"></div>','<div class="formsegment font3 fontmidlarge" id="gasmonthcostseg"><label for="gascostmonth" class="labeltext">Cost</label><input class="coolformtext font3 fontmidlarge" id="gascostmonth" name="gascostmonth" type="text"></div>']
 	var cbrid = ["#anntotalseg","#totalseg"];
-	console.log(listheight,listoptions,listheight*listoptions);
 	function fakecheckVarPopulate(arr)
 	{
 		console.log($('.fakecheck').length);
@@ -29,7 +28,6 @@
 		{
 			arr[i] = false;
 		}
-		console.log(arr);
 	}
 	function lazyCheck(i)
 	{
@@ -42,20 +40,24 @@
 	}
 	function charted(data)
 	{	
-		if (fakerkey !== '')
+		if (fakerkey !== '' && fakenumkey !== '')
 		{
 			console.log(fakenumkey,fakerkey,data[fakenumkey][fakerkey]);
 			maxlength = data[fakenumkey][fakerkey];
+			console.log(maxlength);
 		}
 
 		for (var i = data.length -1; i >= 0; i--)
 		{
 			for (var key in data[i])
 			{
-				if (data[i][key] > maxlength && key !== 'month')
+				if ((data[i][key] > maxlength) && (key !== 'month'))
 				{
-					maxlength = data[i][key];
+					console.log(maxlength,data[i][key]);
+					console.log(typeof data[i][key]);
+					maxlength = Number(data[i][key]);
 					fakenumkey = i;
+					console.log(maxlength,data[i][key]);
 					fakerkey = key;
 				}
 			}
@@ -65,7 +67,9 @@
 			var monthgraph = data[i].month.toLowerCase();
 			var newwidth = (data[i].kwh/maxlength * 100);
 			var width2 = (data[i].kwhcost/maxlength * 100);
-			console.log(newwidth,width2);
+			var width3 = (data[i].gas/maxlength * 100);
+			var width4 = (data[i].gascost/maxlength * 100);
+			console.log(width2,width3,width4)
 			if ($('#'+monthgraph+'graph').length < 1)
 			{
 				console.log("HERE DUDE!");
@@ -74,6 +78,7 @@
 					'height':(100/data.length)+"%",
 					'width':'100%'
 				});
+				$('#'+monthgraph+'graph').append('<div class=graphpartlabel id='+monthgraph+'label>'+data[i].month+'</div>');
 			}
 			else
 			{
@@ -84,7 +89,6 @@
 			}
 			if ($('#'+monthgraph+'graph .bargraphkwh').length < 1)
 			{
-				console.log(monthgraph,$('#'+monthgraph+'graph .bargraphkwh').length,newwidth);
 				$('#'+monthgraph+'graph').append('<div class="bargraphkwh">'+data[i].kwh+'</div>');
 				$('#'+monthgraph+'graph .bargraphkwh').css({
 					"height": (100/(Object.keys(data[i]).length-1))+"%",
@@ -95,7 +99,6 @@
 			}
 			else
 			{
-				console.log("No! I'm Broken here!",monthgraph,$('#'+monthgraph+'graph .bargraphkwh').length);
 				$('#'+monthgraph+'graph .bargraphkwh').animate({
 					"width":newwidth+"%"
 				}).text(data[i].kwh);
@@ -115,6 +118,38 @@
 				$('#'+monthgraph+'graph .bargraphkwhcost').animate({
 					"width":width2+"%"
 				}).text(data[i].kwhcost);
+			}
+			if ($('#'+monthgraph+'graph .bargraphgas').length < 1)
+			{
+				$('#'+monthgraph+'graph').append('<div class="bargraphgas">'+data[i].gas+'</div>');
+				$('#'+monthgraph+'graph .bargraphgas').css({
+					"height": (100/(Object.keys(data[i]).length-1))+"%",
+					"width": 0
+				}).animate({
+					"width": width3+'%'
+				},500);
+			}
+			else
+			{
+				$('#'+monthgraph+'graph .bargraphgas').animate({
+					"width": width3+"%"
+				}).text(data[i].gas);
+			}
+			if ($('#'+monthgraph+'graph .bargraphgascost').length < 1)
+			{
+				$('#'+monthgraph+'graph').append('<div class="bargraphgascost">'+data[i].gascost+'</div>');
+				$('#'+monthgraph+'graph .bargraphgascost').css({
+					"height": (100/(Object.keys(data[i]).length-1))+"%",
+					"width": 0
+				}).animate({
+					"width": width4+'%'
+				},500);
+			}
+			else
+			{
+				$('#'+monthgraph+'graph .bargraphgascost').animate({
+					"width":width4+"%"
+				}).text(data[i].gascost);
 			}
 		}
 	}
@@ -170,7 +205,6 @@
 					});
 				}
 			});
-			console.log(checkBoolRad,indi);
 			formCheck1(indi);
 		});
 	}
@@ -179,13 +213,11 @@
 		$("#totalseg").ready(function(){
 			var listheight1 = $('#fakeselectB li').height();
 			var listoptions1 = $('#fakeselectB li').length;
-			console.log("ready");
 			$("#fakeselectB").click(function(){
 					console.log(listheight1*1.5);
 					console.log(listheight1);
 				if ((faketrue1 == false) && ($(this).height() < listheight1*1.5))
 				{
-					console.log("HERE!");
 					faketrue1 = true;
 					$("#fakeselectB").animate({
 						"height": (listheight1*listoptions1)+12+"px"
@@ -208,7 +240,6 @@
 					$("#fakeselectB").animate({
 						"height": "48px"
 					},500);
-					console.log(faketrue1);
 				}
 			});
 			$("#enter").click(function(){
@@ -224,7 +255,7 @@
 							if ($('#fsnumtwo').text() == monthsData[j].month)
 							{
 								truestuffs = false;
-								monthsData[j] = {"month":$('#fsnumtwo').text(),"kwh":$('#kwhmonth').val(),"kwhcost":$('#costmonth').val(),"kBTU":$('#kBTUmonth').val(),"gascost":$('#gascostmonth').val()};
+								monthsData[j] = {"month":$('#fsnumtwo').text(),"kwh":Number($('#kwhmonth').val()),"kwhcost":Number($('#costmonth').val()),"gas":Number($('#kBTUmonth').val()),"gascost":Number($('#gascostmonth').val())};
 								parseMonthsValue(monthsData[j]);
 								break;
 							}
@@ -235,7 +266,7 @@
 						}
 						if (truestuffs == true)
 						{
-							monthsData[i] = {"month":$('#fsnumtwo').text(),"kwh":$('#kwhmonth').val(),"kwhcost":$('#costmonth').val(),"kBTU":$('#kBTUmonth').val(),"gascost":$('#gascostmonth').val()};
+							monthsData[i] = {"month":$('#fsnumtwo').text(),"kwh":Number($('#kwhmonth').val()),"kwhcost":Number($('#costmonth').val()),"gas":Number($('#kBTUmonth').val()),"gascost":Number($('#gascostmonth').val())};
 							parseMonthsValue(monthsData[i]);
 							$('#fsnumtwo').text('');
 							$('#kwhmonth').val('');
@@ -255,7 +286,7 @@
 							if ($('#fsnumtwo').text() == monthsData[j].month)
 							{
 								truestuffs = false;
-								monthsData[j] = {"month":$('#fsnumtwo').text(),"kwh":$('#kwhmonth').val(),"kwhcost":$('#costmonth').val()};
+								monthsData[j] = {"month":$('#fsnumtwo').text(),"kwh":Number($('#kwhmonth').val()),"kwhcost":Number($('#costmonth').val())};
 								parseMonthsValue(monthsData[j]);
 								break;
 							}
@@ -266,7 +297,7 @@
 						}
 						if (truestuffs == true)
 						{
-							monthsData[i] = {"month":$('#fsnumtwo').text(),"kwh":$('#kwhmonth').val(),"kwhcost":$('#costmonth').val()};
+							monthsData[i] = {"month":$('#fsnumtwo').text(),"kwh":Number($('#kwhmonth').val()),"kwhcost":Number($('#costmonth').val())};
 							parseMonthsValue(monthsData[i]);
 							$('#fsnumtwo').text('');
 							$('#kwhmonth').val('');
@@ -347,8 +378,6 @@
 			else
 			{
 				upAlready[i] = false;
-				console.log(i);
-				console.log(cbrid[i]);
 				$(cbrid[i]).remove();
 			}
 		}
@@ -426,12 +455,10 @@
 					{
 						if ($('#gasmonthseg').length > 0 && $("#gasmonthcostseg").length > 0)
 						{
-							console.log("DONE!!");
 							clearInterval(waitingSet);
 						}
 						else
 						{
-							console.log("HERE!!");
 							$(checkTwoInserts[0]).insertAfter('#monthcostseg');
 							$(checkTwoInserts[1]).insertAfter('#gasmonthseg');
 						}
@@ -440,12 +467,10 @@
 					{
 						if ($('#gasmonthseg').length > 0 && $("#gasmonthcostseg").length > 0)
 						{
-							console.log("DONE!!");
 							clearInterval(waitingSet);
 						}
 						else
 						{
-							console.log("HERE!!");
 							$(checkTwoInserts[0]).insertAfter('#annformseg2');
 							$(checkTwoInserts[1]).insertAfter('#gasmonthseg');
 						}
@@ -492,7 +517,6 @@
 			$("#fakeselectC").animate({
 				"height": "48px"
 			},500);
-			console.log(faketrue);
 		}
 	});
 	$('#fakeselect li').click(function(){
@@ -510,12 +534,10 @@
 			$("#fakeselect").animate({
 				"height": "48px"
 			},500);
-			console.log(faketrue);
 		}
 	});
 	$('.fakecheck').click(function (){
 		var indexch = $(this).attr('id').substr(-1);
-		console.log(indexch);
 		if (checkBool[indexch] == false)
 		{
 			checkBool[indexch] = true;
@@ -525,7 +547,6 @@
 				"width":"30px",
 				"height":"30px"
 			});
-			console.log(indexch,checkBool);
 			doubleTake(indexch,checkBool[indexch]);
 		}
 		else
@@ -537,7 +558,6 @@
 				"width":"0px",
 				"height":"0px"
 			});
-			console.log(indexch,checkBool);
 			doubleTake(indexch,checkBool[indexch]);
 		}
 	});	

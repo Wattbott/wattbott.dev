@@ -4,7 +4,6 @@ class Run extends BaseModel
 {
 	protected $table = 'runs';
 
-
 	public static $rules = array(
 
 	);
@@ -19,11 +18,11 @@ class Run extends BaseModel
         $this->attributes['run'] = serialize($value);
     }
 
-	public function getSystemCapacity($roof_area)
-	{
-		$systemCapacity = $roof_area * Ass::get('pv_usable_roof') * $somethingToBeDetermined;
-		return $systemCapacity;
-	}
+	// public function getSystemCapacity($roof_area)
+	// {
+	// 	$systemCapacity = $roof_area * Ass::get('pv_usable_roof') * $somethingToBeDetermined;
+	// 	return $systemCapacity;
+	// }
 
 
 	public function path1()
