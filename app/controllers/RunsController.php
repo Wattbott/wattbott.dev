@@ -16,6 +16,7 @@ class RunsController extends BaseController {
 	}
 
 	public function store() {
+		dd(Input::all());
 		$run = new Run();
 		//these are set by us no matter what; move these to the Run class itself??
 		$run->module_type = $default_module_type;
@@ -34,6 +35,22 @@ class RunsController extends BaseController {
 		$run->primaryFunction = Input::get('primaryFunction');
 		$run->grossFloorArea = Input::get('grossFloorArea');
 		$run->system_capacity = Run::getSystemCapacity($this->grossFloorArea);
+		//tying inputs to run class
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+		$run->run[][] = Input::get();
+
 		//optional properties autofilled if left blank:
 		if (Input::get() == false) {
 			$this->path4();
