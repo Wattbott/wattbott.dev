@@ -17,7 +17,6 @@ class RunsController extends BaseController {
 
 	public function store() {
 		$run = new Run();
-		$run->run = [];
 		//these are set by us no matter what; move these to the Run class itself??
 		// $run->module_type = $default_module_type;
 		// $run->losses = $default_losses;
@@ -36,43 +35,52 @@ class RunsController extends BaseController {
 		// $run->grossFloorArea = Input::get('grossFloorArea');
 		// $run->system_capacity = Run::getSystemCapacity($this->grossFloorArea);
 		//tying inputs to run class
-		$run->run['user_input']['run_name'] = Input::get('calcname');
-		$run->run['user_input']['email'] = Input::get('email');
-		$run->run['user_input']['zipcode'] = Input::get('zipcode');
-		$run->run['user_input']['bldg_type'] = Input::get('buildtype');
-		$run->run['user_input']['gross_flr_area'] = Input::get('grossfloorarea');
-		$run->run['user_input']['gross_roof_area'] = Input::get('grossroofarea');
-		$run->run['user_input']['energy data']['elec']['elec']['cost']['total'] = Input::get('annualpower');
-		$run->run['user_input']['energy data']['elec']['energy']['jan'] = Input::get('januarypower');
-		$run->run['user_input']['energy data']['elec']['energy']['feb'] = Input::get('februarypower');
-		$run->run['user_input']['energy data']['elec']['energy']['mar'] = Input::get('marchpower');
-		$run->run['user_input']['energy data']['elec']['energy']['apr'] = Input::get('aprilpower');
-		$run->run['user_input']['energy data']['elec']['energy']['may'] = Input::get('maypower');
-		$run->run['user_input']['energy data']['elec']['energy']['jun'] = Input::get('junepower');
-		$run->run['user_input']['energy data']['elec']['energy']['jul'] = Input::get('julypower');
-		$run->run['user_input']['energy data']['elec']['energy']['aug'] = Input::get('augustpower');
-		$run->run['user_input']['energy data']['elec']['energy']['sep'] = Input::get('septemberpower');
-		$run->run['user_input']['energy data']['elec']['energy']['oct'] = Input::get('octoberpower');
-		$run->run['user_input']['energy data']['elec']['energy']['nov'] = Input::get('novemberpower');
-		$run->run['user_input']['energy data']['elec']['energy']['dec'] = Input::get('decemberpower');
-		$run->run['user_input']['energy data']['elec']['energy']['units'] = 'kWh';
+		$tempArray = [];
+		$tempArray['user_input']['run_name'] = Input::get('calcname');
+		$tempArray['user_input']['email'] = Input::get('email');
+		$tempArray['user_input']['zipcode'] = Input::get('zipcode');
+		$tempArray['user_input']['bldg_type'] = Input::get('buildtype');
+		$tempArray['user_input']['gross_flr_area'] = Input::get('grossfloorarea');
+		//roof area
+		if (Input::has('grossroofarea')) {
+			$tempArray['user_input']['gross_roof_area'] = Input::get('grossroofarea');
+		} else {
+			$tempArray['user_input']['gross_roof_area'] = Input::get('grossfloorarea');
+		}
+		$tempArray['user_input']['energy data']['elec']['elec']['cost']['total'] = Input::get('annualpower');
+		$tempArray['user_input']['energy data']['elec']['energy']['jan'] = Input::get('januarypower');
+		$tempArray['user_input']['energy data']['elec']['energy']['feb'] = Input::get('februarypower');
+		$tempArray['user_input']['energy data']['elec']['energy']['mar'] = Input::get('marchpower');
+		$tempArray['user_input']['energy data']['elec']['energy']['apr'] = Input::get('aprilpower');
+		$tempArray['user_input']['energy data']['elec']['energy']['may'] = Input::get('maypower');
+		$tempArray['user_input']['energy data']['elec']['energy']['jun'] = Input::get('junepower');
+		$tempArray['user_input']['energy data']['elec']['energy']['jul'] = Input::get('julypower');
+		$tempArray['user_input']['energy data']['elec']['energy']['aug'] = Input::get('augustpower');
+		$tempArray['user_input']['energy data']['elec']['energy']['sep'] = Input::get('septemberpower');
+		$tempArray['user_input']['energy data']['elec']['energy']['oct'] = Input::get('octoberpower');
+		$tempArray['user_input']['energy data']['elec']['energy']['nov'] = Input::get('novemberpower');
+		$tempArray['user_input']['energy data']['elec']['energy']['dec'] = Input::get('decemberpower');
+		$tempArray['user_input']['energy data']['elec']['energy']['units'] = 'kWh';
 
-		$run->run['user_input']['energy data']['gas']['cost']['total'] = Input::get('annualgascost');
-		$run->run['user_input']['energy data']['gas']['energy']['total'] = Input::get('annualgas');
-		$run->run['user_input']['energy data']['gas']['energy']['jan'] = Input::get('januarygas');
-		$run->run['user_input']['energy data']['gas']['energy']['feb'] = Input::get('februarygas');
-		$run->run['user_input']['energy data']['gas']['energy']['mar'] = Input::get('marchgas');
-		$run->run['user_input']['energy data']['gas']['energy']['apr'] = Input::get('aprilgas');
-		$run->run['user_input']['energy data']['gas']['energy']['may'] = Input::get('maygas');
-		$run->run['user_input']['energy data']['gas']['energy']['jun'] = Input::get('junegas');
-		$run->run['user_input']['energy data']['gas']['energy']['jul'] = Input::get('julygas');
-		$run->run['user_input']['energy data']['gas']['energy']['aug'] = Input::get('augustgas');
-		$run->run['user_input']['energy data']['gas']['energy']['sep'] = Input::get('septembergas');
-		$run->run['user_input']['energy data']['gas']['energy']['oct'] = Input::get('octobergas');
-		$run->run['user_input']['energy data']['gas']['energy']['nov'] = Input::get('novembergas');
-		$run->run['user_input']['energy data']['gas']['energy']['dec'] = Input::get('decembergas');
-		$run->run['user_input']['energy data']['gas']['energy']['units'] = Input::get('gastype');
-		dd($run);
+		$tempArray['user_input']['energy data']['gas']['cost']['total'] = Input::get('annualgascost');
+		$tempArray['user_input']['energy data']['gas']['energy']['total'] = Input::get('annualgas');
+		$tempArray['user_input']['energy data']['gas']['energy']['jan'] = Input::get('januarygas');
+		$tempArray['user_input']['energy data']['gas']['energy']['feb'] = Input::get('februarygas');
+		$tempArray['user_input']['energy data']['gas']['energy']['mar'] = Input::get('marchgas');
+		$tempArray['user_input']['energy data']['gas']['energy']['apr'] = Input::get('aprilgas');
+		$tempArray['user_input']['energy data']['gas']['energy']['may'] = Input::get('maygas');
+		$tempArray['user_input']['energy data']['gas']['energy']['jun'] = Input::get('junegas');
+		$tempArray['user_input']['energy data']['gas']['energy']['jul'] = Input::get('julygas');
+		$tempArray['user_input']['energy data']['gas']['energy']['aug'] = Input::get('augustgas');
+		$tempArray['user_input']['energy data']['gas']['energy']['sep'] = Input::get('septembergas');
+		$tempArray['user_input']['energy data']['gas']['energy']['oct'] = Input::get('octobergas');
+		$tempArray['user_input']['energy data']['gas']['energy']['nov'] = Input::get('novembergas');
+		$tempArray['user_input']['energy data']['gas']['energy']['dec'] = Input::get('decembergas');
+		$tempArray['user_input']['energy data']['gas']['energy']['units'] = Input::get('gastype');
+		$run->run = $tempArray;
+		$run->pvApiLoad();
+		$run->save();
+		dd($run->run['api_input']);
 		//optional properties autofilled if left blank:
 		if (Input::get() == false) {
 			$this->path4();

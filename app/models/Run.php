@@ -18,12 +18,6 @@ class Run extends BaseModel
         $this->attributes['run'] = serialize($value);
     }
 
-	// public function getSystemCapacity($roof_area)
-	// {
-	// 	$systemCapacity = $roof_area * Ass::get('pv_usable_roof') * $somethingToBeDetermined;
-	// 	return $systemCapacity;
-	// }
-
 
 	public function path1()
 	{
@@ -51,5 +45,15 @@ class Run extends BaseModel
 				$message->to(Input::get('email'))->subject('Your Wattbott Results');
 			});
 	}
+
+	public function pvApiLoad()
+	{
+		$temp = $this->run;
+		$temp['api_input']['system_capacity'] = $temp['user_input']['gross_roof_area'] * Ass::get('pv_usable_roof') * Ass::get('pv_sys_intensity');
+
+		$this->run = $temp;
+
+	}
+
 
 }
