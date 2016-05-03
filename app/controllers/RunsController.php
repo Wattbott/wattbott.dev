@@ -38,20 +38,33 @@ class RunsController extends BaseController {
 		$run->grossFloorArea = Input::get('grossFloorArea');
 		$run->system_capacity = Run::getSystemCapacity($this->grossFloorArea);
 		//tying inputs to run class
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
-		$run->run[][] = Input::get();
+		$run->run['user_input']['run_name'] = Input::get('calcname');
+		$run->run['user_input']['email'] = Input::get('email');
+		$run->run['user_input']['zipcode'] = Input::get('zipcode');
+		$run->run['user_input']['bldg_type'] = Input::get('buildtype');
+		$run->run['user_input']['gross_flr_area'] = Input::get('grossfloorarea');
+		$run->run['user_input']['gross_roof_area'] = Input::get('grossroofarea');
+		$run->run['user_input']['energy data']['elec']['cost']['total'] = Input::get('annualpower');
+		$run->run['user_input']['energy data']['energy']['jan'] = Input::get('januarypower');
+		$run->run['user_input']['energy data']['energy']['feb'] = Input::get('februarypower');
+		$run->run['user_input']['energy data']['energy']['mar'] = Input::get('marchpower');
+		$run->run['user_input']['energy data']['energy']['apr'] = Input::get('aprilpower');
+		$run->run['user_input']['energy data']['energy']['may'] = Input::get('maypower');
+		$run->run['user_input']['energy data']['energy']['jun'] = Input::get('junepower');
+		$run->run['user_input']['energy data']['energy']['jul'] = Input::get('julypower');
+		$run->run['user_input']['energy data']['energy']['aug'] = Input::get('augustpower');
+		$run->run['user_input']['energy data']['energy']['sep'] = Input::get('septemberpower');
+		$run->run['user_input']['energy data']['energy']['oct'] = Input::get('octoberpower');
+		$run->run['user_input']['energy data']['energy']['nov'] = Input::get('novemberpower');
+		$run->run['user_input']['energy data']['energy']['dec'] = Input::get('decemberpower');
+		$run->run['user_input']['energy data']['energy']['units'] = Input::get(TBD);
+
+		$run->run['user_input'][''] = Input::get('');
+		$run->run['user_input'][''] = Input::get('');
+		$run->run[''][''] = Input::get('');
+		$run->run[''][''] = Input::get('');
+		$run->run[''][''] = Input::get('');
+		$run->run[''][''] = Input::get('');
 
 		//optional properties autofilled if left blank:
 		if (Input::get() == false) {
