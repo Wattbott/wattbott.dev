@@ -27,7 +27,7 @@
 	</div>
 </div>
 {{ Form::open(array(
-		'action' => 'RunsController@result',
+		'action' => 'RunsController@store',
 		'method' => 'POST',
 		"id" => "thisform"))}}
 <div id="formbody1" class="mainformbody">
