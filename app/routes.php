@@ -19,6 +19,9 @@ Route::post('/store', 'RunsController@store');
 Route::get('/show', 'RunsController@show');
 Route::get('/result', 'RunsController@result');
 Route::get('/garbagetest', function() {
+	
+	Api::pvApi();
+
 	return View::make('garbagetest');
 });
 
