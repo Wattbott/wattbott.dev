@@ -2,12 +2,8 @@
 
 class Run extends BaseModel
 {
+	protected $table = 'runs';
 
-	public function getExampleData()
-	{
-		include "sample.php";
-		$run->example = $runSample;
-	}
 
 	public static $rules = array(
 

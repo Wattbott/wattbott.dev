@@ -6,7 +6,7 @@ class RunsSeeder extends Seeder {
         DB::table('runs')->truncate();
 
        	require public_path() . "/sample.php";
-        $run = serialize($run);
+        // $run = serialize($run);
         Run::create(array('run' => $run));
     }
 
