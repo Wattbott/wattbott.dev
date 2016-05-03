@@ -42,10 +42,10 @@
 {{ Form::hidden('januarypowercost', 0, $attributes = ['id' => 'januarypowercost'])}}
 {{ Form::hidden('januarygas', 0, $attributes = ['id' => 'januarygas'])}}
 {{ Form::hidden('januarygascost', 0, $attributes = ['id' => 'januarygascost'])}}
-{{ Form::hidden('feburarypower', 0, $attributes = ['id' => 'feburarypower'])}}
-{{ Form::hidden('feburarypowercost', 0, $attributes = ['id' => 'feburarypowercost'])}}
-{{ Form::hidden('feburarygas', 0, $attributes = ['id' => 'feburarygas'])}}
-{{ Form::hidden('feburarygascost', 0, $attributes = ['id' => 'feburarygascost'])}}
+{{ Form::hidden('februarypower', 0, $attributes = ['id' => 'februarypower'])}}
+{{ Form::hidden('februarypowercost', 0, $attributes = ['id' => 'februarypowercost'])}}
+{{ Form::hidden('februarygas', 0, $attributes = ['id' => 'februarygas'])}}
+{{ Form::hidden('februarygascost', 0, $attributes = ['id' => 'februarygascost'])}}
 {{ Form::hidden('marchpower', 0, $attributes = ['id' => 'marchpower'])}}
 {{ Form::hidden('marchpowercost', 0, $attributes = ['id' => 'marchpowercost'])}}
 {{ Form::hidden('marchgas', 0, $attributes = ['id' => 'marchgas'])}}
