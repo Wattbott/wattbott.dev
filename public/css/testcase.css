@@ -11,7 +11,7 @@ body{
 	position: relative;
 	margin-top: 100px;
 	width:50%;
-	left:10%;
+	left:5%;
 	border: 8px solid white;
 	border-radius: 32px;
 }
@@ -21,7 +21,7 @@ body{
 	position: fixed;
 	right:0%;
 	top:0%;
-	width:30%;
+	width:40%;
 	height:100%;
 	min-height: 300px;
 	border-left: 8px solid white;
@@ -56,15 +56,22 @@ body{
 #dachart{
 	border-left:4px solid white;
 	border-bottom: 4px solid white;
-	height:40%;
-	width:80%;
+	height:37%;
+	width:60%;
 	position: absolute;
 	display: block;
-	bottom:20px;
+	bottom:60px;
 	left:0;
 	right:0;
 	margin-left: auto;
 	margin-right: auto;
+}
+.graphpartlabel{
+	top:44%;
+	font-size: 120%;
+	left:-90px;
+	display: inline-block;
+	position: absolute;
 }
 .bargraphkwh{
 	background-color: blue;
@@ -73,6 +80,12 @@ body{
 .bargraphkwhcost{
 	background-color: green;
 	position: relative;
+}
+.bargraphgas{
+	background-color: orange;
+}
+.bargraphgascost{
+	background-color: purple;
 }
 .graphbarpart{
 	position: relative;

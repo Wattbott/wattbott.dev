@@ -17,7 +17,7 @@ Route::get('/', 'HomeController@testForm');
 
 Route::get('/store', 'RunsController@store');
 Route::get('/show', 'RunsController@show');
-Route::get('/result', 'RunsController@result');
+Route::post('/result', 'RunsController@result');
 
 
 
