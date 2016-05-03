@@ -6,6 +6,7 @@
 
 @section('content')
 <div>
+{{ Form::open(['action' => 'RunsController@store', 'method' => 'POST']) }}
 {{ Form::hidden('annualpower', 'kBTU', $attributes = ['id' => 'annualpower'])}}
 {{ Form::hidden('annualpowercost', 'kBTU', $attributes = ['id' => 'annualpowercost'])}}
 {{ Form::hidden('annualgas', 'kBTU', $attributes = ['id' => 'annualgas'])}}
