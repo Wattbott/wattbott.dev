@@ -15,7 +15,7 @@
 
 Route::get('/', 'HomeController@testForm');
 
-Route::get('/store', 'RunsController@store');
+Route::post('/store', 'RunsController@store');
 Route::get('/show', 'RunsController@show');
 Route::get('/result', 'RunsController@result');
 Route::get('/garbagetest', function() {
