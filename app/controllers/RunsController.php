@@ -90,6 +90,9 @@ class RunsController extends BaseController {
 	public function result() 
 	{
 		$run = Run::find(1); 
+		$temp = $run->run;
+		$temp['pv']['ac_annual'] = Api::pv();
+		$run->run = $temp;
 		return View::make('result')->with('run',$run);
 	}
 
