@@ -19,6 +19,8 @@ Route::post('/store', 'RunsController@store');
 Route::get('/show', 'RunsController@show');
 Route::get('/result', 'RunsController@result');
 Route::get('/garbagetest', function() {
+
+	$geocoder = Geocoder::geocode('78248');
 	
 	// $curl     = new \Ivory\HttpAdapter\CurlHttpAdapter();
 	// $geocoder = new \Geocoder\Provider\GoogleMaps($curl);
@@ -40,9 +42,9 @@ Route::get('/garbagetest', function() {
 	//     $apiKey 
 	// );
 
-	// dd($geocoder->all());
+	dd($geocoder);
 
-	// return View::make('garbagetest');
+	return View::make('garbagetest');
 });
 
 

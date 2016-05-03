@@ -17,23 +17,7 @@ class RunsController extends BaseController {
 
 	public function store() {
 		$run = new Run();
-		//these are set by us no matter what; move these to the Run class itself??
-		// $run->module_type = $default_module_type;
-		// $run->losses = $default_losses;
-		// $run->array_type = $default_array_type;
-		// $run->tilt = $default_tilt;
-		// $run->azimuth = $default_azimuth;
-		// $run->inv_eff = $default_inv_eff;
-		// $run->measurementSystem = $default_measurementSystem;
-		// //and now the required Input::'s
-		// $run->postal_code = Input::get('postal_code');
-		// $run->lat = Geocode::getLat($run->postal_code);
-		// $run->lon = Geocode::getLon($run->postal_code);
-		// $run->state = Geocode::getState($this->postal_code);
-		// $run->country = Geocode::getCountry($run->postal_code);
-		// $run->primaryFunction = Input::get('primaryFunction');
-		// $run->grossFloorArea = Input::get('grossFloorArea');
-		// $run->system_capacity = Run::getSystemCapacity($this->grossFloorArea);
+		
 		//tying inputs to run class
 		$tempArray = [];
 		$tempArray['user_input']['run_name'] = Input::get('calcname');
@@ -99,12 +83,12 @@ class RunsController extends BaseController {
 	public function result() 
 	{
 		$run = Run::find(1); 
-		$temp = $run->run;
+		$tempArray = $run->run;
 		$api = new Api();
-		$api->input = $temp['api_input'];
-		$api->geo();
-		$temp['user_output']['pv']['ac_annual'] = $api->pv();
-		$run->run = $temp;
+		$api->input = $tempArray['api_input'];
+		$api->setGeo();
+		$tempArray['api_output']['pv']['ac_annual'] = $api->pv();
+		$run->run = $tempArray;
 		return View::make('result')->with('run',$run);
 	}
 

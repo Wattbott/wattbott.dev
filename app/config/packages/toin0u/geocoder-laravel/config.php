@@ -13,7 +13,7 @@ return array(
     // Providers get called in the chain order given here.
     // The first one to return a result will be used.
     'providers' => array(
-        'Geocoder\Provider\GoogleMapsProvider' => array('fr-FR', 'Île-de-France', true, 'AIzaSyA5fV8LgO_EWYnBeU3C2ErFTEo6pmrHJcU'),
+        'Geocoder\Provider\GoogleMapsProvider' => array('USA', 'Texas', true, $_ENV['GEOCODER_GoogleMaps_APIkey']),
         'Geocoder\Provider\FreeGeoIpProvider'  => null,
     ),
     'adapter'  => 'Geocoder\HttpAdapter\CurlHttpAdapter'
