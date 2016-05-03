@@ -14,3 +14,5 @@ var_dump($run->run);
 {{{ $run->run['user_output']['eui']['median_energy_cost'] }}}
 {{{ $run->run['user_output']['pv']['roi'] }}}
 {{{ $run->run['user_output']['pv']['percent_savings'] }}}
+
+
