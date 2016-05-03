@@ -93,6 +93,11 @@ class RunsController extends BaseController {
 		} else {
 			return "Did not satisfy any path requirements";
 		}
+		Run::find($run->id);
+		$temp = $run->run;
+		$temp['pv']['ac_annual'] = Api::pv();
+		$run->run = $temp;
+		return View::make('result')->with('run',$run);
 	}
 
 	public function result() 

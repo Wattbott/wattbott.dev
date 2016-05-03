@@ -1,4 +1,3 @@
-@extends(
 <?php
 $testRun = new Run();
 $testRun->getExampleData();

@@ -1,0 +1,24 @@
+html, body{
+	max-width: 100%;
+	background-color: #00b0f0;
+}
+.mainresultscontainer{
+	position: relative;
+	display: block;
+	width:70%;
+	background-color: white;
+	min-height: 30%;
+	margin-left: auto;
+	margin-right: auto;
+}
+#dagraph{
+	height:500px;
+	width:500px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+	border-width: 0px 0px 4px 4px;
+	border-style:solid;
+	border-color:black;
+}
