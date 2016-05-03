@@ -3,10 +3,11 @@
 class Api extends Eloquent {
 
     static public $url_pv = "http://api.data.gov/nrel/pvwatts/v5.json?";
+    static public $url_geo = "http://api.data.gov/nrel/pvwatts/v5.json?";
 
 
-    public static function pv()
-    {
+    public function pv()
+    {	
 		$ch = curl_init();
     	
 		// query builder
@@ -42,6 +43,32 @@ class Api extends Eloquent {
 		curl_close($ch);
 		$result = json_decode($result,true);
 		return $result['outputs']['ac_annual'];
+    }
+
+    public function geo()
+    {
+  // //   	$curl     = new \Ivory\HttpAdapter\CurlHttpAdapter();
+		// // $geocoder = new \Geocoder\Provider\GoogleMaps($curl);
+
+		// // $geocoder->geocode(...);
+		// // $geocoder->reverse(...);
+  //   	// dd($this->input['postal_code']);
+  //   	$httpAdapter = 'google_maps';
+		// // $locale,
+		// // $region,
+		// $useSsl = true;
+  //   	$apiKey = 'AIzaSyA5fV8LgO_EWYnBeU3C2ErFTEo6pmrHJcU';
+
+		// $geocoder = new \Geocoder\Provider\GoogleMaps(
+		//     $httpAdapter,
+		//     // $locale,
+		//     // $region,
+		//     $useSsl, // true|false
+		//     $apiKey 
+		// );
+
+		// dd($geocoder->all());
+
     }
 
 }
