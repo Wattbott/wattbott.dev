@@ -52,7 +52,7 @@ class RunsController extends BaseController {
 	{
 		$run = Run::find(1); 
 		// $runarr = unserialize($run->run);
-		return View::make('result')->with('run',$run);
+		return View::make('results')->with('run',$run);
 	}
 
 

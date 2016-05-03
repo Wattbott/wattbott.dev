@@ -15,7 +15,9 @@ class CreateRunsTable extends Migration {
 		Schema::create('runs', function($table)
 		{
             $table->increments('id');
-            $table->text('run');
+            $table->text('runInput');
+            $table->text('runOutput');
+
             $table->timestamps();
         });
 	}
