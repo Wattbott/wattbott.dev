@@ -17,6 +17,8 @@ class RunsController extends BaseController {
 
 	public function store() {
 		$run = new Run();
+
+		dd(Input::all());
 		//these are set by us no matter what; move these to the Run class itself??
 		$run->module_type = $default_module_type;
 		$run->losses = $default_losses;
@@ -51,7 +53,6 @@ class RunsController extends BaseController {
 	public function result() 
 	{
 		$run = Run::find(1); 
-		// $runarr = unserialize($run->run);
 		return View::make('result')->with('run',$run);
 	}
 
