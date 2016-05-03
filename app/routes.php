@@ -20,7 +20,7 @@ Route::get('/show', 'RunsController@show');
 Route::get('/result', 'RunsController@result');
 Route::get('/garbagetest', function() {
 	
-	Api::pvApi();
+	Api::pv();
 
 	return View::make('garbagetest');
 });

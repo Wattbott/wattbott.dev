@@ -5,7 +5,7 @@ class Api extends Eloquent {
     static public $url_pv = "http://api.data.gov/nrel/pvwatts/v5.json?";
 
 
-    public static function pvApi()
+    public static function pv()
     {
 		$ch = curl_init();
     	
@@ -40,8 +40,8 @@ class Api extends Eloquent {
 
 		//close connection
 		curl_close($ch);
-
-		dd($result);
+		$result = json_decode($result,true);
+		return $result['outputs']['ac_annual'];
     }
 
 }
