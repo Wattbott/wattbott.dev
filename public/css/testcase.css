@@ -1,9 +1,6 @@
-@font-face{
-	font-family: "Avenir";
-	src: url("/fonts/avenir/AvenirNextLTPro-Regular.otf") format("opentype");
-}
+
 body{
-	background-color: #a26666;
+	background-color: #00b0f0;
 }
 .mainformbody{
 	background-color: #f1d8d8;
@@ -102,7 +99,7 @@ body{
 	margin-right: auto;
 }
 .font3{
-	font-family: "Avenir";
+	font-family: "Roboto";
 }
 .formsegment{
 	position: relative;
@@ -123,7 +120,7 @@ input.coolformtext{
 	overflow: hidden;
 }
 .labeltext{
-	color: white;
+	color: #7f7f7f;
 	text-align: center;
 	width:auto+20px;
 }
@@ -243,7 +240,7 @@ input.coolformtext{
 	border-top: 15px solid black;
 }
 .fontcolor1{
-	color:white;
+	color:#7f7f7f;
 }
 .easymargin{
 	margin-right: 40px;

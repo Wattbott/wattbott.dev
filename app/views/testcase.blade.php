@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('style')
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,900' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/testcase.css">
 @stop
 
@@ -131,11 +132,8 @@
 				</div>
 		</div>
 	</div>
-	<div class="mainformbody">
-	{{ Form::submit() }}
+	{{ Form::submit('submit',$attributes = ['class' => 'submitbutton']) }}
 	{{ Form::close() }}
-	</div>
-
 @stop
 
 @section('scripts')
