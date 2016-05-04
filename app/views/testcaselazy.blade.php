@@ -9,6 +9,7 @@
 
 <div class="sideformbody font3">
 	<div id="accrating" class=" fontcolor1 fontlarge">Accuracy Rating:<div><span id="accnumber">100</span>%</div></div>
+	<div class="seperator"></div>
 	<div id="gassystuff" class="font3 fontcolor1 fontmidsmall">
 		<span>Do you have gas in your building?</span>
 		<div class="fakecheck" id="check2">
@@ -23,7 +24,7 @@
 		<span id="buildlisttri" class="triangledown"></span>
 	</ul>
 	
-	<div id="dachart" class="fontcolor2 fontright">
+	<div id="dachart" class="fontcolor1 fontright">
 	</div>
 </div>
 {{ Form::open(array(
@@ -41,10 +42,10 @@
 {{ Form::hidden('januarypowercost', 0, $attributes = ['id' => 'januarypowercost'])}}
 {{ Form::hidden('januarygas', 0, $attributes = ['id' => 'januarygas'])}}
 {{ Form::hidden('januarygascost', 0, $attributes = ['id' => 'januarygascost'])}}
-{{ Form::hidden('februarypower', 0, $attributes = ['id' => 'februarypower'])}}
-{{ Form::hidden('februarypowercost', 0, $attributes = ['id' => 'februarypowercost'])}}
-{{ Form::hidden('februarygas', 0, $attributes = ['id' => 'februarygas'])}}
-{{ Form::hidden('februarygascost', 0, $attributes = ['id' => 'februarygascost'])}}
+{{ Form::hidden('feburarypower', 0, $attributes = ['id' => 'feburarypower'])}}
+{{ Form::hidden('feburarypowercost', 0, $attributes = ['id' => 'feburarypowercost'])}}
+{{ Form::hidden('feburarygas', 0, $attributes = ['id' => 'feburarygas'])}}
+{{ Form::hidden('feburarygascost', 0, $attributes = ['id' => 'feburarygascost'])}}
 {{ Form::hidden('marchpower', 0, $attributes = ['id' => 'marchpower'])}}
 {{ Form::hidden('marchpowercost', 0, $attributes = ['id' => 'marchpowercost'])}}
 {{ Form::hidden('marchgas', 0, $attributes = ['id' => 'marchgas'])}}

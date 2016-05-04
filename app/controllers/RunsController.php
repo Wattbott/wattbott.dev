@@ -83,6 +83,7 @@ class RunsController extends BaseController {
 
 		// maybe we don't want this here...?
 		$run->save();
+
 		// dd($run->id);
 		return Redirect::action('RunsController@result',['id'=>$run->id]);
 	}
@@ -111,6 +112,4 @@ class RunsController extends BaseController {
 
 		return View::make('result')->with('run',$run);
 	}
-
-
 }

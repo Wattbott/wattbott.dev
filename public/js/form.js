@@ -17,6 +17,9 @@
 	var fakenumkey = '';
 	var fakerkey = '';
 	var maxlength = 0;
+	var monthArray = ['January','february','March','April','May','June','July','August','September','October','November','December'];
+	var monthsChartArray = [];
+	var inc = 0;
 
 	var checkBoolRadInserts = ['<div id="anntotalseg"><div class="formsegment font3 fontmidlarge" id="annformseg1"><label for="kwhannual" class="labeltext">kW/h</label><input name="kwhannual" id="kwhannual" class="coolformtext font3 fontmidlarge" type="text"></div><div class="formsegment font3 fontmidlarge" id="annformseg2"><label for="costannual" class="labeltext">Cost</label><input name="costannual" id="costannual" class="coolformtext font3 fontmidlarge" type="text"></div></div>','<div id="totalseg"><div class="formsegment font3 fontmidlarge" id="monthselectseg"><ul id="fakeselectB"><div id="fsnumtwo" class="fakeselectitem"></div><li>January</li><li>February</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li>September</li><li>October</li><li>November</li><li>December</li><span id="buildlisttri2" class="triangledown"></span></ul></div><div class="formsegment font3 fontmidlarge" id="monthitemseg"><label for="kwhmonth" class="labeltext">kW/h</label><input class="coolformtext font3 fontmidlarge" id="kwhmonth" name="kwhmonth" type="text"></div><div class="formsegment font3 fontmidlarge" id="monthcostseg"><label for="costmonth" class="labeltext">Cost</label><input class="coolformtext font3 fontmidlarge" id="costmonth" name="costmonth" type="text"></div><div id="enter">Submit Month</button></div>'];
 	var checkTwoInserts = ['<div class="formsegment font3 fontmidlarge" id="gasmonthseg"><label for="kBTUmonth" class="labeltext">kBTU</label><input class="coolformtext font3 fontmidlarge" id="kBTUmonth" name="kBTUmonth" type="text"></div>','<div class="formsegment font3 fontmidlarge" id="gasmonthcostseg"><label for="gascostmonth" class="labeltext">Cost</label><input class="coolformtext font3 fontmidlarge" id="gascostmonth" name="gascostmonth" type="text"></div>']
@@ -53,23 +56,18 @@
 			{
 				if ((data[i][key] > maxlength) && (key !== 'month'))
 				{
-					console.log(maxlength,data[i][key]);
-					console.log(typeof data[i][key]);
 					maxlength = Number(data[i][key]);
 					fakenumkey = i;
-					console.log(maxlength,data[i][key]);
 					fakerkey = key;
 				}
 			}
-			console.log(maxlength);
-			console.log(Object.keys(data).length,data.length);
-			console.log(data[i].kwh,data[i].kwhcost,data[i].kwh/maxlength * 100);
 			var monthgraph = data[i].month.toLowerCase();
 			var newwidth = (data[i].kwh/maxlength * 100);
 			var width2 = (data[i].kwhcost/maxlength * 100);
 			var width3 = (data[i].gas/maxlength * 100);
 			var width4 = (data[i].gascost/maxlength * 100);
-			console.log(width2,width3,width4)
+			monthsChartArray[inc] = data[i].month;
+			inc++;
 			if ($('#'+monthgraph+'graph').length < 1)
 			{
 				console.log("HERE DUDE!");
@@ -119,37 +117,40 @@
 					"width":width2+"%"
 				}).text(data[i].kwhcost);
 			}
-			if ($('#'+monthgraph+'graph .bargraphgas').length < 1)
+			if (('gas' in data[i]) && ('gascost' in data[i]))
 			{
-				$('#'+monthgraph+'graph').append('<div class="bargraphgas">'+data[i].gas+'</div>');
-				$('#'+monthgraph+'graph .bargraphgas').css({
-					"height": (100/(Object.keys(data[i]).length-1))+"%",
-					"width": 0
-				}).animate({
-					"width": width3+'%'
-				},500);
-			}
-			else
-			{
-				$('#'+monthgraph+'graph .bargraphgas').animate({
-					"width": width3+"%"
-				}).text(data[i].gas);
-			}
-			if ($('#'+monthgraph+'graph .bargraphgascost').length < 1)
-			{
-				$('#'+monthgraph+'graph').append('<div class="bargraphgascost">'+data[i].gascost+'</div>');
-				$('#'+monthgraph+'graph .bargraphgascost').css({
-					"height": (100/(Object.keys(data[i]).length-1))+"%",
-					"width": 0
-				}).animate({
-					"width": width4+'%'
-				},500);
-			}
-			else
-			{
-				$('#'+monthgraph+'graph .bargraphgascost').animate({
-					"width":width4+"%"
-				}).text(data[i].gascost);
+				if ($('#'+monthgraph+'graph .bargraphgas').length < 1)
+				{
+					$('#'+monthgraph+'graph').append('<div class="bargraphgas">'+data[i].gas+'</div>');
+					$('#'+monthgraph+'graph .bargraphgas').css({
+						"height": (100/(Object.keys(data[i]).length-1))+"%",
+						"width": 0
+					}).animate({
+						"width": width3+'%'
+					},500);
+				}
+				else
+				{
+					$('#'+monthgraph+'graph .bargraphgas').animate({
+						"width": width3+"%"
+					}).text(data[i].gas);
+				}
+				if ($('#'+monthgraph+'graph .bargraphgascost').length < 1)
+				{
+					$('#'+monthgraph+'graph').append('<div class="bargraphgascost">'+data[i].gascost+'</div>');
+					$('#'+monthgraph+'graph .bargraphgascost').css({
+						"height": (100/(Object.keys(data[i]).length-1))+"%",
+						"width": 0
+					}).animate({
+						"width": width4+'%'
+					},500);
+				}
+				else
+				{
+					$('#'+monthgraph+'graph .bargraphgascost').animate({
+						"width":width4+"%"
+					}).text(data[i].gascost);
+				}
 			}
 		}
 	}
@@ -210,6 +211,15 @@
 	}
 	function commitStuff()
 	{
+		$('#anntotalseg').ready(function(){
+
+			$('#costannual').keyup(function (){
+				$('#annualpowercost').val($(this).val());
+			});
+			$('#kwhannual').keyup(function (){
+				$('#annualpower').val($(this).val());
+			});
+		});
 		$("#totalseg").ready(function(){
 			var listheight1 = $('#fakeselectB li').height();
 			var listoptions1 = $('#fakeselectB li').length;
@@ -220,7 +230,7 @@
 				{
 					faketrue1 = true;
 					$("#fakeselectB").animate({
-						"height": (listheight1*listoptions1)+12+"px"
+						"height": (listheight1*listoptions1)+48+"px"
 					},500);
 				}
 			});
@@ -449,7 +459,12 @@
 		{
 			if (bool == true)
 			{
-
+				$('#fakeselectC').css({
+					"visibility":"visible",
+					"opacity":"0"
+				}).animate({
+					"opacity":"1"
+				});
 				var waitingSet = setInterval(function(){
 					if ($("#totalseg").length > 0)
 					{
@@ -481,6 +496,11 @@
 			{
 				$('#gasmonthcostseg').remove();
 				$('#gasmonthseg').remove();
+				$('#fakeselectC').animate({
+					"opacity":"0",
+				}).css({
+					"visibility":"hidden"
+				});
 			}
 		}
 	}
