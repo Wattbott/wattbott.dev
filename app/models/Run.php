@@ -7,7 +7,7 @@ class Run extends BaseModel
 	public static $rules = array(
 		'calcname' => 'required|max:200',
 		'email' => 'required|email|max:60',
-		'zipcode' => 'required|digits:5',
+		'zipcode' => 'required|regex:/^[0-9]{5}(\-[0-9]{4})?$/',
 		'buildtype' => 'required',
 		'grossfloorarea' => 'required',
 		);
