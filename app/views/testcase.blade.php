@@ -25,6 +25,7 @@
 		</div>
 		<li>kBTU's</li>
 		<li>Therms</li>
+		<li>cff</li>
 		<span id="buildlisttri" class="triangledown"></span>
 	</ul>
 	<div id="dachart" class="fontcolor2 fontright">
