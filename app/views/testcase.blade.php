@@ -91,10 +91,14 @@
 		<div class="formsegment font3 fontmidlarge" id="emailseg">
 		{{ Form::label('email', 'E-Mail Address', $attributes = [ 'class' => 'labeltext'])}}
 		{{ Form::text('email', null, $attributes = ['class' => 'coolformtext font3 fontmidlarge', "id" => 'email'])}}
+		{{-- alert if input failed validation: --}}
+		{{ $errors->first('zipcode', '<span class="alert">:message<br></span>') }}
 		</div>
 		<div class="formsegment font3 fontmidlarge" id="zipseg">
 		{{ Form::label('zipcode', 'Zipcode', $attributes = [ 'class' => 'labeltext'])}}
 		{{ Form::text('zipcode', null, $attributes = ['class' => 'coolformtext font3 fontmidlarge', "id" => 'zipcode'])}}
+		{{-- alert if input failed validation: --}}
+		{{ $errors->first('zipcode', '<span class="alert">:message<br></span>') }}
 		</div>
 		<div class="formsegment font3 fontmidlarge" id="calcnameseg">
 		{{ Form::label('calcname', 'Project Name', $attributes = [ 'class' => 'labeltext'])}}

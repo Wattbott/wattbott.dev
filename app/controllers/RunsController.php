@@ -17,6 +17,11 @@ class RunsController extends BaseController {
 
 	public function store() {
 		$run = new Run();
+		$validator = Validator::make(Input::all(), Run::$rules);
+		if ($validator->fails()) {
+			Session::flash('errorMessage', "Unable to save post.");
+			return Redirect::back()->withInput()->withErrors($validator);
+		} else {
 		//these are set by us no matter what; move these to the Run class itself??
 		// $run->module_type = $default_module_type;
 		// $run->losses = $default_losses;
@@ -94,7 +99,8 @@ class RunsController extends BaseController {
 		} else {
 			return "Did not satisfy any path requirements";
 		}
-	}
+	} //this curly closes the consequent of the validator conditional
+}
 
 	public function result() 
 	{
