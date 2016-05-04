@@ -23,19 +23,20 @@ class RunsController extends BaseController {
 			return Redirect::back()->withInput()->withErrors($validator);
 		} else {
 		
+			$tempArray['user_input']['run_name'] = Input::get('calcname');
+			$tempArray['user_input']['email'] = Input::get('email');
+			$tempArray['user_input']['zipcode'] = Input::get('zipcode');
+			$tempArray['user_input']['bldg_type'] = Input::get('buildtype');
+			$tempArray['user_input']['gross_flr_area'] = Input::get('grossfloorarea');
+			
+			//roof area
+			if (Input::has('grossroofarea')) {
+				$tempArray['user_input']['gross_roof_area'] = Input::get('grossroofarea');
+			} else {
+				$tempArray['user_input']['gross_roof_area'] = Input::get('grossfloorarea');
+			}
+
 		// assign energy data we need to build the following checks
-		//optional properties autofilled if left blank:
-		// if (Input::get() == false) {
-		// 	$this->path4();
-		// } else if (Input::get() == false) {
-		// 	$this->path3();
-		// } else if (Input::get() == false ) {
-		// 	$this->path2();
-		// } else if (Input::get() == false ) {
-		// 	$this->path1();
-		// } else {
-		// 	return "Did not satisfy any path requirements";
-		// }
 		$tempArray['user_input']['energy_data']['elec']['cost']['total'] = Input::get('costannual');
 		$tempArray['user_input']['energy_data']['elec']['energy']['total'] = Input::get('kwhannual');
 		$tempArray['user_input']['energy_data']['elec']['energy']['jan'] = Input::get('januarypower');
