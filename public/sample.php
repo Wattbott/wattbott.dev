@@ -9,7 +9,7 @@
 				'bldg_type' => 'School',
 				']' => 12000,
 				'gross_roof_area' => 12000,
-				'energy data' => [
+				'energy_data' => [
 					'elec' => [
 						'cost' => [
 							'total' => 8000],
@@ -54,15 +54,19 @@
 				]
 			],
 			'api_input' => [
-        		'postal_code' => 78248,
         		'lat' => 29.424122,
         		'lon' => -98.493629,
         		'state' => 'Texas',
         		'country'=> 'United States',
+        		'zipcode' => 78248,
 				'system_capacity' => 20,
 				'utility_rate' => [
 					'elec' => [0.08121827,'$/kWh'],
 					'gas' => [0.8,'$/therm']
+				],
+				'energy' => [
+					'elec' => 98500,
+					'gas' => 1440
 				]
 			],
 			'api_output' => [
