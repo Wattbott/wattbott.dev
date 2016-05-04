@@ -82,6 +82,7 @@ class RunsController extends BaseController {
 			$tempArray['user_input']['energy_data']['gas']['energy']['dec'] = Input::get('decembergas');
 			$tempArray['user_input']['energy_data']['gas']['energy']['units'] = Input::get('gastype');
 			$run->run = $tempArray;
+			dd($tempArray['user_input']['energy_data']['gas']['energy']['units']);
 
 			// build API input
 			$run->apiInput();
