@@ -49,7 +49,6 @@ return array(
     'File_ASN1' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/ASN1.php',
     'File_ASN1_Element' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/ASN1.php',
     'File_X509' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/X509.php',
-    'Geocode' => $baseDir . '/app/models/Geocode.php',
     'Geocoder\\Dumper\\DumperInterface' => $vendorDir . '/willdurand/geocoder/src/Geocoder/Dumper/DumperInterface.php',
     'Geocoder\\Dumper\\GeoJsonDumper' => $vendorDir . '/willdurand/geocoder/src/Geocoder/Dumper/GeoJsonDumper.php',
     'Geocoder\\Dumper\\GpxDumper' => $vendorDir . '/willdurand/geocoder/src/Geocoder/Dumper/GpxDumper.php',

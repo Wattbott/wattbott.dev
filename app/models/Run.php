@@ -5,8 +5,12 @@ class Run extends BaseModel
 	protected $table = 'runs';
 
 	public static $rules = array(
-
-	);
+		'calcname' => 'required|max:200',
+		'email' => 'required|email|max:60',
+		'zipcode' => 'required|digits:5',
+		'buildtype' => 'required',
+		'grossfloorarea' => 'required',
+		);
 
 	public function getRunAttribute($value)
     {
