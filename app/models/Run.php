@@ -70,8 +70,6 @@ class Run extends BaseModel
 		// calculate the utility rate
 		$tempArray['api_input']['utility_rate']['elec'] = $this->run['user_input']['energy_data']['elec']['cost']['total'] / $this->run['user_input']['energy_data']['elec']['energy']['total'];
 		if($tempArray['user_input']['energy_data']['is_gas']){		
-			dd($tempArray['user_input']['energy_data']['is_gas']);
-
 			$tempArray['api_input']['utility_rate']['gas'] = $this->run['user_input']['energy_data']['gas']['cost']['total'] / $this->run['user_input']['energy_data']['gas']['energy']['total'];
 		}
 
