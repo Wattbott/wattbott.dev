@@ -49,7 +49,13 @@ class Run extends BaseModel
 	public function pvApiLoad()
 	{
 		$temp = $this->run;
+		//caluclate system_capacity
 		$temp['api_input']['system_capacity'] = $temp['user_input']['gross_roof_area'] * Ass::get('pv_usable_roof') * Ass::get('pv_sys_intensity');
+		// foreach ($temp['user_input']['energy data']['elec']['energy'] as $value) {
+		// 	if (!is_nan($value)) {
+		// 		$value = $value * Ass::get('unit_kwh_mmbtu');
+		// 	}
+		// }
 
 		$this->run = $temp;
 

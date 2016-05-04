@@ -80,7 +80,8 @@ class RunsController extends BaseController {
 		$run->run = $tempArray;
 		$run->pvApiLoad();
 		$run->save();
-		dd($run->run['api_input']);
+		dd(Input::all());
+		dd($run->run['user_input']['energy data']['elec']['energy']);
 		//optional properties autofilled if left blank:
 		if (Input::get() == false) {
 			$this->path4();
