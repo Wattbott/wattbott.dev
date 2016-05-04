@@ -5,15 +5,15 @@ class Api extends Eloquent {
     static public $url_pv = "http://api.data.gov/nrel/pvwatts/v5.json?";
     static public $url_geo = "http://api.data.gov/nrel/pvwatts/v5.json?";
 
-    public function setGeo()
+    public static function setLocation($zipcode)
     {
-		$temp = $this->input;
-		$geocode = Geocoder::geocode($temp['postal_code']);
-		$temp['lat']= $geocode->getLatitude();
-		$temp['lon']= $geocode->getLongitude();
-		$temp['state'] = $geocode->getRegion();
-		$temp['country'] = $geocode->getCountry();
-		$this->input = $temp;
+		$results = [];
+		$geocode = Geocoder::geocode($zipcode);
+		$results['lat']= $geocode->getLatitude();
+		$results['lon']= $geocode->getLongitude();
+		$results['state'] = $geocode->getRegion();
+		$results['country'] = $geocode->getCountry();
+		return $results;
    
     }
     public function pv()
@@ -54,31 +54,16 @@ class Api extends Eloquent {
 		$result = json_decode($result,true);
 		return $result['outputs']['ac_annual'];
     }
-
-    public function geo()
+    public function eui()
     {
-  // //   	$curl     = new \Ivory\HttpAdapter\CurlHttpAdapter();
-		// // $geocoder = new \Geocoder\Provider\GoogleMaps($curl);
-
-		// // $geocoder->geocode(...);
-		// // $geocoder->reverse(...);
-  //   	// dd($this->input['postal_code']);
-  //   	$httpAdapter = 'google_maps';
-		// // $locale,
-		// // $region,
-		// $useSsl = true;
-  //   	$apiKey = 'AIzaSyA5fV8LgO_EWYnBeU3C2ErFTEo6pmrHJcU';
-
-		// $geocoder = new \Geocoder\Provider\GoogleMaps(
-		//     $httpAdapter,
-		//     // $locale,
-		//     // $region,
-		//     $useSsl, // true|false
-		//     $apiKey 
-		// );
-
-		// dd($geocoder->all());
-
+    	$result = [
+			'design_site_intensity' => 40,
+			'design_energy_cost' => 9152,
+			'median_site_intensity' => 70,
+			'median_energy_cost' => 16016
+		];
+	
+		return $result;
     }
 
 }

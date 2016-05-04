@@ -17,32 +17,8 @@ Route::get('/', 'HomeController@testForm');
 
 Route::post('/store', 'RunsController@store');
 Route::get('/show', 'RunsController@show');
-Route::get('/result', 'RunsController@result');
+Route::get('/result{id}', 'RunsController@result');
 Route::get('/garbagetest', function() {
-
-	$geocoder = Geocoder::geocode('78248');
-	
-	// $curl     = new \Ivory\HttpAdapter\CurlHttpAdapter();
-	// $geocoder = new \Geocoder\Provider\GoogleMaps($curl);
-
-	// // $geocoder->geocode(...);
-	// // $geocoder->reverse(...);
-	// // dd($this->input['postal_code']);
-	// $httpAdapter = 'google_maps';
-	// // $locale,
-	// // $region,
-	// $useSsl = true;
-	// $apiKey = 'AIzaSyA5fV8LgO_EWYnBeU3C2ErFTEo6pmrHJcU';
-
-	// $geocoder = new \Geocoder\Provider\GoogleMaps(
-	//     $httpAdapter,
-	//     // $locale,
-	//     // $region,
-	//     $useSsl, // true|false
-	//     $apiKey 
-	// );
-
-	dd($geocoder);
 
 	return View::make('garbagetest');
 });
