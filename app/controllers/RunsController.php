@@ -17,21 +17,11 @@ class RunsController extends BaseController {
 
 	public function store() {
 		$run = new Run();
-		
-		//tying inputs to run class
-		$tempArray = [];
-		$tempArray['user_input']['run_name'] = Input::get('calcname');
-		$tempArray['user_input']['email'] = Input::get('email');
-		$tempArray['user_input']['zipcode'] = Input::get('zipcode');
-		$tempArray['user_input']['bldg_type'] = Input::get('buildtype');
-		$tempArray['user_input']['gross_flr_area'] = Input::get('grossfloorarea');
-		
-		//roof area
-		if (Input::has('grossroofarea')) {
-			$tempArray['user_input']['gross_roof_area'] = Input::get('grossroofarea');
+		$validator = Validator::make(Input::all(), Run::$rules);
+		if ($validator->fails()) {
+			Session::flash('errorMessage', "Unable to save post.");
+			return Redirect::back()->withInput()->withErrors($validator);
 		} else {
-			$tempArray['user_input']['gross_roof_area'] = Input::get('grossfloorarea');
-		}
 		
 		// assign energy data we need to build the following checks
 		//optional properties autofilled if left blank:
@@ -87,13 +77,12 @@ class RunsController extends BaseController {
 
 		$run->run = $tempArray;
 
-		// build API input
-		$run->apiInput();
+			// build API input
+			$run->apiInput();
 
-		// maybe we don't want this here...?
-		$run->save();
-
-		// dd($run->id);
+			// maybe we don't want this here...?
+			$run->save();
+		} //this curly closes the consequent of the validator conditional
 		return Redirect::action('RunsController@result',['id'=>$run->id]);
 	}
 
