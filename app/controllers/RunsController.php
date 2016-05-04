@@ -99,8 +99,17 @@ class RunsController extends BaseController {
 		} else {
 			return "Did not satisfy any path requirements";
 		}
+<<<<<<< HEAD
 	} //this curly closes the consequent of the validator conditional
 }
+=======
+		Run::find($run->id);
+		$temp = $run->run;
+		$temp['pv']['ac_annual'] = Api::pv();
+		$run->run = $temp;
+		return View::make('result')->with('run',$run);
+	}
+>>>>>>> a8ce8cb798afaad50d567c61d80d9860dc542b4e
 
 	public function result() 
 	{

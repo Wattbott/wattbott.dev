@@ -173,8 +173,10 @@ input.coolformtext{
 #fakeselectC{
 	position:relative;
 	display: block;
+	visibility: hidden;
+	opacity: 1;
 	list-style-type: none;
-	top:90px;
+	top:20%;
 	width:80%;
 	height:48px;
 	margin-left: auto;
