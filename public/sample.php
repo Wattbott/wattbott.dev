@@ -10,6 +10,7 @@
 				']' => 12000,
 				'gross_roof_area' => 12000,
 				'energy_data' => [
+					'is_gas' => true,
 					'elec' => [
 						'cost' => [
 							'total' => 8000],
