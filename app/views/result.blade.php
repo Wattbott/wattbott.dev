@@ -12,16 +12,37 @@ var_dump($run->run);
 @section('content')
 
 <div class="mainresultscontainer">
-	<span id="resultstext">Alright the results are in!</span>
-	<div id="dagraph">
-	{{{ $run->run['user_output']['eui']['design_site_intensity'] }}}
-	{{{ $run->run['user_output']['eui']['design_energy_cost'] }}}
-	{{{ $run->run['user_output']['eui']['median_site_intensity'] }}}
-	{{{ $run->run['user_output']['eui']['median_energy_cost'] }}}
+	<div id="resultstext">Alright the results are in for {{{ $run->run['user_input']['run_name']}}}!</div>
+	<div id="graph0" class="dagraph">
+		<span class="graphlabel">EUI</span>
+		<div id="bar1" class="graphbar">
+			<span class="bartext">{{{ $run->run['user_output']['eui']['design_site_intensity'] }}}</span>
+		</div>
+		<div id="bar3" class="graphbar theirbar">
+			<span class="bartext">{{{ $run->run['user_output']['eui']['median_site_intensity'] }}}</span>
+		</div>
 	</div>
-	{{{ $run->run['user_output']['pv']['roi'] }}}
-	{{{ $run->run['user_output']['pv']['percent_savings'] }}}
+	<div id="graph1" class="dagraph">
+		<span class="graphlabel">Energy Cost</span>
+		<div id="bar2" class="graphbar">
+			<span class="bartext">{{{ $run->run['user_output']['eui']['design_energy_cost'] }}}</span>
+		</div>
+		<div id="bar4" class="graphbar theirbar">
+			<span class="bartext">{{{ $run->run['user_output']['eui']['median_energy_cost'] }}}</span>
+		</div>
+	</div>
+	<div id="graph2" class="dagraph">
+		<span class="graphlabel">Savings from photovoltaic</span>
+		<div id="bar5" class="graphbar">
+			<span class="bartext">{{{ $run->run['user_output']['pv']['roi'] }}}</span>
+		</div>
+		<div id="bar6" class="graphbar">
+			<span class="bartext">{{{ $run->run['user_output']['pv']['percent_savings'] }}}
+			</span>
+		</div>
+	</div>
 </div>
 @stop
 @section('scripts')
 <script type="text/javascript" src="/js/results.js"></script>
+@stop
