@@ -65,7 +65,11 @@ class Run extends BaseModel
 		
 		// calculate the utility rate
 		$tempArray['api_input']['utility_rate']['elec'] = $this->run['user_input']['energy_data']['elec']['cost']['total'] / $this->run['user_input']['energy_data']['elec']['energy']['total'];
-		$tempArray['api_input']['utility_rate']['gas'] = $this->run['user_input']['energy_data']['gas']['cost']['total'] / $this->run['user_input']['energy_data']['gas']['energy']['total'];
+		if($tempArray['user_input']['energy_data']['is_gas']){		
+			dd($tempArray['user_input']['energy_data']['is_gas']);
+
+			$tempArray['api_input']['utility_rate']['gas'] = $this->run['user_input']['energy_data']['gas']['cost']['total'] / $this->run['user_input']['energy_data']['gas']['energy']['total'];
+		}
 
 	
 		// set total energy 
@@ -74,11 +78,12 @@ class Run extends BaseModel
 			$tempArray['api_input']['energy']['elec'] = $this->run['user_input']['energy_data']['elec']['energy']['total'] * Ass::get('unit_kwh_mmbtu');
 			
 			$gas_unit = $this->run['user_input']['energy_data']['gas']['energy']['units'];
-			$gas_total = $this->run['user_input']['energy_data']['gas']['energy']['total'];
-			if($gas_unit == 'therms'){
+			if($tempArray['user_input']['energy_data']['is_gas']){
+				$gas_total = $this->run['user_input']['energy_data']['gas']['energy']['total'];
+				// switch statment
 				$gas_total = $gas_total * Ass::get('unit_therm_mmbtu');
+				$tempArray['api_input']['energy']['gas'] = $gas_total;
 			}
-			$tempArray['api_input']['energy']['gas'] = $gas_total;
 
 		}
 		
@@ -118,5 +123,4 @@ class Run extends BaseModel
 				$message->to(Input::get('email'))->subject('Your Wattbott Results');
 			});
 	}
-
 }

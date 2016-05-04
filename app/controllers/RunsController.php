@@ -76,6 +76,15 @@ class RunsController extends BaseController {
 		$tempArray['user_input']['energy_data']['gas']['energy']['nov'] = Input::get('novembergas');
 		$tempArray['user_input']['energy_data']['gas']['energy']['dec'] = Input::get('decembergas');
 		$tempArray['user_input']['energy_data']['gas']['energy']['units'] = Input::get('gastype');
+		$gcheck = false;
+		foreach ($tempArray['user_input']['energy_data']['gas']['energy'] as $value) {
+			if (!empty($value)) {
+				$gcheck = true;
+				continue;
+			}
+		}
+		$tempArray['user_input']['energy_data']['is_gas'] = $gcheck;
+
 		$run->run = $tempArray;
 
 		// build API input
