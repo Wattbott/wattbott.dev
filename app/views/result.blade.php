@@ -1,7 +1,5 @@
 <?php 	
-var_dump($run);
-var_dump($run->run);
-	
+
 ?>
 
 @extends('layouts.master')
