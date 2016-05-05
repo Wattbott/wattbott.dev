@@ -280,3 +280,12 @@ input.coolformtext{
 	font-size: 14px;
 	border-radius: 32px;
 }
+
+.submitbutton {
+	background-color: #8BCB2F;
+	border-radius: 32px;
+	font-family: "Roboto";
+	font-size: 20px;
+	width: 200px;
+	height: 40px;
+}
