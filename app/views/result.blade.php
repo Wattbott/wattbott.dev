@@ -1,5 +1,6 @@
 <?php 	
-
+	var_dump($run->run['user_input']['energy_data']);
+	var_dump($run->run);
 ?>
 
 @extends('layouts.master')
