@@ -5,6 +5,7 @@ class Run extends BaseModel
 	protected $table = 'runs';
 	public $temp_energy_totals;
 	public $is_energy_data;
+	public $missing_months;
 
 	public static $rules = array(
 		'calcname' => 'required|max:200',
@@ -12,7 +13,7 @@ class Run extends BaseModel
 		'zipcode' => 'required|regex:/^[0-9]{5}(\-[0-9]{4})?$/',
 		'buildtype' => 'required',
 		'grossfloorarea' => 'required',
-		);
+	);
 
 	public function getRunAttribute($value)
     {
@@ -24,46 +25,75 @@ class Run extends BaseModel
         $this->attributes['run'] = serialize($value);
     }
 
-	public function energyDataSort()
-	{
-		// 1- get api data and assign to temp total
-			// this will be done later
-
-		// 2- check if total provided, if so assign to temp total api input
-		// 3- fill in suplimental data where missing
-			// this will be done later
-
-		// 4- total all months if provided
-	}
 
 	public function hasEnergyData($type)
 	{
-		$tempArray = $this->is_energy_data;
+		$temp_is_data = $this->is_energy_data;
 		$check = false;
-		foreach ($this->run['user_input']['energy_data'][$type]['energy'] as $value) {
+		foreach ($this->run['user_input']['energy_data'][$type]['energy'] as $key => $value) {
+			if ($key == 'units') {
+				continue;
+			}
 			if (!empty($value)) {
 				$check = true;
 				break;
 			}
 		}
-		$tempArray[$type] = $check;
-		$this->is_energy_data = $tempArray;
+		$temp_is_data[$type] = $check;
+		$this->is_energy_data = $temp_is_data;
+
+		if ($this->is_energy_data[$type]) {
+			if (empty($this->run['user_input']['energy_data'][$type]['energy']['total'])) {
+				$temp_months = $this->missing_months;
+				foreach ($this->run['user_input']['energy_data'][$type] as $dkey => $data) {
+					$temp_months[$type][$dkey]=[];
+					foreach ($data as $key => $value) {
+						if ($key == 'units'||$key == 'total') {
+							continue;
+						}
+						if(empty($value)){
+							$temp_months[$type][$dkey][$key] = '';
+						}
+					}	
+				}
+				$this->missing_months = $temp_months;
+			}
+		}
 	}
 
+	public function replaceMonths()
+	{
+		$this->totalMonths();
+        $tempArray = $this->run;
+		foreach ($this->missing_months as $skey => &$source) {   
+            foreach ($source as $ce_key => &$c_or_e) {
+				$avg = $this->temp_energy_totals[$skey][$ce_key]/(12-count($c_or_e));
+                foreach ($c_or_e as $month => &$value) {
+                   $value = $avg;
+                }
+                $level = $tempArray['user_input']['energy_data'][$skey][$ce_key];
+                $tempArray['user_input']['energy_data'][$skey][$ce_key] = array_replace($level, $this->missing_months[$skey][$ce_key]);
+            }
+        }
+        $this->run = $tempArray;
+
+
+	}
 	public function totalMonths()
 	{
 		$totals=[];
-		foreach ($this->run['user_input']['energy_data'] as $skey => $source) {
-			$source_total=0;
-			foreach ($source['energy'] as $key => $value) {
-				if ($key == 'units'||$key == 'total') {
-					continue;
-				}
-				$source_total += $value;
-			}	
-			$totals[$skey] = $source_total;
-		}
-
+		foreach ($this->run['user_input']['energy_data'] as $skey => $source) {   
+            foreach ($source as $ce_key => $c_or_e) {
+                $total = 0;
+                foreach ($c_or_e as $month => $value) {
+	                if ($month == 'units'||$month == 'total') {
+						continue;
+					}
+                     $total += $value;
+                }
+                $totals[$skey][$ce_key] = $total;
+            }
+        }
 		$this->temp_energy_totals = $totals;
 	}
 
@@ -71,6 +101,7 @@ class Run extends BaseModel
 	public function apiInput()
 	{
 		$tempArray = $this->run;
+
 		
 		// set location data
 		$zipcode = $this->run['user_input']['zipcode'];
@@ -79,19 +110,21 @@ class Run extends BaseModel
 			$tempArray['api_input'] = Api::setLocation($zipcode);
 			$tempArray['api_input']['zipcode'] = $zipcode;
 		}
+		$tempArray['api_input']['gross_flr_area'] = $this->run['user_input']['gross_flr_area'];
+		$tempArray['api_input']['bldg_type'] = $this->run['user_input']['bldg_type'];
 
 		//caluclate system_capacity
 		$tempArray['api_input']['system_capacity'] = $this->run['user_input']['gross_roof_area'] * Ass::get('pv_usable_roof') * Ass::get('pv_sys_intensity')/1000;
 		
 		// set total energy and calc utility rates
-		if (!empty($this->run['user_input']['energy_data']['elec']['energy'])) {
+		if ($this->is_energy_data['elec']||$this->is_energy_data['gas']) {
 			// we should checkinputs and change units likely some functions here... 
-			$tempArray['api_input']['energy']['elec'] = $this->run['user_input']['energy_data']['elec']['energy']['total'] * Ass::get('unit_kwh_mmbtu');
-			$tempArray['api_input']['utility_rate']['elec'] = $this->run['user_input']['energy_data']['elec']['cost']['total'] / $tempArray['api_input']['energy']['elec'];
+			$tempArray['api_input']['energy']['elec'] = $this->temp_energy_totals['elec']['energy'] * Ass::get('unit_kwh_mmbtu');
+			$tempArray['api_input']['utility_rate']['elec'] = $this->temp_energy_totals['elec']['cost'] / $tempArray['api_input']['energy']['elec'];
 
 			if($this->is_energy_data['gas']){
 				$gas_unit = $this->run['user_input']['energy_data']['gas']['energy']['units'];
-				$gas_total = $this->run['user_input']['energy_data']['gas']['energy']['total'];
+				$gas_total = $this->temp_energy_totals['gas']['energy'];
 				// change gas units
 				switch($gas_unit){
 
@@ -107,30 +140,39 @@ class Run extends BaseModel
 				}
 
 				$tempArray['api_input']['energy']['gas'] = $gas_total;
-				$tempArray['api_input']['utility_rate']['gas'] = $this->run['user_input']['energy_data']['gas']['cost']['total'] / $gas_total;
+				$tempArray['api_input']['utility_rate']['gas'] = $this->temp_energy_totals['gas']['cost'] / $gas_total;
 			}
 
 		} else {
 
-			dd('set this to get the median building');
+			dd('API set this to get the median building');
 		}
 		
 		$this->run = $tempArray;	
+
 	}
 
-	public function apiOutput()
+	public function userOuput()
 	{
 		$tempArray = $this->run;
-		
 		// EUI
-		$gas = '';
-		if ($this->is_energy_data['gas']) {
-			$gas = $this->run['api_input']['energy']['gas'];
+
+		// this needs to be updated with EUI output
+		$e_gas = '';
+		$c_gas = '';
+		if (array_key_exists('gas', $this->run['api_input']['energy'])) {
+			$e_gas = $this->run['api_input']['energy']['gas'];
+			$c_gas = $e_gas * $this->run['api_input']['utility_rate']['gas'];
 		}
-		$dsi = ($this->run['api_input']['energy']['elec'] + $gas)/$this->run['user_input']['gross_flr_area']*1000;
-		$dec = $this->run['user_input']['energy_data']['elec']['cost']['total'] + $this->run['user_input']['energy_data']['gas']['cost']['total'];
+		
+
+		$dsi = ($this->run['api_input']['energy']['elec'] + $e_gas)/$this->run['api_input']['gross_flr_area']*1000;
+		$dec = $this->run['api_input']['energy']['elec']*$this->run['api_input']['utility_rate']['elec'] + $c_gas;
 		$msi = $dsi;
 		$msc = $dec;
+		// this needs to be updated with EUI output
+
+
 		$tempArray['user_output']['eui'] = [
 			'design_site_intensity' => $dsi,
 			'design_energy_cost' => $dec,
@@ -149,12 +191,6 @@ class Run extends BaseModel
 		
 		$this->run = $tempArray;
 	}
-
-		// saved sample for margot later
-	// public function path4()
-	// {
-	// 	Run::sendEmailTo($run->email);
-	// }
 
 	public function sendEmailTo($email){
 			Mail::send('emails.runresults', array('username'=>Input::get('username')), function($message){

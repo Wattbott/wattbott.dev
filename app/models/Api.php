@@ -57,10 +57,10 @@ class Api extends Eloquent {
     public function eui()
     {
     	$result = [
-			'design_site_intensity' => 40,
-			'design_energy_cost' => 9152,
-			'median_site_intensity' => 70,
-			'median_energy_cost' => 16016
+			'design_site_intensity' => 0,
+			'design_energy_cost' => 0,
+			'median_site_intensity' => 0,
+			'median_energy_cost' => 0
 		];
 	
 		return $result;

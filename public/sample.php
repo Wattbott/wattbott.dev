@@ -7,7 +7,7 @@
         		'email' => 'annajmorton@gmail.com',
         		'zipcode' => 78248,
 				'bldg_type' => 'School',
-				']' => 12000,
+				'gross_flr_area' => 12000,
 				'gross_roof_area' => 12000,
 				'energy_data' => [
 					'elec' => [
@@ -84,6 +84,8 @@
         		'state' => 'Texas',
         		'country'=> 'United States',
         		'zipcode' => 78248,
+        		'gross_flr_area'=> 12000,
+        		'bldg_type' => 'School',
 				'system_capacity' => 20,
 				'utility_rate' => [
 					'elec' => [0.08121827,'$/kWh'],

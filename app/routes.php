@@ -20,12 +20,18 @@ Route::get('/show', 'RunsController@show');
 Route::get('/result{id}', 'RunsController@result');
 Route::get('/garbagetest', function() {
 	
-	$run2 = new Run();
-	$run2 = Run::find(1);
-	$run2->hasEnergyData('gas');
-	dd($run2->is_energy_data['gas']);
+	$run3 = new Run();
+	$run3 = Run::find(1);
+	// $run3->hasEnergyData('gas');
+	// $run3->hasEnergyData('elec');
+	// $run3->totalMonths();
+	// $run3->replaceMonths();
+	dd($run3->run);
+	dd($run3->missing_months);
+	dd($run3->is_energy_data); 
+	dd($run3->run['user_input']['energy_data']);
 	$run2->totalMonths();
-	return $run2->temp_energy_totals['elec'];
+	return $run3->temp_energy_totals['elec'];
 	// return View::make('garbagetest',['run',$run]);
 });
 
