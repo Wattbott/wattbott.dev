@@ -192,15 +192,17 @@ class Run extends BaseModel
 		$this->run = $tempArray;
 	}
 
-	public function generatePDF(){
-		$pdf = App::make('dompdf');
-	// $pdf->loadHTML('<h1>margoober</h1>');
-		$pdf->loadHTML(View::make('runresults')->render());
-	return $pdf->stream();
+	public function savePDF($pathName){
+		$data = ['run' => $this];
+		$pdf = PDF::loadView('pdftest', $data);
+		return $pdf->save($pathName);
 	}
 	public function sendEmailTo($email, $results){
-			Mail::send('emails.runresults', array('results'=>$results), function($message){
-				$message->to(Input::get('email'))->subject('Your Wattbott Results');
-			});
+		$pathName = storage_path().'/pdf/' . preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '', $this->run['user_input']['run_name'])) . time() . '.pdf';
+		$this->savePDF($pathName);
+		Mail::send('emails.runresults', array('results'=>$results), function($message){
+			$message->to(Input::get('email'))->subject('Your Wattbott Results');
+			$message->attach(storage_path().'/pdf/' . preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '', $this->run['user_input']['run_name'])) . time() . '.pdf');
+		});
 	}
 }
