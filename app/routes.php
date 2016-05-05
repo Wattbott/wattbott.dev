@@ -12,8 +12,8 @@
 |
 */
 
-
-Route::get('/', 'HomeController@testForm');
+Route::get('/', 'HomeController@hiya');
+Route::get('/form', 'HomeController@testForm');
 
 Route::post('/store', 'RunsController@store');
 Route::get('/show', 'RunsController@show');
