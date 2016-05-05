@@ -64,6 +64,10 @@
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
 	</div>
+	<div class="littlecontainer">
+		<p>Not satisfied with just one</p>
+		<a href="{{{ action('HomeController@testForm')}}}">Do another one!</a>
+	</div>
 </div>
 @stop
 @section('scripts')

@@ -8,9 +8,9 @@
 @section('content')
 
 <div class="sideformbody font3">
-	<div id="accrating" class=" fontcolor1 fontlarge">Accuracy Rating:
+	<div id="accrating" class=" fontcolor1 fontlarge">Completeness:
 		<div>
-			<span id="accnumber">100</span>%
+			<span id="accnumber">0</span>%
 		</div>
 	</div>
 	<div id="gassystuff" class="font3 fontcolor1 fontmidsmall">
@@ -119,10 +119,10 @@
 			<li id="buildsel5">Medical Office</li>
 			<span id="buildlisttri" class="triangledown"></span>
 		</ul>
-		{{ Form::hidden('buildtype', 'Skool', $attributes = ['id' => 'hiddenstuff'])}}
+		{{ Form::hidden('buildtype', 'School', $attributes = ['id' => 'hiddenstuff'])}}
 		</div>
 		<div class="formsegment font3 fontmidlarge" id="ewwgrossseg">
-			{{ Form::label('grossfloorarea', 'Gross Floor Area (Total)', $attributes = [ 'class' => 'labeltext']) }}
+			{{ Form::label('grossfloorarea', 'Gross Floor Area', $attributes = [ 'class' => 'labeltext']) }}
 			{{ Form::text('grossfloorarea', null, $attributes = ['class' => 'coolformtext font3 fontmidlarge', 'id' => 'grossfloorarea'])}}
 		</div>
 		<div class="formsegment foscheck font3 fontmidlarge" id="grosscheckseg">
@@ -140,8 +140,10 @@
 				</div>
 		</div>
 	</div>
-	{{ Form::submit('submit',$attributes = ['class' => 'submitbutton']) }}
-	{{ Form::close() }}
+	<div id="ultralazy">
+		{{ Form::submit('Let\'s Do Some Magic!',$attributes = ['class' => 'submitbutton font3 fontmid']) }}
+		{{ Form::close() }}
+	</div>
 @stop
 
 @section('scripts')

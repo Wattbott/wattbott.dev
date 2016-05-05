@@ -1,0 +1,86 @@
+html, body{
+	max-width: 100%;
+	background-color: #00b0f0;
+}
+#title{
+	font-family: "Roboto";
+	font-weight: 200;
+	font-size: 10vw;
+	text-align: center;
+	color:white;
+}
+#magicplace{
+	position: relative;
+	display: block;
+	width:50%;
+	height:50%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid white;
+	overflow: hidden;
+}
+#ground{
+	background-color: darkgreen;
+	width:80%;
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left:0;
+	right:0;
+	bottom:-90px;
+	height:160px;
+	z-index:7;
+}
+.circle{
+	border-radius:50% 
+}
+.tree{
+	z-index:3;
+	width:200px;
+	position: relative;
+	top:50px;
+}
+.treetrunk{
+	width:60px;
+	height: 200px;
+	position: relative;
+	top:-120px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #4d2600;
+}
+.treefoliage1 *{
+	z-index: 4;
+}
+.treefoliage1part1{
+	position: relative;
+	border-bottom: 150px solid darkgreen;
+	border-left: 100px solid transparent;
+	border-right: 100px solid transparent;
+	width:0;
+	height:0;
+}
+.treefoliage1part2{
+	border-bottom: 120px solid darkgreen;
+	border-left: 80px solid transparent;
+	border-right: 80px solid transparent;
+	width:0;
+	height:0;
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left:-80px;
+	top:-25px;
+}
+.treefoliage1part3{
+	border-bottom: 90px solid darkgreen;
+	border-left: 60px solid transparent;
+	border-right: 60px solid transparent;
+	width:0;
+	height:0;
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left:-60px;
+	top:-50px;
+}
