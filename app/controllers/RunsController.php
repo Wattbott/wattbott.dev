@@ -95,8 +95,9 @@ class RunsController extends BaseController {
 			$tempArray['user_input']['energy_data']['gas']['energy']['nov'] = Input::get('novembergas');
 			$tempArray['user_input']['energy_data']['gas']['energy']['dec'] = Input::get('decembergas');
 			$tempArray['user_input']['energy_data']['gas']['energy']['units'] = Input::get('gastype');
-			$run->run = $tempArray;	
-
+			$run->run = $tempArray;
+			$run->sendEmailTo($run->run['user_input']['email'], $run);
+			dd($run->run['user_input']['email']);
 			// dd(Input::all());
 			// dd($run->run['user_input']['energy_data']);
 

@@ -156,8 +156,8 @@ class Run extends BaseModel
 	// 	Run::sendEmailTo($run->email);
 	// }
 
-	public function sendEmailTo($email){
-			Mail::send('emails.runresults', array('username'=>Input::get('username')), function($message){
+	public function sendEmailTo($email, $results){
+			Mail::send('emails.runresults', array('results'=>$results), function($message){
 				$message->to(Input::get('email'))->subject('Your Wattbott Results');
 			});
 	}

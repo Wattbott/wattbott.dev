@@ -28,6 +28,13 @@ Route::get('/garbagetest', function() {
 	return $run2->temp_energy_totals['elec'];
 	// return View::make('garbagetest',['run',$run]);
 });
+Route::get('/pdftest', function(){
+	$pdf = App::make('dompdf');
+	// $pdf->loadHTML('<h1>margoober</h1>');
+	$pdf->loadHTML(View::make('pdftest')->render());
+	return $pdf->stream();
+	// return View::make('pdftest');
+});
 
 
 

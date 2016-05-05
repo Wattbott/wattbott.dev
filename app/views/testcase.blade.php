@@ -147,6 +147,7 @@
 </div>
 {{ Form::submit('submit',$attributes = ['class' => 'submitbutton']) }}
 {{ Form::close() }}
+
 @stop
 
 @section('scripts')
