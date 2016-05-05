@@ -8,9 +8,9 @@
 @section('content')
 
 <div class="sideformbody font3">
-	<div id="accrating" class=" fontcolor1 fontlarge">Accuracy Rating:
+	<div id="accrating" class=" fontcolor1 fontlarge">Completeness:
 		<div>
-			<span id="accnumber">100</span>%
+			<span id="accnumber">0</span>%
 		</div>
 	</div>
 	<div id="gassystuff" class="font3 fontcolor1 fontmidsmall">
@@ -120,6 +120,7 @@
 			<li id="buildsel5">Medical Office</li>
 			<span id="buildlisttri" class="triangledown"></span>
 		</ul>
+
 		{{ Form::hidden('buildtype', 'Skool', $attributes = ['id' => 'hiddenstuff'])}}
 		{{-- alert if input failed validation: --}}
 		{{ $errors->first('buildtype', '<span class="alert"><br>:message<br></span>') }}
