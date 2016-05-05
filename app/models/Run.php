@@ -192,13 +192,6 @@ class Run extends BaseModel
 		$this->run = $tempArray;
 	}
 
-<<<<<<< HEAD
-		// saved sample for margot later
-	// public function path4()
-	// {
-	// 	Run::sendEmailTo($run->email);
-	// }
-
 	public function generatePDF(){
 		$pdf = App::make('dompdf');
 	// $pdf->loadHTML('<h1>margoober</h1>');
@@ -207,10 +200,6 @@ class Run extends BaseModel
 	}
 	public function sendEmailTo($email, $results){
 			Mail::send('emails.runresults', array('results'=>$results), function($message){
-=======
-	public function sendEmailTo($email){
-			Mail::send('emails.runresults', array('username'=>Input::get('username')), function($message){
->>>>>>> af089e69c82602740b632eb2703afb6387701bc1
 				$message->to(Input::get('email'))->subject('Your Wattbott Results');
 			});
 	}
