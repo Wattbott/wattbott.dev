@@ -98,9 +98,6 @@ body{
 	margin-left: auto;
 	margin-right: auto;
 }
-.font3{
-	font-family: "Roboto";
-}
 .formsegment{
 	position: relative;
 	display: flex;
@@ -267,7 +264,27 @@ input.coolformtext{
 	position: absolute;
 	right:10%;
 }
-.alert {
+<<<<<<< HEAD
+.submitbutton{
+	display: block;
+	text-align: center;
+	height:60px;
+	width:400px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+#ultralazy{
+	width:60%;
+	position: relative;
+	top:30px;
+}
+#ultralazy input{
+	border: 8px solid white;
+	border-radius: 24px;
+}
+
+.alert{
 	position: relative;
 	padding: 7px;
 	display: flex;

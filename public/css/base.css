@@ -4,6 +4,9 @@
 .fontcolor2{
 	color:white;
 }
+.fontbold{
+	font-weight: bold;
+}
 .fontlarge{
 	font-size: 48px;
 }
@@ -21,4 +24,7 @@
 }
 .fontright{
 	text-align: right;
+}
+.font3{
+	font-family: "Roboto";
 }
