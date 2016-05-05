@@ -267,3 +267,16 @@ input.coolformtext{
 	position: absolute;
 	right:10%;
 }
+.alert {
+	position: relative;
+	padding: 7px;
+	display: flex;
+	margin: 40px auto;
+	max-width: 30%;
+	position: absolute;
+	right:10%;
+	color: #FE4042;
+	font-style: italic;
+	font-size: 14px;
+	border-radius: 32px;
+}
