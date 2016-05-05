@@ -16,6 +16,7 @@ class RunsController extends BaseController {
 	}
 
 	public function store() {
+		
 		$run = new Run();
 		$validator = Validator::make(Input::all(), Run::$rules);
 		if ($validator->fails()) {
@@ -104,9 +105,27 @@ class RunsController extends BaseController {
 			dd($run->run['user_input']['email']);
 			// dd(Input::all());
 			// dd($run->run['user_input']['energy_data']);
+			$run->run = $tempArray;	
+			// $run = Run::find(4);
 
 			// check to see if the input has gas data
+			$run->hasEnergyData('elec');
 			$run->hasEnergyData('gas');
+			
+			// suppliment missing data
+			if (!empty($run->missing_months)) {
+				$run->replaceMonths();
+				$run->totalMonths();
+			} else if (!empty($run->run['user_input']['energy_data']['elec']['energy']['total'])){
+				$run->temp_energy_totals['elec']['energy'] = $run->run['user_input']['energy_data']['elec']['energy']['total'];
+				$run->temp_energy_totals['elec']['cost'] = $run->run['user_input']['energy_data']['elec']['cost']['total'];
+				$run->temp_energy_totals['gas']['energy'] = $run->run['user_input']['energy_data']['gas']['energy']['total'];
+				$run->temp_energy_totals['gas']['cost'] = $run->run['user_input']['energy_data']['gas']['cost']['total'];
+			} else {
+
+				// get median value from target finder
+				dd('get median values - this is broken, pre API');
+			}
 
 			// build API input
 			$run->apiInput();
@@ -125,18 +144,20 @@ class RunsController extends BaseController {
 			$run = Run::find($id);	
 		} 
 
-
 		// need to check if we should re-run this code or just show results... or maybe this is another route?
 		// API calls, results are set to api_output on $run->run
+		
+		// Build API output through api calls
 		$tempArray = $run->run;
 		$api = new Api();
 		$api->input = $tempArray['api_input'];
 		$tempArray['api_output']['pv']['ac_annual'] = $api->pv();
-		// $tempArray['api_output']['eui'] = $api->eui();
+		$tempArray['api_output']['eui'] = $api->eui();
 		$run->run = $tempArray;
 
-		// process API ouput
-		$run->apiOutput();
+		// create user output here
+		$run->userOuput();
+
 		$run->save();
 
 		return View::make('result')->with('run',$run);
