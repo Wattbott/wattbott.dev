@@ -97,6 +97,10 @@ class RunsController extends BaseController {
 			$tempArray['user_input']['energy_data']['gas']['energy']['units'] = Input::get('gastype');
 			$run->run = $tempArray;
 			$run->sendEmailTo($run->run['user_input']['email'], $run);
+			$pdf = App::make('dompdf');
+			// $pdf->loadHTML('<h1>margoober</h1>');
+			$pdf->loadHTML(View::make('pdftest')->render());
+	return $pdf->stream();
 			dd($run->run['user_input']['email']);
 			// dd(Input::all());
 			// dd($run->run['user_input']['energy_data']);

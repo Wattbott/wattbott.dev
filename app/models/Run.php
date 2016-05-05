@@ -156,6 +156,12 @@ class Run extends BaseModel
 	// 	Run::sendEmailTo($run->email);
 	// }
 
+	public function generatePDF(){
+		$pdf = App::make('dompdf');
+	// $pdf->loadHTML('<h1>margoober</h1>');
+		$pdf->loadHTML(View::make('runresults')->render());
+	return $pdf->stream();
+	}
 	public function sendEmailTo($email, $results){
 			Mail::send('emails.runresults', array('results'=>$results), function($message){
 				$message->to(Input::get('email'))->subject('Your Wattbott Results');
