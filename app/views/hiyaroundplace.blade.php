@@ -2,7 +2,7 @@
 
 @section('style')
 <link href='https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,900' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="/css/hiya.css">
+<link rel="stylesheet" href="/css/hello.css">
 @stop
 
 @section('content')
@@ -27,5 +27,5 @@
 @stop
 
 @section('scripts')
-<script type="text/javascript" src="/js/hiya.js"></script>
+<script type="text/javascript" src="/js/hello.js"></script>
 @stop
