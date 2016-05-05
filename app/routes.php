@@ -19,8 +19,14 @@ Route::post('/store', 'RunsController@store');
 Route::get('/show', 'RunsController@show');
 Route::get('/result{id}', 'RunsController@result');
 Route::get('/garbagetest', function() {
-
-	return View::make('garbagetest');
+	
+	$run2 = new Run();
+	$run2 = Run::find(1);
+	$run2->hasEnergyData('gas');
+	dd($run2->is_energy_data['gas']);
+	$run2->totalMonths();
+	return $run2->temp_energy_totals['elec'];
+	// return View::make('garbagetest',['run',$run]);
 });
 
 

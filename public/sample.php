@@ -10,10 +10,22 @@
 				']' => 12000,
 				'gross_roof_area' => 12000,
 				'energy_data' => [
-					'is_gas' => true,
 					'elec' => [
 						'cost' => [
-							'total' => 8000],
+							'total' => 8000,
+							'jan' => 665,
+							'feb' => 665,
+							'mar' => 665,
+							'apr' => 665,
+							'may' => 665,
+							'jun' => 675,
+							'jul' => 675,
+							'aug' => 665,
+							'sep' => 665,
+							'oct' => 665,
+							'nov' => 665,
+							'dec' => 665
+						],
 						'energy' => [
 							'total' =>  98500,
 							'jan' => 8208,
@@ -33,8 +45,20 @@
 					],
 					'gas' =>[
 						'cost' => [
-							'total' => 1152
-							],
+							'total' => 1152,
+							'jan' => 96,
+							'feb' => 96,
+							'mar' => 96,
+							'apr' => 96,
+							'may' => 96,
+							'jun' => 96,
+							'jul' => 96,
+							'aug' => 96,
+							'sep' => 96,
+							'oct' => 96,
+							'nov' => 96,
+							'dec' => 96
+						],
 						'energy' => [
 							'total' =>  1440,
 							'jan' => 120,

@@ -1,3 +1,9 @@
+
+<?php 	
+	var_dump($run->run['user_input']['energy_data']);
+	var_dump($run->run);
+?>
+
 @extends('layouts.master')
 @section('style')
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,900' rel='stylesheet' type='text/css'>

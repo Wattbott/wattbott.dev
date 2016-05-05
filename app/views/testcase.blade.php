@@ -23,7 +23,7 @@
 	<ul id="fakeselectC">
 		<div id="fsnumtres" class="fakeselectitem">
 		</div>
-		<li>kBTU's</li>
+		<li>kBTUs</li>
 		<li>Therms</li>
 		<li>cff</li>
 		<span id="buildlisttri" class="triangledown"></span>
@@ -36,7 +36,6 @@
 		'method' => 'POST',
 		"id" => "thisform"))}}
 <div id="formbody1" class="mainformbody">
-	<!--Don't Look-->
 	<div>
 		{{ Form::hidden('annualpower', 0, $attributes = ['id' => 'annualpower'])}}
 		{{ Form::hidden('annualpowercost', 0, $attributes = ['id' => 'annualpowercost'])}}
@@ -99,16 +98,18 @@
 		{{ $errors->first('email', '<span class="alert">:message<br></span>') }}
 	</div>
 	<div class="formsegment font3 fontmidlarge" id="zipseg">
-		{{ Form::label('zipcode', 'Zipcode', $attributes = [ 'class' => 'labeltext'])}}
+		{{ Form::label('zipcode', 'Zip Code', $attributes = [ 'class' => 'labeltext'])}}
 		{{ Form::text('zipcode', null, $attributes = ['class' => 'coolformtext font3 fontmidlarge', "id" => 'zipcode'])}}
 		{{-- alert if input failed validation: --}}
 		{{ $errors->first('zipcode', '<span class="alert">:message<br></span>') }}
-		</div>
-		<div class="formsegment font3 fontmidlarge" id="calcnameseg">
+	</div>
+	<div class="formsegment font3 fontmidlarge" id="calcnameseg">
 		{{ Form::label('calcname', 'Project Name', $attributes = [ 'class' => 'labeltext'])}}
 		{{ Form::text('calcname', null, $attributes = ['class' => 'coolformtext font3 fontmidlarge', 'id' => 'calcname'])}}
-		</div>
-		<div class="formsegment font3 fontmidlarge" id="buildnameseg">
+		{{-- alert if input failed validation: --}}
+		{{ $errors->first('calcname', '<span class="alert">:message<br></span>') }}
+	</div>
+	<div class="formsegment font3 fontmidlarge" id="buildnameseg">
 		{{Form::label('buildtype', 'Building Type', $attributes = [ 'class' => 'labeltext'])}}
 		<ul id="fakeselect">
 			<div id="fsnumone" class="fakeselectitem"></div>
@@ -119,31 +120,34 @@
 			<li id="buildsel5">Medical Office</li>
 			<span id="buildlisttri" class="triangledown"></span>
 		</ul>
-		{{ Form::hidden('buildtype', 'School', $attributes = ['id' => 'hiddenstuff'])}}
-		</div>
-		<div class="formsegment font3 fontmidlarge" id="ewwgrossseg">
-			{{ Form::label('grossfloorarea', 'Gross Floor Area', $attributes = [ 'class' => 'labeltext']) }}
-			{{ Form::text('grossfloorarea', null, $attributes = ['class' => 'coolformtext font3 fontmidlarge', 'id' => 'grossfloorarea'])}}
-		</div>
-		<div class="formsegment foscheck font3 fontmidlarge" id="grosscheckseg">
-				<span class="fontcolor1 fontmid easymargin">Is roof size not the same as floor size?</span>
-				<div class="fakecheck" id="check0">
-					<div class="checkback">
-					</div>
-				</div>
-		</div>
-		<div class="formsegment foscheck font3 fontmidlarge" id="grosscheckseg">
-				<span class="fontcolor1 fontmid easymargin">Do You Have Your Utility Bills?</span>
-				<div class="fakecheck" id="check1">
-					<div class="checkback">
-					</div>
-				</div>
+
+		{{ Form::hidden('buildtype', 'Skool', $attributes = ['id' => 'hiddenstuff'])}}
+		{{-- alert if input failed validation: --}}
+		{{ $errors->first('buildtype', '<span class="alert"><br>:message<br></span>') }}
+	</div>
+	<div class="formsegment font3 fontmidlarge" id="ewwgrossseg">
+		{{ Form::label('grossfloorarea', 'Gross Floor Area', $attributes = [ 'class' => 'labeltext']) }}
+		{{ Form::text('grossfloorarea', null, $attributes = ['class' => 'coolformtext font3 fontmidlarge', 'id' => 'grossfloorarea'])}}
+		{{-- alert if input failed validation: --}}
+		{{ $errors->first('grossfloorarea', '<span class="alert">:message<br></span>') }}
+	</div>
+	<div class="formsegment foscheck font3 fontmidlarge" id="grosscheckseg">
+		<span class="fontcolor1 fontmid easymargin">Is roof area different from floor area?</span>
+		<div class="fakecheck" id="check0">
+			<div class="checkback">
+			</div>
 		</div>
 	</div>
-	<div id="ultralazy">
-		{{ Form::submit('Let\'s Do Some Magic!',$attributes = ['class' => 'submitbutton font3 fontmid']) }}
-		{{ Form::close() }}
+	<div class="formsegment foscheck font3 fontmidlarge" id="grosscheckseg">
+		<span class="fontcolor1 fontmid easymargin">Do You Have Your Utility Bills?</span>
+		<div class="fakecheck" id="check1">
+			<div class="checkback">
+			</div>
+		</div>
 	</div>
+</div>
+{{ Form::submit('submit',$attributes = ['class' => 'submitbutton']) }}
+{{ Form::close() }}
 @stop
 
 @section('scripts')
