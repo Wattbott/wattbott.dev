@@ -27,6 +27,13 @@ Route::get('/garbagetest', function() {
 	$request = $api1->eui();
 	return View::make('garbagetest')->with('junk',$request);
 });
+Route::get('/pdftest', function(){
+	$pdf = App::make('dompdf');
+	// $pdf->loadHTML('<h1>margoober</h1>');
+	$pdf->loadHTML(View::make('pdftest')->render());
+	return $pdf->stream();
+	// return View::make('pdftest');
+});
 
 
 

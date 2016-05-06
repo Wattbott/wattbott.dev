@@ -8,8 +8,6 @@
 		"laravel/framework": "4.2.*",
 		"toin0u/geocoder-laravel": "0.4.*@dev",
 		"barryvdh/laravel-dompdf": "0.4.*"
-
-
 	},
 	"autoload": {
 		"classmap": [

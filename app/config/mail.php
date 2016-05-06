@@ -1,5 +1,4 @@
 <?php
-
 return array(
 
 	/*
@@ -54,7 +53,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'wattbott@wattbott.com', 'name' => 'Bobby Wobby Wattbott'),
+	'from' => array('address' => 'wendywattbott@gmail.com', 'name' => 'Wendy Wattbott'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +79,7 @@ return array(
 	|
 	*/
 
-	'username' => 'amcmahon@nes.ru',
+	'username' => 'wendywattbott@gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +92,7 @@ return array(
 	|
 	*/
 
-	'password' => null,
+	'password' => $_ENV["EMAIL_PASSWORD"],
 
 	/*
 	|--------------------------------------------------------------------------

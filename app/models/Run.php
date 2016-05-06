@@ -154,6 +154,7 @@ class Run extends BaseModel
 
 	public function userOuput()
 	{
+
 		$tempArray = $this->run;
 		// EUI
 
@@ -192,9 +193,20 @@ class Run extends BaseModel
 		$this->run = $tempArray;
 	}
 
-	public function sendEmailTo($email){
-			Mail::send('emails.runresults', array('username'=>Input::get('username')), function($message){
-				$message->to(Input::get('email'))->subject('Your Wattbott Results');
-			});
+	public function savePDF($pathName){
+		$data = ['run' => $this];
+		$pdf = PDF::loadView('pdf', $data);
+		return $pdf->save($pathName);
+	}
+
+	public function sendEmailTo($email, $results){
+		$pathName = storage_path().'/pdf/' . preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '', $this->run['user_input']['run_name'])) . time() . '.pdf';
+		$this->savePDF($pathName);
+
+		Mail::send('emails.runresults', array('results'=>$results), function($message) use ($pathName) {
+			$message->to(Input::get('email'))->subject('Your Wattbott Results');
+			$message->attach($pathName);
+		});
+	dd('email sent!');
 	}
 }

@@ -124,6 +124,7 @@ return array(
 		'Toin0u\Geocoder\GeocoderServiceProvider',
 		'Barryvdh\DomPDF\ServiceProvider',
 
+
 	),
 
 	/*
