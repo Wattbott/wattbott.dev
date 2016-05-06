@@ -20,19 +20,12 @@ Route::get('/show', 'RunsController@show');
 Route::get('/result{id}', 'RunsController@result');
 Route::get('/garbagetest', function() {
 	
-	$run3 = new Run();
-	$run3 = Run::find(1);
-	// $run3->hasEnergyData('gas');
-	// $run3->hasEnergyData('elec');
-	// $run3->totalMonths();
-	// $run3->replaceMonths();
-	dd($run3->run);
-	dd($run3->missing_months);
-	dd($run3->is_energy_data); 
-	dd($run3->run['user_input']['energy_data']);
-	$run2->totalMonths();
-	return $run3->temp_energy_totals['elec'];
-	// return View::make('garbagetest',['run',$run]);
+	$run1 = new Run();
+	$run1 = Run::find(1);
+	$api1 = new Api();
+	$api1->inputs = $run1->run['api_input'];
+	$request = $api1->eui();
+	return View::make('garbagetest')->with('junk',$request);
 });
 Route::get('/pdftest', function(){
 	$pdf = App::make('dompdf');
