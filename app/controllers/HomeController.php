@@ -16,7 +16,7 @@ class HomeController extends BaseController {
 	*/
 	public function hiya()
 	{
-		return View::make('hiyaroundplace');
+		return View::make('hello');
 	}
 	public function testForm()
 	{
