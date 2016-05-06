@@ -207,6 +207,5 @@ class Run extends BaseModel
 			$message->to(Input::get('email'))->subject('Your Wattbott Results');
 			$message->attach($pathName);
 		});
-	dd('email sent!');
 	}
 }
