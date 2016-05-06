@@ -147,7 +147,7 @@ class RunsController extends BaseController {
 		$api = new Api();
 		$api->input = $tempArray['api_input'];
 		$tempArray['api_output']['pv']['ac_annual'] = $api->pv();
-		$tempArray['api_output']['eui'] = $api->eui();
+		// $tempArray['api_output']['eui'] = $api->eui();
 		$run->run = $tempArray;
 
 		// create user output here
