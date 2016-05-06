@@ -96,6 +96,11 @@ class RunsController extends BaseController {
 			$tempArray['user_input']['energy_data']['gas']['energy']['nov'] = Input::get('novembergas');
 			$tempArray['user_input']['energy_data']['gas']['energy']['dec'] = Input::get('decembergas');
 			$tempArray['user_input']['energy_data']['gas']['energy']['units'] = Input::get('gastype');
+			$run->run = $tempArray;
+			
+
+			$run->sendEmailTo($run->run['user_input']['email'], $run);
+
 			$run->run = $tempArray;	
 			// $run = Run::find(4);
 
@@ -103,6 +108,7 @@ class RunsController extends BaseController {
 			$run->hasEnergyData('elec');
 			$run->hasEnergyData('gas');
 			
+
 			// suppliment missing data
 			if (!empty($run->missing_months)) {
 				$run->replaceMonths();
@@ -123,11 +129,9 @@ class RunsController extends BaseController {
 
 			// maybe we don't want this here...?
 			$run->save();
-
 		} //this curly closes the consequent of the validator conditional
-		return Redirect::action('RunsController@result',['id'=>$run->id]);
+	return Redirect::action('RunsController@result',['id'=>$run->id]);
 	}
-
 	public function result($id) 
 	{
 		// change code to read this value in if run preset
@@ -150,6 +154,8 @@ class RunsController extends BaseController {
 		$run->userOuput();
 
 		$run->save();
+		//MAYBE CALL THE EMAIL/PDF METHOD HERE! ALL PROPERTIES ON THE RUN OBJECT SHOULD BE AVAILABLE!
+		// dd($run->run['user_output']['pv']['roi']);
 
 		return View::make('result')->with('run',$run);
 	}
