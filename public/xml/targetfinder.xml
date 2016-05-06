@@ -1,0 +1,39 @@
+<targetFinder>
+    <propertyInfo>
+        <name>TARGET FINDER</name>
+        <address address1="5300 Richmond Road" city="Bedford Heights"
+                 postalCode="22031" state="OH" country="US"/>
+        <numberOfBuildings>1</numberOfBuildings>
+        <primaryFunction>K-12 School</primaryFunction>
+        <plannedConstructionCompletionYear>2016</plannedConstructionCompletionYear>
+        <grossFloorArea units="Square Feet" temporary="false">
+            <value>10000</value>
+        </grossFloorArea>
+    </propertyInfo>
+    <propertyUses>
+        <k12School>
+            <name>Broadway School</name>
+            <useDetails>
+                <totalGrossFloorArea units="Square Feet">
+                    <value>10000</value>
+                </totalGrossFloorArea>
+            </useDetails>
+        </k12School>
+    </propertyUses>
+    <estimatedEnergyList>
+        <entries>
+            <designEntry>
+                <energyType>Electric</energyType>
+                <energyUnit>MBtu (million Btu)</energyUnit>
+                <estimatedAnnualEnergyUsage>1</estimatedAnnualEnergyUsage>
+                <energyRateCost>1</energyRateCost>
+                <energyRateCostUnit>MBtu (million Btu)</energyRateCostUnit>
+            </designEntry>
+        </entries>
+    </estimatedEnergyList>
+    <target>
+        <targetTypeScore>
+            <value>50</value>
+        </targetTypeScore>
+    </target>
+</targetFinder>
