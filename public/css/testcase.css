@@ -3,13 +3,12 @@ body{
 	background-color: #00b0f0;
 }
 .mainformbody{
-	background-color: #f1d8d8;
+	background-color: #00b0f0;
 	z-index: 1;
 	position: relative;
 	margin-top: 100px;
 	width:50%;
 	left:5%;
-	border: 8px solid white;
 	border-radius: 32px;
 }
 .sideformbody{
@@ -24,10 +23,18 @@ body{
 	border-left: 8px solid white;
 }
 #enter{
-	background-color: green;
+	background-color: #f79646;
+	font-family: "Roboto";
+	font-size: 32px;
+	font-weight: 300;
+	text-align: center;
 	width:25%;
 	height: 48px;
 	border-radius: 32px;
+	color:white;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
 }
 #gassystuff{
 	top:15%;
@@ -117,7 +124,7 @@ input.coolformtext{
 	overflow: hidden;
 }
 .labeltext{
-	color: #7f7f7f;
+	color: #ffffff;
 	text-align: center;
 	width:auto+20px;
 }
@@ -239,7 +246,7 @@ input.coolformtext{
 	border-top: 15px solid black;
 }
 .fontcolor1{
-	color:#7f7f7f;
+	color:#ffffff;
 }
 .easymargin{
 	margin-right: 40px;
@@ -264,7 +271,6 @@ input.coolformtext{
 	position: absolute;
 	right:10%;
 }
-<<<<<<< HEAD
 .submitbutton{
 	display: block;
 	text-align: center;
