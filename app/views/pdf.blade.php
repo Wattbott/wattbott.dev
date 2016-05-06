@@ -5,10 +5,10 @@ $data = $run->run;
 <html>
 <head>
 	<title></title>
-{{-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> --}}
+	<link rel="stylesheet" type="text/css" href="css/pdf.css">
 </head>
 <body>
-	<title></title>
+	<div id="content">
 	<table>
 		<tr>
 			<td>
@@ -26,7 +26,7 @@ $data = $run->run;
 	</table>
 	<h1><strong>Wattbott Results</strong><br><small><em>for {{ strtolower($data['user_input']['run_name']) }}</em></small></h1>
 	<h2>Building Specs</h2>
-	<table class="table table-striped" style="width:20%">
+	<table id="inputTable">
 		<tr>
 			<td>Project name:</td>
 			<td><em>{{ $data['user_input']['run_name'] }}</em></td>
@@ -45,10 +45,10 @@ $data = $run->run;
 		</tr>
 	</table>
 	<h2>Results</h2>
-	<table class="table table-striped" style="width:20%">
+	<table id="outputTable">
 		<tr>
 			<td>PhotoVoltaic Installation ROI:</td>
-			<td><em>{{ $data['user_output']['pv']['roi'] }}</em></td>
+			<td><em>fubbles</em></td>
 		</tr>
 		<tr>
 			<td>Zip Code:</td>
@@ -63,5 +63,6 @@ $data = $run->run;
 			<td>{{ $data['user_input']['gross_roof_area'] }}</td>
 		</tr>
 	</table>
+	</div>
 </body>
 </html>

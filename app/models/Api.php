@@ -60,7 +60,6 @@ class Api extends Eloquent {
     	// build xml request with object
     	$filename = public_path() . "/xml/targetfinder.xml";
 		$query = simplexml_load_file($filename);
-		dd($query);
 		$xml_query = $query->asXML();
 		
 		// set variables for curl http request
