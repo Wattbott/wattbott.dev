@@ -66,6 +66,23 @@
 		<div id="schoolroof" class="building"><div id="schooltop"></div></div>
 	</div>
 </div>
+<main>
+	<div class="cooltextcontainer font3 fontcolor2">
+		<p class="fontcenter fontlarge">The One Place to Find Your Engery Usage</p>
+		<p class="fontmid"> Hiya! We here at Wattbott are dedicated to making sure that your best laid plans are up to snuff when it comes to possible energy usage. We offer a convinient and easy form that:</p>
+		<ul class="fontmidsmall">
+			<li>
+				<p>Measures your annual energy usage and costs.</p>
+				<div class="fakebargraph">
+					<div class="barone"></div>
+					<div class="bartwo"></div>
+				</div>
+			</li>
+			<li>Compares those costs to other similar buildings.</li>
+			<li>And finds a way to save you money through environmentally friendly solutions!</li>
+		</ul>
+	</div>
+</main>
 <a href="{{{action('HomeController@testForm')}}}"><div class="buttonlink font3"><p>Start Your Journey Here</p></div></a>
 @stop
 

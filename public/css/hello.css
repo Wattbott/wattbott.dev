@@ -361,3 +361,33 @@ a .buttonlink, a{
 	top:39px;
 	background-color: yellow;
 }
+/* Actual Stuff */
+.cooltextcontainer{
+	width:60%;
+	position: relative;
+	margin-left: auto;
+	margin-right:auto;
+	text-align: center;
+}
+.cooltextcontainer li{
+	list-style-type: none;
+	text-align: left;
+}
+.fakebargraph{
+	width:50%;
+	height:100px;
+	border: 4px solid white;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+.barone{
+	height:50px;
+	width:80%;
+	background-color: green;
+}
+.bartwo{
+	height: 50px;
+	width:30%;
+	background-color: #f79646;
+}
