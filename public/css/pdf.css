@@ -26,11 +26,9 @@ body {
 }
 
 table {
-	width:40%;
+	width:80%;
+	border: 1px;
 }
-
-td:nth-child(even) {background: #CCC}
-td:nth-child(odd) {background: #FFF}
 	
 a:link, 
 a:visited { 
@@ -48,4 +46,41 @@ a:visited {
 	
 #content a[href^="/"]:after { 
 	content: " (http://www.alistapart.com" attr(href) ") "; 
+}
+
+
+
+/*premade table*/
+.datagrid table {
+	border-collapse: collapse;
+	text-align: left;
+	width: 100%;
+}
+.datagrid {
+	font: normal 12px/150% Arial, Helvetica, sans-serif;
+	background: #fff;
+	overflow: hidden;
+	border: 10px solid #00B0F0;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	}
+.datagrid table td, .datagrid table th {
+	padding: 12px 14px;
+}
+
+.datagrid table tbody td {
+	color: #00496B;
+	font-size: 12px;
+	font-weight: normal;
+}
+.datagrid table tbody .alt td {
+	background: #F1D8D8;
+	color: #00496B;
+}
+.datagrid table tbody td:first-child {
+	border-left: none;
+}
+.datagrid table tbody tr:last-child td {
+	border-bottom: none;
 }

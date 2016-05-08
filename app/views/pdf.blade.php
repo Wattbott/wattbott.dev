@@ -24,45 +24,48 @@ $data = $run->run;
 			</td>
 		</tr>
 	</table>
-	<h1><strong>Wattbott Results</strong><br><small><em>for {{ strtolower($data['user_input']['run_name']) }}</em></small></h1>
-	<h2>Building Specs</h2>
-	<table id="inputTable">
-		<tr>
-			<td>Project name:</td>
-			<td><em>{{ $data['user_input']['run_name'] }}</em></td>
-		</tr>
-		<tr>
-			<td>Zip Code:</td>
-			<td>{{ $data['user_input']['zipcode'] }}</td>
-		</tr>
-		<tr>
-			<td>Building Type:</td>
-			<td>{{ $data['user_input']['bldg_type'] }}</td>
-		</tr>
-		<tr>
-			<td>Gross Roof Area:</td>
-			<td>{{ $data['user_input']['gross_roof_area'] }}</td>
-		</tr>
-	</table>
-	<h2>Results</h2>
-	<table id="outputTable">
-		<tr>
-			<td>PhotoVoltaic Installation ROI:</td>
-			<td><em>fubbles</em></td>
-		</tr>
-		<tr>
-			<td>Zip Code:</td>
-			<td>{{ $data['user_input']['zipcode'] }}</td>
-		</tr>
-		<tr>
-			<td>Building Type:</td>
-			<td>{{ $data['user_input']['bldg_type'] }}</td>
-		</tr>
-		<tr>
-			<td>Gross Roof Area:</td>
-			<td>{{ $data['user_input']['gross_roof_area'] }}</td>
-		</tr>
-	</table>
+	<h1><strong>Wattbott Results</strong>
+		<br>
+		<small><em>{{ strtolower($data['user_input']['run_name']) }}</em></small>
+	</h1>
+	<h3>
+		<em>{{ $data['user_input']['gross_roof_area'] }} sq ft {{strtolower($data['user_input']['bldg_type']) }}<em>
+	</h3>
+	<div class="datagrid">
+		<table>
+			<tbody>
+				<tr>
+					<td>data</td>
+					<td>data</td>
+					<td>data</td>
+					<td>data</td>
+				</tr>
+				<tr class="alt">
+					<td>data</td>
+					<td>data</td>
+					<td>data</td>
+					<td>data</td>
+				</tr>
+				<tr>
+					<td>data</td>
+					<td>data</td>
+					<td>data</td>
+					<td>data</td>
+				</tr>
+				<tr class="alt">
+					<td>data</td>
+					<td>data</td>
+					<td>data</td>
+					<td>data</td>
+				</tr>
+				<tr>
+					<td>data</td>
+					<td>data</td>
+					<td>data</td>
+					<td>data</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </body>
 </html>
