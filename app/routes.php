@@ -14,17 +14,17 @@
 
 Route::get('/', 'HomeController@hiya');
 Route::get('/form', 'HomeController@testForm');
-
 Route::post('/store', 'RunsController@store');
 Route::get('/show', 'RunsController@show');
 Route::get('/result{id}', 'RunsController@result');
 Route::get('/garbagetest', function() {
 	
 	$run1 = new Run();
-	$run1 = Run::find(1);
+	$run1 = Run::find(9);
 	$api1 = new Api();
-	$api1->inputs = $run1->run['api_input'];
+	$api1->input = $run1->run['api_input'];
 	$request = $api1->eui();
+
 	return View::make('garbagetest')->with('junk',$request);
 });
 Route::get('/pdftest', function(){

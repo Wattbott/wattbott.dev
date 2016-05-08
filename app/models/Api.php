@@ -7,20 +7,27 @@ class Api extends Eloquent {
 
     public static function setLocation($zipcode)
     {
+		// get additional location info from zipcode
+		// gecode is a php framework that accesses other spatial data apis
 		$results = [];
 		$geocode = Geocoder::geocode($zipcode);
-		$results['lat']= $geocode->getLatitude();
-		$results['lon']= $geocode->getLongitude();
-		$results['state'] = $geocode->getRegion();
-		$results['country'] = $geocode->getCountry();
+		if (!empty($geocode->getLatitude())) {
+			$results['lat']= $geocode->getLatitude();
+			$results['lon']= $geocode->getLongitude();
+			$results['city'] = $geocode->getCity();
+			$results['state'] = $geocode->getRegionCode();
+			$results['country'] = $geocode->getCountryCode();
+		} else {
+			$results = false;
+			Log::error('geocoder failed');
+		}
 		return $results;
-   
     }
+
     public function pv()
     {	
-		$ch = curl_init();
     	
-		// query builder
+		// query string builder
 		$query = [
 		    "api_key"=> $_ENV['PV_PVwatts_APIkey'],
 		    "system_capacity" => $this->input['system_capacity'],
@@ -35,6 +42,7 @@ class Api extends Eloquent {
 		$url_pv = static::$url_pv . http_build_query($query);
 
     	// set variables for curl http request
+		$ch = curl_init();
     	$options = [
     		CURLOPT_URL => $url_pv,
     		CURLOPT_FAILONERROR => true,
@@ -47,22 +55,26 @@ class Api extends Eloquent {
 		$result = curl_exec($ch);
 		$info = curl_getinfo($ch);
 		$error = curl_error($ch);
-		$errno = curl_errno($ch);
 
 		//close connection
 		curl_close($ch);
-		$result = json_decode($result,true);
-		return $result['outputs']['ac_annual'];
+		
+
+		if (!$error) {
+			$result = json_decode($result,true);
+			$result = $result['outputs']['ac_annual'];
+		} else {
+			$result = false;
+			Log::error('api pv:' . $error);
+		}
+		return $result;
     }
 
     public function eui()
     {
-    	// build xml request with object
-    	$filename = public_path() . "/xml/targetfinder.xml";
-		$query = simplexml_load_file($filename);
-		// return $query;
-		$xml_query = $query->asXML();
-		
+		// xml query body builder from targetfinder view saved in views folder
+		$xml_query = View::make('targetfinder',['input'=>$this->input])->render();
+
 		// set variables for curl http request
 		$ch = curl_init();
 		$options = [
@@ -83,18 +95,20 @@ class Api extends Eloquent {
 		// info and error catching on response
 		$info = curl_getinfo($ch);
 		$error = curl_error($ch);
-
-
 		//close connection
 		curl_close($ch);
 
-    	$result = [
-			'design_site_intensity' => $response->metric[11],
-			'design_energy_cost' => $response->metric[17],
-			'median_site_intensity' => $response->metric[1],
-			'median_energy_cost' => $response->metric[7],
-		];
-	
+		if (!$error) {
+	    	$result = [
+				'design_site_intensity' => (string)$response->metric[11]->value,
+				'design_energy_cost' => (string)$response->metric[17]->value,
+				'median_site_intensity' => (string)$response->metric[1]->value,
+				'median_energy_cost' => (string)$response->metric[7]->value,
+			];
+		} else {
+			$result = false;
+			Log::error('api eui:' . $error);
+		}
 		return $result;
     }
 
