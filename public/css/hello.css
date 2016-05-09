@@ -10,6 +10,40 @@ html, body{
 	text-align: center;
 	color:white;
 }
+#createdBy {
+	font-family: "Roboto";
+	font-weight: 100;
+	font-size: 5vw;
+	width:100%;
+	color:white;
+}
+
+#aboutTable {
+	margin: 0 auto;
+	border: 1px solid white;
+	width: 700px;
+	font-family: "Roboto";
+	color: white;
+	text-align: center;
+}
+
+#aboutTable table {
+	margin: 0 auto;
+}
+
+#aboutTable td {
+	margin: 0 auto;
+	border: 1px solid white;
+}
+
+.headshot {
+	width: 200px;
+	height: auto;
+}
+.headshotDiv {
+	text-align: center;
+}
+
 #title div{
 	display: inline-block;
 	position: absolute;

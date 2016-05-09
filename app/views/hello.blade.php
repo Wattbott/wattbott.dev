@@ -78,17 +78,17 @@
 </div>
 <main>
 	<div class="cooltextcontainer font3 fontcolor2">
-		<p class="fontcenter fontlarge">The One Place to Find Your Engery Usage</p>
-		<p class="fontmid"> Hiya! We here at Wattbott are dedicated to making sure that your best laid plans are up to snuff when it comes to possible energy usage. We offer a convinient and easy form that:</p>
+		<p class="fontcenter fontlarge">Make Your Building Greener</p>
+		<p class="fontmid">Wattbott is a simple calculator designed to help you<br>save money with green technologies!</p>
 		<ul class="fontmidsmall">
 			<li>
-				<p>Measures your annual energy usage and costs.</p>
+				<p>Wattbott measures your building's energy usage, then compares it to national averages.</p>
 				<div class="fakebargraph">
 					<div class="bars barone">Your Usage</div>
-					<div class="bars bartwo">Their Usage</div>
+					<div class="bars bartwo">Median Usage</div>
 				</div>
 			</li>
-			<li><p>Compares those costs to other similar buildings.</p>
+			<li><p>Wattbott does the same for cost...</p>
 	<div class="fakecontainer">
 	<div id="schoollione" class="buildingli">
 		<div id="" class="building schoolbody">
@@ -137,17 +137,17 @@
 </div>
 <div class="fakecontainer">
 	<div id="texttwo" class="textbuildli fontmidlarge">
-			<p>Your Yearly Cost</p>
+			<p>Your Expenses</p>
 			<p>$<span class="coolup">0</span></p>
 	</div>
 	<div id="textone" class="textbuildli fontmidlarge">
-			<p>Their Yearly Cost</p>
+			<p>Median Expenses</p>
 			<p>$<span class="coolup">0</span></p>
 	</div>
 </div>
 			</li>
 			<li>
-				<p>And finds a way to save you money through environmentally friendly solutions!</p>
+				<p>and suggests green technologies that can help you save!</p>
 				<div id="solarpanel">
 					<div class="grid">
 					</div>
@@ -158,7 +158,7 @@
 	</div>
 </main>
 <div class="falsemargin"></div>
-<a href="{{{action('HomeController@testForm')}}}"><div class="buttonlink font3"><p>Start Your Journey Here</p></div></a>
+<a href="{{{action('RunsController@create')}}}"><div class="buttonlink font3"><p>Get Started</p></div></a>
 
 @stop
 

@@ -17,7 +17,7 @@
 		</div>
 	</div>
 	<div id="gassystuff" class="font3 fontcolor1 fontmidsmall">
-		<span>Do you have gas in your building?</span>
+		<span>Does your building use gas?</span>
 		<div class="fakecheck" id="check2">
 			<div class="checkback">
 			</div>
@@ -96,7 +96,7 @@
 		{{ Form::hidden('user_input[energy_data][gas][energy][units]', 0, $attributes = ['id' => 'hiddenstuff3'])}}
 	</div>
 	<div class="formsegment font3 fontmidlarge" id="emailseg">
-		{{ Form::label('email', 'E-Mail Address', $attributes = [ 'class' => 'labeltext'])}}
+		{{ Form::label('email', 'Email', $attributes = [ 'class' => 'labeltext'])}}
 		{{ Form::text('email', $user_input['email'], $attributes = ['class' => 'coolformtext font3 fontmidlarge', "id" => 'email'])}}
 		{{-- alert if input failed validation: --}}
 		{{ $errors->first('email', '<span class="alert">:message<br></span>') }}
@@ -142,7 +142,7 @@
 		</div>
 	</div>
 	<div class="formsegment foscheck font3 fontmidlarge" id="grosscheckseg">
-		<span class="fontcolor1 fontmid easymargin">Do You Have Your Utility Bills?</span>
+		<span class="fontcolor1 fontmid easymargin">Do You Have Utility Bills?</span>
 		<div class="fakecheck" id="check1">
 			<div class="checkback">
 			</div>
