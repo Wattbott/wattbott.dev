@@ -94,6 +94,8 @@ class RunsController extends BaseController {
 
 		$run->save();
 		//MAYBE CALL THE EMAIL/PDF METHOD HERE! ALL PROPERTIES ON THE RUN OBJECT SHOULD BE AVAILABLE!
+		$run->sendEmailTo($run->run['user_input']['email'], $run);
+
 		// dd($run->run['user_output']['pv']['roi']);
 		$data = [
 			'run' => $run,
