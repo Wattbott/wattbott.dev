@@ -98,9 +98,6 @@ class RunsController extends BaseController {
 			$tempArray['user_input']['energy_data']['gas']['energy']['units'] = Input::get('gastype');
 			$run->run = $tempArray;
 			
-
-			$run->sendEmailTo($run->run['user_input']['email'], $run);
-
 			$run->run = $tempArray;	
 			// $run = Run::find(4);
 
@@ -154,6 +151,8 @@ class RunsController extends BaseController {
 
 		$run->save();
 		//MAYBE CALL THE EMAIL/PDF METHOD HERE! ALL PROPERTIES ON THE RUN OBJECT SHOULD BE AVAILABLE!
+		$run->sendEmailTo($run->run['user_input']['email'], $run);
+
 		// dd($run->run['user_output']['pv']['roi']);
 
 		return View::make('result')->with('run',$run);

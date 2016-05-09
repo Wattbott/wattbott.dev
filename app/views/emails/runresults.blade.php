@@ -12,6 +12,8 @@
 </body>
 </html> --}}
 
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
@@ -218,13 +220,12 @@ a[x-apple-data-detectors] {
     left: 0 !important;
   }
 }
+
 </style>
     
-  <!--[if !mso]><!-->
-<style type="text/css">
+  <!--[if !mso]><!--><style type="text/css">
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400);
-</style>
-<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400" rel="stylesheet" type="text/css"><!--<![endif]--><style type="text/css">
+</style><link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400" rel="stylesheet" type="text/css"><!--<![endif]--><style type="text/css">
 body,.wrapper{background-color:#f5f7fa}.wrapper h1{color:#00b0f0;font-size:26px;line-height:34px}.wrapper h1{}.wrapper h1{font-family:Lato,Tahoma,sans-serif}.mso .wrapper h1{font-family:Tahoma,sans-serif !important}.wrapper h2{color:#00b0f0;font-size:20px;line-height:28px}.wrapper h2{}.wrapper h2{font-family:Lato,Tahoma,sans-serif}.mso .wrapper h2{font-family:Tahoma,sans-serif !important}.wrapper h3{color:#434547;font-size:16px;line-height:24px}.wrapper a{color:#5c91ad}.wrapper a:hover{color:#375a6c !important}@media only screen and (max-width: 620px){.wrapper h1{}.wrapper h1{font-size:22px;line-height:31px}.wrapper h2{}.wrapper h2{font-size:17px;line-height:26px}.wrapper h3{}.wrapper p{}}.column,.column__background td{color:#60666d;font-size:14px;line-height:21px}.column,.column__background td{font-family:"Open Sans",sans-serif}.mso .column,.mso .column__background 
 td{font-family:sans-serif !important}.border{background-color:#b1c1d8}.layout--no-gutter.layout--has-border:not(.layout--full-width),.layout--has-gutter.layout--has-border .column__background,.layout--full-width.layout--has-border{border-top:1px solid #b1c1d8;border-bottom:1px solid #b1c1d8}.wrapper blockquote{border-left:4px solid #b1c1d8}.divider{background-color:#b1c1d8}.wrapper .btn a{color:#fff}.wrapper .btn a{font-family:"Open Sans",sans-serif}.mso .wrapper .btn a{font-family:sans-serif !important}.wrapper .btn a:hover{color:#fff !important}.btn--flat a,.btn--shadow a,.btn--depth a{background-color:#5c91ad}.btn--ghost a{border:1px solid #5c91ad}.preheader--inline,.footer__left{color:#b9b9b9}.preheader--inline,.footer__left{font-family:"Open Sans",sans-serif}.mso .preheader--inline,.mso .footer__left{font-family:sans-serif !important}.wrapper .preheader--inline a,.wrapper 
 .footer__left a{color:#b9b9b9}.wrapper .preheader--inline a:hover,.wrapper .footer__left a:hover{color:#b9b9b9 !important}.header__logo{color:#c3ced9}.header__logo{font-family:Roboto,Tahoma,sans-serif}.mso .header__logo{font-family:Tahoma,sans-serif !important}.wrapper .header__logo a{color:#c3ced9}.wrapper .header__logo a:hover{color:#859bb1 !important}.footer__share-button{background-color:#7b7c7d}.footer__share-button{font-family:"Open Sans",sans-serif}.mso .footer__share-button{font-family:sans-serif !important}.layout__separator--inline{font-size:20px;line-height:20px;mso-line-height-rule:exactly}
@@ -253,6 +254,20 @@ td{font-family:sans-serif !important}.border{background-color:#b1c1d8}.layout--n
         <tbody><tr>
           <td class="column" style='padding: 0;text-align: left;vertical-align: top;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Open Sans",sans-serif;width: 600px;'>
     
+        <div class="image" style="font-size: 12px;font-style: normal;font-weight: 400;" align="center">
+          <img class="gnd-corner-image gnd-corner-image-center gnd-corner-image-top gnd-corner-image-bottom" style="display: block;border: 0;max-width: 783px;" src="https://i1.createsend1.com/ei/d/30/05F/C3C/222853/csfinal/wattbottheader1.png" alt="" width="600" height="121">
+        </div>
+      
+          </td>
+        </tr>
+      </tbody></table>
+  
+      <div style="font-size: 20px;line-height: 20px;mso-line-height-rule: exactly;">&nbsp;</div>
+    
+      <table class="layout layout--no-gutter" style="border-collapse: collapse;table-layout: fixed;Margin-left: auto;Margin-right: auto;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;" align="center" emb-background-style>
+        <tbody><tr>
+          <td class="column" style='padding: 0;text-align: left;vertical-align: top;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Open Sans",sans-serif;width: 600px;'>
+    
             <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 24px;">
       <div style="line-height:10px;font-size:1px">&nbsp;</div>
     </div>
@@ -270,7 +285,7 @@ td{font-family:sans-serif !important}.border{background-color:#b1c1d8}.layout--n
           <td class="column" style='padding: 0;text-align: left;vertical-align: top;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Open Sans",sans-serif;width: 200px;'>
       
         <div class="image" style="font-size: 12px;font-style: normal;font-weight: 400;" align="center">
-          <img style="display: block;border: 0;max-width: 158px;" src="https://i1.createsend1.com/ei/d/30/05F/C3C/074636/csfinal/wattbott1.png" alt="" width="158" height="163">
+          <img style="display: block;border: 0;max-width: 158px;" src="https://i2.createsend1.com/ei/d/30/05F/C3C/222853/csfinal/wattbott1.png" alt="" width="158" height="163">
         </div>
       
           </td>
@@ -294,10 +309,28 @@ td{font-family:sans-serif !important}.border{background-color:#b1c1d8}.layout--n
     
       <table class="layout layout--no-gutter" style="border-collapse: collapse;table-layout: fixed;Margin-left: auto;Margin-right: auto;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;" align="center" emb-background-style>
         <tbody><tr>
+          <td class="column" style='padding: 0;text-align: left;vertical-align: top;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Open Sans",sans-serif;width: 600px;'>
+    
+            <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 24px;Margin-bottom: 24px;">
+            	<h2 style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #00b0f0;font-size: 20px;line-height: 28px;font-family: Lato,Tahoma,sans-serif;">
+            		Estimated ROI: <span style="color:#006400;"><strong>{{ round($results['run']['user_output']['pv']['roi'], 1) }} years</strong></span>
+            	</h2>
+            	<h2 style="Margin-top: 16px;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #00b0f0;font-size: 20px;line-height: 28px;font-family: Lato,Tahoma,sans-serif;">
+            		Yearly savings with a PV system: <span style="color:#006400;"><strong>{{ round($results['run']['user_output']['pv']['percent_savings']) }}%</strong></span>
+            	</h2>
+            </div>
+          </td>
+        </tr>
+      </tbody></table>
+  
+      <div style="font-size: 20px;line-height: 20px;mso-line-height-rule: exactly;">&nbsp;</div>
+    
+      <table class="layout layout--no-gutter" style="border-collapse: collapse;table-layout: fixed;Margin-left: auto;Margin-right: auto;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;" align="center" emb-background-style>
+        <tbody><tr>
           <td class="column" style='padding: 0;text-align: left;vertical-align: top;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Open Sans",sans-serif;width: 200px;'>
       
         <div class="image" style="font-size: 12px;font-style: normal;font-weight: 400;" align="center">
-          <img class="gnd-corner-image gnd-corner-image-center gnd-corner-image-top gnd-corner-image-bottom" style="display: block;border: 0;max-width: 300px;" src="https://i2.createsend1.com/ei/d/30/05F/C3C/074636/csfinal/solarpanels2.jpg" alt="" width="200" height="200">
+          <img class="gnd-corner-image gnd-corner-image-center gnd-corner-image-top gnd-corner-image-bottom" style="display: block;border: 0;max-width: 300px;" src="https://i3.createsend1.com/ei/d/30/05F/C3C/222853/csfinal/solarpanels2.jpg" alt="" width="200" height="200">
         </div>
       
           </td>
@@ -329,7 +362,7 @@ td{font-family:sans-serif !important}.border{background-color:#b1c1d8}.layout--n
                   
                   
                   
-<p style="Margin-top: 0;Margin-bottom: 5px;mso-line-height-rule: exactly;line-height: 26px;"><![if !mso]><a class="footer__share-button forwardtoafriend" style='background-image: url(https://i3.createsend1.com/static/eb/master/13-the-blueprint-3/images/forward.png);background-color: #7b7c7d;font-family: "Open Sans",sans-serif;text-decoration: none;transition: opacity 0.1s ease-in;color: #ffffff;background-repeat: no-repeat;background-size: 200px 56px;border-radius: 2px;display: block;font-size: 11px;font-weight: bold;line-height: 11px;padding: 8px 11px 7px 28px;text-align: left;' href="http://wattbott.forwardtomyfriend.com/d-l-2AD73FFF-tytyuil-l-i" left-align-text="true">Forward</a><![endif]><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://wattbott.forwardtomyfriend.com/d-l-2AD73FFF-tytyuil-l-i" style="width:85px" arcsize="8%" fill="t" stroke="f"><v:fill 
+<p style="Margin-top: 0;Margin-bottom: 5px;mso-line-height-rule: exactly;line-height: 26px;"><![if !mso]><a class="footer__share-button forwardtoafriend" style='background-image: url(https://i3.createsend1.com/static/eb/master/13-the-blueprint-3/images/forward.png);background-color: #7b7c7d;font-family: "Open Sans",sans-serif;text-decoration: none;transition: opacity 0.1s ease-in;color: #ffffff;background-repeat: no-repeat;background-size: 200px 56px;border-radius: 2px;display: block;font-size: 11px;font-weight: bold;line-height: 11px;padding: 8px 11px 7px 28px;text-align: left;' href="http://wattbott.forwardtomyfriend.com/d-l-2AD73FFF-tytyuil-l-i" left-align-text="true">Forward</a><![endif]><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://wattbott.forwardtomyfriend.com/d-l-2AD73FFF-tytyuil-l-i" style="width:81px" arcsize="8%" fill="t" stroke="f"><v:fill 
 type="tile" src="https://i3.createsend1.com/static/eb/master/13-the-blueprint-3/images/forward.png" color="#7B7C7D"></v:fill><v:textbox style="mso-fit-shape-to-text:t" inset="27px,7px,0,6px"><p style="font-size:11px;line-height:11px;color:#FFFFFF;font-family:sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:-1px">Forward</p></v:textbox></v:roundrect><![endif]--></p>
                 </td>
               </tr>
@@ -339,9 +372,11 @@ type="tile" src="https://i3.createsend1.com/static/eb/master/13-the-blueprint-3/
                 <td class="footer__inner" style="padding: 0;font-size: 12px;line-height: 19px;">
                   
                   <div>
-                    <div>Wattbott, Inc.<br>
-127 Princess Pass<br>
-San Antonio, TX 78212</div>
+                    <div>Wattbott, Inc.
+                    	<br>
+                    	127 Princess Pass
+                    	<br>
+                    	San Antonio, TX 78212</div>
                   </div>
                   <div class="footer__permission" style="Margin-top: 18px;">
                     
@@ -354,9 +389,8 @@ San Antonio, TX 78212</div>
             </tbody></table>
           </td>
         </tr>
-      </tbody></table>
-      
+      </tbody></table>      
     </div>
   <img style="visibility: hidden !important; display: block !important; height:1px !important; width:1px !important; border: 0 !important; margin: 0 !important; padding: 0 !important" src="https://wattbott.createsend1.com/t/d-o-tytyuil-l/o.gif" width="1" height="1" border="0" alt="">
-</body></html>
-
+</body>
+</html>
