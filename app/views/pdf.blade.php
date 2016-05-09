@@ -24,45 +24,49 @@ $data = $run->run;
 			</td>
 		</tr>
 	</table>
-	<h1><strong>Wattbott Results</strong><br><small><em>for {{ strtolower($data['user_input']['run_name']) }}</em></small></h1>
-	<h2>Building Specs</h2>
-	<table id="inputTable">
-		<tr>
-			<td>Project name:</td>
-			<td><em>{{ $data['user_input']['run_name'] }}</em></td>
-		</tr>
-		<tr>
-			<td>Zip Code:</td>
-			<td>{{ $data['user_input']['zipcode'] }}</td>
-		</tr>
-		<tr>
-			<td>Building Type:</td>
-			<td>{{ $data['user_input']['bldg_type'] }}</td>
-		</tr>
-		<tr>
-			<td>Gross Roof Area:</td>
-			<td>{{ $data['user_input']['gross_roof_area'] }}</td>
-		</tr>
-	</table>
-	<h2>Results</h2>
-	<table id="outputTable">
-		<tr>
-			<td>PhotoVoltaic Installation ROI:</td>
-			<td><em>fubbles</em></td>
-		</tr>
-		<tr>
-			<td>Zip Code:</td>
-			<td>{{ $data['user_input']['zipcode'] }}</td>
-		</tr>
-		<tr>
-			<td>Building Type:</td>
-			<td>{{ $data['user_input']['bldg_type'] }}</td>
-		</tr>
-		<tr>
-			<td>Gross Roof Area:</td>
-			<td>{{ $data['user_input']['gross_roof_area'] }}</td>
-		</tr>
-	</table>
+	<div id="title">
+		<h1><strong>Wattbott Results</strong>
+			<br>
+			<small><em>{{ strtolower($data['user_input']['run_name']) }}</em></small>
+		</h1>
+		<h3>
+			<em>{{ $data['user_input']['gross_roof_area'] }} sq ft {{strtolower($data['user_input']['bldg_type']) }}<em>
+		</h3>
+	</div>
+	<div class="datagrid">
+		<table>
+			<tbody>
+				<tr class="alt">
+					<td>Your EUI</td>
+					<td>{{ $data['user_output']['eui']['design_site_intensity'] }} UNITS</td>
+				</tr>
+				<tr>
+					<td>Median EUI</td>
+					<td>{{ $data['api_output']['eui']['design_site_intensity'] }} UNITS</td>
+				</tr>
+				<tr class="alt">
+					<td>Your annual cost</td>
+					<td>${{ $data['user_output']['eui']['design_energy_cost'] }}</td>
+				</tr>
+				<tr>
+					<td>Median annual cost for a building like yours</td>
+					<td>${{ $data['user_output']['eui']['median_energy_cost'] }}</td>
+				</tr>
+				<tr class="green">
+					<td><strong>PV annual savings</strong></td>
+					<td><strong>{{ round($data['user_output']['pv']['percent_savings']) }}%</strong></td>
+				</tr>
+				<tr class="green">
+					<td><strong>ROI on a PV system</strong></td>
+					<td><strong>{{ round($data['user_output']['pv']['roi'], 1) }} years</strong></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="footnotes">
+		<p><strong>EUI: </strong>Energy usage per square foot per year. Calculated by dividing total energy consumed annually by total floor area. A low EUI signifies good energy performance.</p>
+		<p><strong>PV annual savings: </strong>Your system will save you ${{ round($data['user_output']['eui']['design_energy_cost'] * $data['user_output']['pv']['percent_savings']) }} each year.</p>
+		<p><strong>ROI (Return on Investment): </strong>Your system will pay for itself in {{ round($data['user_output']['pv']['roi']) }} years!</p>
 	</div>
 </body>
 </html>

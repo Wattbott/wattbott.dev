@@ -205,8 +205,8 @@ class Run extends BaseModel
 		$pathName = storage_path().'/pdf/' . preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '', $this->run['user_input']['run_name'])) . time() . '.pdf';
 		$this->savePDF($pathName);
 
-		Mail::send('emails.runresults', array('results'=>$results), function($message) use ($pathName) {
-			$message->to(Input::get('email'))->subject('Your Wattbott Results');
+		Mail::send('emails.runresults', array('results'=>$results), function($message) use ($pathName, $email) {
+			$message->to($email)->subject('Your Wattbott Results');
 			$message->attach($pathName);
 		});
 	}
