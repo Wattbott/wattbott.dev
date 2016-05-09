@@ -13,9 +13,8 @@
 */
 
 Route::get('/', 'HomeController@hiya');
-Route::get('/form', 'RunsController@create');
+Route::get('/form{id?}', 'RunsController@create');
 Route::post('/store', 'RunsController@store');
-Route::get('/show', 'RunsController@show');
 Route::get('/result{id}', 'RunsController@result');
 Route::get('/show{id}','RunsController@show');
 Route::get('/garbagetest', function() {

@@ -34,85 +34,83 @@
 	<div id="dachart" class="fontcolor2 fontright">
 	</div>
 </div>
-@if(isset($id))
-	{{ Form::model($run, ['action' => ['RunsController@store', $run->id] , 'method' => 'POST']) }}
-@else
 	{{ Form::open(array(
 			'action' => 'RunsController@store',
 			'method' => 'POST',
 			"id" => "thisform"))}}
-@endif
 <div id="formbody1" class="mainformbody">
 	<div>
-		{{ Form::hidden('annualpower', 0, $attributes = ['id' => 'annualpower'])}}
-		{{ Form::hidden('annualpowercost', 0, $attributes = ['id' => 'annualpowercost'])}}
-		{{ Form::hidden('annualgas', 0, $attributes = ['id' => 'annualgas'])}}
-		{{ Form::hidden('annualgascost', 0, $attributes = ['id' => 'annualgascost'])}}
-		{{ Form::hidden('januarypower', 0, $attributes = ['id' => 'januarypower'])}}
-		{{ Form::hidden('januarypowercost', 0, $attributes = ['id' => 'januarypowercost'])}}
-		{{ Form::hidden('januarygas', 0, $attributes = ['id' => 'januarygas'])}}
-		{{ Form::hidden('januarygascost', 0, $attributes = ['id' => 'januarygascost'])}}
-		{{ Form::hidden('februarypower', 0, $attributes = ['id' => 'februarypower'])}}
-		{{ Form::hidden('februarypowercost', 0, $attributes = ['id' => 'februarypowercost'])}}
-		{{ Form::hidden('februarygas', 0, $attributes = ['id' => 'februarygas'])}}
-		{{ Form::hidden('februarygascost', 0, $attributes = ['id' => 'februarygascost'])}}
-		{{ Form::hidden('marchpower', 0, $attributes = ['id' => 'marchpower'])}}
-		{{ Form::hidden('marchpowercost', 0, $attributes = ['id' => 'marchpowercost'])}}
-		{{ Form::hidden('marchgas', 0, $attributes = ['id' => 'marchgas'])}}
-		{{ Form::hidden('marchgascost', 0, $attributes = ['id' => 'marchgascost'])}}
-		{{ Form::hidden('aprilpower', 0, $attributes = ['id' => 'aprilpower'])}}
-		{{ Form::hidden('aprilpowercost', 0, $attributes = ['id' => 'aprilpowercost'])}}
-		{{ Form::hidden('aprilgas', 0, $attributes = ['id' => 'aprilgas'])}}
-		{{ Form::hidden('aprilgascost', 0, $attributes = ['id' => 'aprilgascost'])}}
-		{{ Form::hidden('maypower', 0, $attributes = ['id' => 'maypower'])}}
-		{{ Form::hidden('maypowercost', 0, $attributes = ['id' => 'maypowercost'])}}
-		{{ Form::hidden('maygas', 0, $attributes = ['id' => 'maygas'])}}
-		{{ Form::hidden('maygascost', 0, $attributes = ['id' => 'maygascost'])}}
-		{{ Form::hidden('junepower', 0, $attributes = ['id' => 'junepower'])}}
-		{{ Form::hidden('junepowercost', 0, $attributes = ['id' => 'junepowercost'])}}
-		{{ Form::hidden('junegas', 0, $attributes = ['id' => 'junegas'])}}
-		{{ Form::hidden('junegascost', 0, $attributes = ['id' => 'junegascost'])}}
-		{{ Form::hidden('julypower', 0, $attributes = ['id' => 'julypower'])}}
-		{{ Form::hidden('julypowercost', 0, $attributes = ['id' => 'julypowercost'])}}
-		{{ Form::hidden('julygas', 0, $attributes = ['id' => 'julygas'])}}
-		{{ Form::hidden('julygascost', 0, $attributes = ['id' => 'julygascost'])}}
-		{{ Form::hidden('augustpower', 0, $attributes = ['id' => 'augustpower'])}}
-		{{ Form::hidden('augustpowercost', 0, $attributes = ['id' => 'augustpowercost'])}}
-		{{ Form::hidden('augustgas', 0, $attributes = ['id' => 'augustgas'])}}
-		{{ Form::hidden('augustgascost', 0, $attributes = ['id' => 'augustgascost'])}}
-		{{ Form::hidden('septemberpower', 0, $attributes = ['id' => 'septemberpower'])}}
-		{{ Form::hidden('septemberpowercost', 0, $attributes = ['id' => 'septemberpowercost'])}}
-		{{ Form::hidden('septembergas', 0, $attributes = ['id' => 'septembergas'])}}
-		{{ Form::hidden('septembergascost', 0, $attributes = ['id' => 'septembergascost'])}}
-		{{ Form::hidden('octoberpower', 0, $attributes = ['id' => 'octoberpower'])}}
-		{{ Form::hidden('octoberpowercost', 0, $attributes = ['id' => 'octoberpowercost'])}}
-		{{ Form::hidden('octobergas', 0, $attributes = ['id' => 'octobergas'])}}
-		{{ Form::hidden('octobergascost', 0, $attributes = ['id' => 'octobergascost'])}}
-		{{ Form::hidden('novemberpower', 0, $attributes = ['id' => 'novemberpower'])}}
-		{{ Form::hidden('novemberpowercost', 0, $attributes = ['id' => 'novemberpowercost'])}}
-		{{ Form::hidden('novembergas', 0, $attributes = ['id' => 'novembergas'])}}
-		{{ Form::hidden('novembergascost', 0, $attributes = ['id' => 'novembergascost'])}}
-		{{ Form::hidden('decemberpower', 0, $attributes = ['id' => 'decemberpower'])}}
-		{{ Form::hidden('decemberpowercost', 0, $attributes = ['id' => 'decemberpowercost'])}}
-		{{ Form::hidden('decembergas', 0, $attributes = ['id' => 'decembergas'])}}
-		{{ Form::hidden('decembergascost', 0, $attributes = ['id' => 'decembergascost'])}}
-		{{ Form::hidden('gastype', 0, $attributes = ['id' => 'hiddenstuff3'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][total]', $user_input['energy_data']['elec']['energy']['total'], $attributes = ['id' => 'annualpower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][total]', $user_input['energy_data']['elec']['cost']['total'], $attributes = ['id' => 'annualpowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][total]', $user_input['energy_data']['gas']['energy']['total'], $attributes = ['id' => 'annualgas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][total]', $user_input['energy_data']['gas']['cost']['total'], $attributes = ['id' => 'annualgascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][jan]', $user_input['energy_data']['elec']['energy']['jan'], $attributes = ['id' => 'januarypower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][jan]', $user_input['energy_data']['elec']['cost']['jan'], $attributes = ['id' => 'januarypowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][jan]', $user_input['energy_data']['gas']['energy']['jan'], $attributes = ['id' => 'januarygas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][jan]', $user_input['energy_data']['gas']['cost']['jan'], $attributes = ['id' => 'januarygascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][feb]', 0, $attributes = ['id' => 'februarypower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][feb]', 0, $attributes = ['id' => 'februarypowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][feb]', 0, $attributes = ['id' => 'februarygas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][feb]', 0, $attributes = ['id' => 'februarygascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][mar]', 0, $attributes = ['id' => 'marchpower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][mar]', 0, $attributes = ['id' => 'marchpowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][mar]', 0, $attributes = ['id' => 'marchgas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][mar]', 0, $attributes = ['id' => 'marchgascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][apr]', 0, $attributes = ['id' => 'aprilpower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][apr]', 0, $attributes = ['id' => 'aprilpowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][apr]', 0, $attributes = ['id' => 'aprilgas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][apr]', 0, $attributes = ['id' => 'aprilgascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][may]', 0, $attributes = ['id' => 'decemberpower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][may]', 0, $attributes = ['id' => 'decemberpowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][may]', 0, $attributes = ['id' => 'decembergas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][may]', 0, $attributes = ['id' => 'decembergascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][jun]', 0, $attributes = ['id' => 'maypower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][jun]', 0, $attributes = ['id' => 'maypowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][jun]', 0, $attributes = ['id' => 'maygas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][jun]', 0, $attributes = ['id' => 'maygascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][jul]', 0, $attributes = ['id' => 'junepower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][jul]', 0, $attributes = ['id' => 'junepowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][jul]', 0, $attributes = ['id' => 'junegas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][jul]', 0, $attributes = ['id' => 'junegascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][aug]', 0, $attributes = ['id' => 'julypower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][aug]', 0, $attributes = ['id' => 'julypowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][aug]', 0, $attributes = ['id' => 'julygas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][aug]', 0, $attributes = ['id' => 'julygascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][sep]', 0, $attributes = ['id' => 'augustpower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][sep]', 0, $attributes = ['id' => 'augustpowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][sep]', 0, $attributes = ['id' => 'augustgas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][sep]', 0, $attributes = ['id' => 'augustgascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][oct]', 0, $attributes = ['id' => 'septemberpower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][oct]', 0, $attributes = ['id' => 'septemberpowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][oct]', 0, $attributes = ['id' => 'septembergas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][oct]', 0, $attributes = ['id' => 'septembergascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][nov]', 0, $attributes = ['id' => 'octoberpower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][nov]', 0, $attributes = ['id' => 'octoberpowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][nov]', 0, $attributes = ['id' => 'octobergas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][nov]', 0, $attributes = ['id' => 'octobergascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][dec]', 0, $attributes = ['id' => 'novemberpower'])}}
+		{{ Form::hidden('user_input[energy_data][elec][cost][dec]', 0, $attributes = ['id' => 'novemberpowercost'])}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][dec]', 0, $attributes = ['id' => 'novembergas'])}}
+		{{ Form::hidden('user_input[energy_data][gas][cost][dec]', 0, $attributes = ['id' => 'novembergascost'])}}
+		{{ Form::hidden('user_input[energy_data][elec][energy][units]','kWh')}}
+		{{ Form::hidden('user_input[energy_data][gas][energy][units]', 0, $attributes = ['id' => 'hiddenstuff3'])}}
 	</div>
 	<div class="formsegment font3 fontmidlarge" id="emailseg">
 		{{ Form::label('email', 'E-Mail Address', $attributes = [ 'class' => 'labeltext'])}}
-		{{ Form::text('email', null, $attributes = ['class' => 'coolformtext font3 fontmidlarge', "id" => 'email'])}}
+		{{ Form::text('email', $user_input['email'], $attributes = ['class' => 'coolformtext font3 fontmidlarge', "id" => 'email'])}}
 		{{-- alert if input failed validation: --}}
 		{{ $errors->first('email', '<span class="alert">:message<br></span>') }}
 	</div>
 	<div class="formsegment font3 fontmidlarge" id="zipseg">
 		{{ Form::label('zipcode', 'Zip Code', $attributes = [ 'class' => 'labeltext'])}}
-		{{ Form::text('zipcode', null, $attributes = ['class' => 'coolformtext font3 fontmidlarge', "id" => 'zipcode'])}}
+		{{ Form::text('zipcode', 
+		$user_input['zipcode'], $attributes = ['class' => 'coolformtext font3 fontmidlarge', "id" => 'zipcode'])}}
 		{{-- alert if input failed validation: --}}
 		{{ $errors->first('zipcode', '<span class="alert">:message<br></span>') }}
 	</div>
 	<div class="formsegment font3 fontmidlarge" id="calcnameseg">
 		{{ Form::label('calcname', 'Project Name', $attributes = [ 'class' => 'labeltext'])}}
-		{{ Form::text('calcname', null, $attributes = ['class' => 'coolformtext font3 fontmidlarge', 'id' => 'calcname'])}}
+		{{ Form::text('calcname', $user_input['run_name'], $attributes = ['class' => 'coolformtext font3 fontmidlarge', 'id' => 'calcname'])}}
 		{{-- alert if input failed validation: --}}
 		{{ $errors->first('calcname', '<span class="alert">:message<br></span>') }}
 	</div>
@@ -126,13 +124,13 @@
 				<span id="buildlisttri" class="triangledown"></span>
 		</ul>
 
-		{{ Form::hidden('buildtype', 'Skool', $attributes = ['id' => 'hiddenstuff'])}}
+		{{ Form::hidden('buildtype', $user_input['bldg_type'], $attributes = ['id' => 'hiddenstuff'])}}
 		{{-- alert if input failed validation: --}}
 		{{ $errors->first('buildtype', '<span class="alert"><br>:message<br></span>') }}
 	</div>
 	<div class="formsegment font3 fontmidlarge" id="ewwgrossseg">
 		{{ Form::label('grossfloorarea', 'Gross Floor Area', $attributes = [ 'class' => 'labeltext']) }}
-		{{ Form::text('grossfloorarea', null, $attributes = ['class' => 'coolformtext font3 fontmidlarge', 'id' => 'grossfloorarea'])}}
+		{{ Form::text('grossfloorarea', $user_input['gross_flr_area'], $attributes = ['class' => 'coolformtext font3 fontmidlarge', 'id' => 'grossfloorarea'])}}
 		{{-- alert if input failed validation: --}}
 		{{ $errors->first('grossfloorarea', '<span class="alert">:message<br></span>') }}
 	</div>
