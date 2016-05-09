@@ -134,7 +134,18 @@ function treeDance(tr1,tr2)
 		}
 	},2000);
 }
+function cloudDefault()
+{
+	var cloudmove = setInterval(function(){
+		$('.cloud').animate({
+			"top":"+=20px"
+		},600).animate({
+			"top":"-=20px"
+		},600);
+	},1000);
+}
 titleAnimate();
 visionCreationNewsun();
 treeDance(-15,15);
+cloudDefault();
 })();

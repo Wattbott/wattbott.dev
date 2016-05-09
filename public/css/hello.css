@@ -361,6 +361,66 @@ a .buttonlink, a{
 	top:39px;
 	background-color: yellow;
 }
+.cloud{
+	position: absolute;
+	top:90px;
+	left:100px;
+	width:200px;
+	height:60px;
+	border-radius: 32px;
+	background: #d1d1e0;
+	background: #d1d1e0;
+	background: #d1d1e0;
+}
+.cloudoff1{
+	width:80px;
+	height:80px;
+	background-color: #d1d1e0;
+	position: absolute;
+	top:-30px;
+	left:10px;
+}
+.cloudoff2{
+	width:100px;
+	height:100px;
+	background-color: #d1d1e0;
+	position: absolute;
+	top:-50px;
+	left:50px;
+}
+.cloudoff3{
+	width:80px;
+	height:80px;
+	background-color: #d1d1e0;
+	position: absolute;
+	top:-30px;
+	right:10px;
+}
+.mutedface{
+	width:100px;
+	height:50px;
+	position: absolute;
+}
+.closedeye{
+	width:10px;
+	height:30px;
+	background-color: black;
+	position: absolute;
+	border-radius: 16px;
+}
+.ceyeone{
+	left:10px;
+}
+.ceyetwo{
+	right:10px;
+}
+.mutedmouth{
+	width:40px;
+	height:10px;
+	bottom:5px;
+	border-radius: 16px;
+	background-color: black;
+}
 /* Actual Stuff */
 .cooltextcontainer{
 	width:60%;
@@ -372,6 +432,7 @@ a .buttonlink, a{
 .cooltextcontainer li{
 	list-style-type: none;
 	text-align: left;
+	margin: 60px auto;
 }
 .fakebargraph{
 	width:50%;

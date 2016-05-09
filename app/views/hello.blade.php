@@ -10,6 +10,16 @@
 <div class="falsemargin"></div>
 <div id="magicplace">
 	<div id="ground" class="circle"></div>
+	<div class="cloud">
+		<div class="cloudoff1 circle"></div>
+		<div class="cloudoff2 circle"></div>
+		<div class="cloudoff3 circle"></div>
+		<div class="mutedface building">
+			<div class="closedeye ceyeone"></div>
+			<div class="closedeye ceyetwo"></div>
+			<div class="mutedmouth building"></div>
+		</div>
+	</div>
 	<div id="tree1" class="tree">
 		<div class="happyface">
 			<div class="eye eyeone"></div>
@@ -74,8 +84,8 @@
 			<li>
 				<p>Measures your annual energy usage and costs.</p>
 				<div class="fakebargraph">
-					<div class="barone"></div>
-					<div class="bartwo"></div>
+					<div class="barone">Your Usage</div>
+					<div class="bartwo">Their Usage</div>
 				</div>
 			</li>
 			<li>Compares those costs to other similar buildings.</li>
