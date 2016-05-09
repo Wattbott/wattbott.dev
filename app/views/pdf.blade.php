@@ -65,7 +65,7 @@ $data = $run->run;
 	</div>
 	<div id="footnotes">
 		<p><strong>EUI: </strong>Energy usage per square foot per year. Calculated by dividing total energy consumed annually by total floor area. A low EUI signifies good energy performance.</p>
-		<p><strong>PV annual savings: </strong>Your system will save you $BLADE each year.</p>
+		<p><strong>PV annual savings: </strong>Your system will save you ${{ round($data['user_output']['eui']['design_energy_cost'] * $data['user_output']['pv']['percent_savings']) }} each year.</p>
 		<p><strong>ROI (Return on Investment): </strong>Your system will pay for itself in {{ round($data['user_output']['pv']['roi']) }} years!</p>
 	</div>
 </body>
