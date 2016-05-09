@@ -84,15 +84,80 @@
 			<li>
 				<p>Measures your annual energy usage and costs.</p>
 				<div class="fakebargraph">
-					<div class="barone">Your Usage</div>
-					<div class="bartwo">Their Usage</div>
+					<div class="bars barone">Your Usage</div>
+					<div class="bars bartwo">Their Usage</div>
 				</div>
 			</li>
-			<li>Compares those costs to other similar buildings.</li>
-			<li>And finds a way to save you money through environmentally friendly solutions!</li>
+			<li><p>Compares those costs to other similar buildings.</p>
+	<div class="fakecontainer">
+	<div id="schoollione" class="buildingli">
+		<div id="" class="building schoolbody">
+			<div id="" class="window schwindow1">
+				<div class="windowhorpane"></div>
+				<div class="windowvertpane"></div>
+				<div class="windowglare">
+					<div class="innerglare"></div>
+				</div>
+			</div>
+			<div id="" class="window schwindow2">
+				<div class="windowhorpane"></div>
+				<div class="windowvertpane"></div>
+				<div class="windowglare">
+					<div class="innerglare"></div>
+				</div>
+			</div>
+			<div id="" class="door building schdoor">
+				<div class="knob circle"></div>
+			</div>
+		</div>
+		<div id="" class="building schoolroof"><div class="schooltop"></div></div>
+	</div>
+	<div id="schoollitwo" class="buildingli">
+		<div id="" class="building schoolbody">
+			<div id="" class="window schwindow1">
+				<div class="windowhorpane"></div>
+				<div class="windowvertpane"></div>
+				<div class="windowglare">
+					<div class="innerglare"></div>
+				</div>
+			</div>
+			<div id="" class="window schwindow2">
+				<div class="windowhorpane"></div>
+				<div class="windowvertpane"></div>
+				<div class="windowglare">
+					<div class="innerglare"></div>
+				</div>
+			</div>
+			<div id="" class="door building schdoor">
+				<div class="knob circle"></div>
+			</div>
+		</div>
+		<div id="" class="building schoolroof"><div class="schooltop"></div></div>
+	</div>
+</div>
+<div class="fakecontainer">
+	<div id="texttwo" class="textbuildli fontmidlarge">
+			<p>Your Yearly Cost</p>
+			<p>$<span class="coolup">0</span></p>
+	</div>
+	<div id="textone" class="textbuildli fontmidlarge">
+			<p>Their Yearly Cost</p>
+			<p>$<span class="coolup">0</span></p>
+	</div>
+</div>
+			</li>
+			<li>
+				<p>And finds a way to save you money through environmentally friendly solutions!</p>
+				<div id="solarpanel">
+					<div class="grid">
+					</div>
+				</div>
+			</li>
+			
 		</ul>
 	</div>
 </main>
+<div class="falsemargin"></div>
 <a href="{{{action('HomeController@testForm')}}}"><div class="buttonlink font3"><p>Start Your Journey Here</p></div></a>
 @stop
 
