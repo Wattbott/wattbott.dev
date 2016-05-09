@@ -217,13 +217,8 @@
 				$('#annualpowercost').val($(this).val());
 			});
 			$('#kwhannual').keyup(function (){
+				console.log($(this).val(),"BLAH");
 				$('#annualpower').val($(this).val());
-			});
-			$('#kBTUmonth').keyup(function (){
-				$('#annualgas').val($(this).val());
-			});
-			$('#gascostmonth').keyup(function (){
-			 	$('#annualgascost').val($(this).val());
 			});
 		});
 		$("#totalseg").ready(function(){
@@ -322,7 +317,6 @@
 						}
 					}
 				}
-				hiddenInputs(monthsData);
 				graphPlot(monthsData);
 				charted(monthsData);
 			});
@@ -351,10 +345,6 @@
 				$('#costmonth').val('');
 			}
 		};
-	}
-	function hiddenInputs(data)
-	{
-
 	}
 	function graphPlot(data)
 	{
@@ -482,6 +472,7 @@
 						{
 							$(checkTwoInserts[0]).insertAfter('#monthcostseg');
 							$(checkTwoInserts[1]).insertAfter('#gasmonthseg');
+
 						}
 					}
 					else if($("#annformseg2").length > 0)
@@ -493,7 +484,19 @@
 						else
 						{
 							$(checkTwoInserts[0]).insertAfter('#annformseg2');
+							$('#kBTUmonth').attr('id','gasannualform');
 							$(checkTwoInserts[1]).insertAfter('#gasmonthseg');
+							$('#gascostmonth').attr('id','gasannualcostform');
+							$('#gasannualform').ready(function(){
+								console.log("Let's do this!");
+								$('#gasannualform').keyup(function (){
+									console.log($(this).val(),"BLAH");
+									$('#annualgas').val($(this).val());
+								});
+								$('#gasannualcostform').keyup(function (){
+								 	$('#annualgascost').val($(this).val());
+								});
+							});
 						}
 					}
 				},500);

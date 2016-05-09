@@ -6,7 +6,7 @@
 
 @extends('layouts.master')
 @section('style')
-<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,900' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,900' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/results.css">
 @stop
 @section('content')
