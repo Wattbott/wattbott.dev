@@ -49,7 +49,6 @@ a:visited {
 .datagrid table {
 	border-collapse: collapse;
 	text-align: left;
-	width: 100%;
 }
 .datagrid {
 	font: normal 12px/150% Arial, Helvetica, sans-serif;
