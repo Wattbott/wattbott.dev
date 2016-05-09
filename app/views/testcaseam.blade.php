@@ -1,5 +1,6 @@
 <?php  
 	require public_path() . "/bldg_type.php";
+	var_dump($run->run);
 ?>
 @extends('layouts.master')
 
@@ -44,8 +45,8 @@
 @endif
 <div id="formbody1" class="mainformbody">
 	<div>
-		{{ Form::hidden('annualpower', 0, $attributes = ['id' => 'annualpower'])}}
-		{{ Form::hidden('annualpowercost', 0, $attributes = ['id' => 'annualpowercost'])}}
+		{{ Form::hidden('total[]', 0, $attributes = ['id' => 'total'])}}
+		{{ Form::hidden('annualpowercost', 0, $attributes = ['id' => 'total'])}}
 		{{ Form::hidden('annualgas', 0, $attributes = ['id' => 'annualgas'])}}
 		{{ Form::hidden('annualgascost', 0, $attributes = ['id' => 'annualgascost'])}}
 		{{ Form::hidden('januarypower', 0, $attributes = ['id' => 'januarypower'])}}
@@ -97,6 +98,7 @@
 		{{ Form::hidden('decembergas', 0, $attributes = ['id' => 'decembergas'])}}
 		{{ Form::hidden('decembergascost', 0, $attributes = ['id' => 'decembergascost'])}}
 		{{ Form::hidden('gastype', 0, $attributes = ['id' => 'hiddenstuff3'])}}
+		{{ Form::text('run->run[user_input][run_name]',$run->run['user_input']['run_name'])}}
 	</div>
 	<div class="formsegment font3 fontmidlarge" id="emailseg">
 		{{ Form::label('email', 'E-Mail Address', $attributes = [ 'class' => 'labeltext'])}}

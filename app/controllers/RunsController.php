@@ -3,20 +3,25 @@ class RunsController extends BaseController {
 	
 	public function create()
 	{
-		return View::make('create');
-		//this redirects from intro page to form page
+		$empty_run = Run::find(1);
+		return View::make('testcase')->with('run',$empty_run);
 	}
 
 	public function show($id) 
 	{
 		// we need to create the find function on our runs class
-		// $run = $this->find($id); 
-		$run = "test it like a like a - heck yes!";
-		return View::make('create')->with('run',$run);
+		$run = Run::find($id); 
+		$run_print = $run->run['user_input']['run_name'];
+		$data = [
+			'run' => $run,
+			'id' => $id
+		];
+		return View::make('testcase')->with($data);
 	}
 
 	public function store() {
 		
+		dd(Input::get());
 		$run = new Run();
 		$validator = Validator::make(Input::all(), Run::$rules);
 		if ($validator->fails()) {
