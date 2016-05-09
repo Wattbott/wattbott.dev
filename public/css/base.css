@@ -4,6 +4,9 @@
 .fontcolor2{
 	color:white;
 }
+.fontcenter{
+	text-align: center;
+}
 .fontbold{
 	font-weight: bold;
 }

@@ -270,13 +270,13 @@ a .buttonlink, a{
 	bottom:40px;
 	z-index: 8;
 }
-#schoolbody{
+#schoolbody,.schoolbody{
 	width:300px;
 	height:200px;
 	bottom: 0px;
 	background-color: #ffeecc;
 }
-#schooltop{
+#schooltop,.schooltop{
 	width:0;
 	height: 0;
 	position: absolute;
@@ -288,7 +288,7 @@ a .buttonlink, a{
 	
 
 }
-#schoolroof{
+#schoolroof,.schoolroof{
 	width:0;
 	height: 0;
 	border-bottom: 87.5px solid #805500;
@@ -303,11 +303,11 @@ a .buttonlink, a{
 	border:4px solid #b37700;
 	position: absolute;
 }
-#schwindow1{
+#schwindow1,.schwindow1{
 	top:20px;
 	left:50px;
 }
-#schwindow2{
+#schwindow2,.schwindow2{
 	top:20px;
 	right:50px;
 }
@@ -361,6 +361,85 @@ a .buttonlink, a{
 	top:39px;
 	background-color: yellow;
 }
+.buildingli{
+	display: inline-block;
+}
+.fakecontainer{
+	position: relative;
+	width:100%;
+	min-height: 300px;
+}
+#schoollione{
+	position: absolute;
+	width:350px;
+	height:300px;
+}
+#schoollitwo{
+	position: absolute;
+	width:350px;
+	height:300px;
+
+}
+.cloud{
+	position: absolute;
+	top:90px;
+	left:100px;
+	width:200px;
+	height:60px;
+	border-radius: 32px;
+	background: #d1d1e0;
+	background: #d1d1e0;
+	background: #d1d1e0;
+}
+.cloudoff1{
+	width:80px;
+	height:80px;
+	background-color: #d1d1e0;
+	position: absolute;
+	top:-30px;
+	left:10px;
+}
+.cloudoff2{
+	width:100px;
+	height:100px;
+	background-color: #d1d1e0;
+	position: absolute;
+	top:-50px;
+	left:50px;
+}
+.cloudoff3{
+	width:80px;
+	height:80px;
+	background-color: #d1d1e0;
+	position: absolute;
+	top:-30px;
+	right:10px;
+}
+.mutedface{
+	width:100px;
+	height:50px;
+	position: absolute;
+}
+.closedeye{
+	width:10px;
+	height:30px;
+	background-color: black;
+	position: absolute;
+	border-radius: 16px;
+}
+.ceyeone{
+	left:10px;
+}
+.ceyetwo{
+	right:10px;
+}
+.mutedmouth{
+	width:40px;
+	height:10px;
+	bottom:5px;
+	border-radius: 16px;
+	background-color: black;
+}
 /* Actual Stuff */
 .cooltextcontainer{
 	width:60%;
@@ -371,7 +450,9 @@ a .buttonlink, a{
 }
 .cooltextcontainer li{
 	list-style-type: none;
-	text-align: left;
+	text-align: center;
+	margin: 60px auto;
+	overflow:hidden;
 }
 .fakebargraph{
 	width:50%;
@@ -380,6 +461,25 @@ a .buttonlink, a{
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
+}
+.textbuildli{
+	bottom: 0px;
+	text-align: center;
+	display: inline-block;
+	position: relative;
+	visibility: hidden;
+}
+#textone{
+	float:right;
+	clear: right;
+	right:100px;
+}
+#texttwo{
+	float:left;
+	left:40px;
+}
+.bars{
+	opacity:1;
 }
 .barone{
 	height:50px;
@@ -390,4 +490,33 @@ a .buttonlink, a{
 	height: 50px;
 	width:30%;
 	background-color: #f79646;
+}
+#solarpanel{
+	-webkit-transform: rotateX(60deg); /* Safari */
+    transform: rotate3d(2,1.25,-1,45deg);
+    background-color: #f2e6ff;
+    width:200px;
+    height:200px;
+    position: relative;
+}
+.grid{
+	border:1px solid darkblue;
+	width:150px;
+	height:150px;
+	position: absolute;
+	left: 0;
+	right:0;
+	margin-left: auto;
+	margin-right: auto;
+	bottom:25px;
+	overflow: hidden;
+}
+.horline,.vertline{
+	background-color: darkblue;
+}
+.horline{
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	left:0px;
 }
