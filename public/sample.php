@@ -121,3 +121,5 @@
 				]
 			]
     ];
+
+ var_dump($run['user_input']['energy_data']);

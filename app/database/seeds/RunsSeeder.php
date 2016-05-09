@@ -7,6 +7,10 @@ class RunsSeeder extends Seeder {
 
        	require public_path() . "/sample.php";
         // $run = serialize($run);
+        $empty_run = array_fill_keys(array_keys($run), null);
+        Run::create(array('run' => $empty_run));        
+
+
         Run::create(array('run' => $run));
 
         $run['user_input']['energy_data']['elec']['energy']['total']=NULL;
