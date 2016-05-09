@@ -6,7 +6,7 @@
         		'run_name' => 'first try for my building',
         		'email' => 'annajmorton@gmail.com',
         		'zipcode' => 78248,
-				'bldg_type' => 'School',
+				'bldg_type' => 'K-12 School',
 				'gross_flr_area' => 12000,
 				'gross_roof_area' => 12000,
 				'energy_data' => [
@@ -81,19 +81,20 @@
 			'api_input' => [
         		'lat' => 29.424122,
         		'lon' => -98.493629,
-        		'state' => 'Texas',
-        		'country'=> 'United States',
+        		'city' => 'San Antonio',
+        		'state' => 'TX',
+        		'country'=> 'US',
         		'zipcode' => 78248,
         		'gross_flr_area'=> 12000,
-        		'bldg_type' => 'School',
-				'system_capacity' => 20,
+        		'bldg_type' => 'K-12 School',
+				'system_capacity' => 19.8,
 				'utility_rate' => [
-					'elec' => [0.08121827,'$/kWh'],
-					'gas' => [0.8,'$/therm']
+					'elec' => [23.803715,'$/mmBtu'],
+					'gas' => [8.0,'$/mmBt']
 				],
 				'energy' => [
-					'elec' => 98500,
-					'gas' => 1440
+					'elec' => 336,
+					'gas' => 144
 				]
 			],
 			'api_output' => [

@@ -1,3 +1,6 @@
+<?php  
+	require public_path() . "/bldg_type.php";
+?>
 @extends('layouts.master')
 
 @section('style')
@@ -113,12 +116,10 @@
 		{{Form::label('buildtype', 'Building Type', $attributes = [ 'class' => 'labeltext'])}}
 		<ul id="fakeselect">
 			<div id="fsnumone" class="fakeselectitem"></div>
-			<li id="buildsel1">K-12 School</li>
-			<li id="buildsel2">Supermarket</li>
-			<li id="buildsel3">Hospital</li>
-			<li id="buildsel4">Bank</li>
-			<li id="buildsel5">Medical Office</li>
-			<span id="buildlisttri" class="triangledown"></span>
+				@foreach($propertyuses as $key=>$bldg_type) 
+				{{'<li id="buildsel'.$key.'">'.$bldg_type[0].'</li>'}}
+				@endforeach
+				<span id="buildlisttri" class="triangledown"></span>
 		</ul>
 
 		{{ Form::hidden('buildtype', 'Skool', $attributes = ['id' => 'hiddenstuff'])}}

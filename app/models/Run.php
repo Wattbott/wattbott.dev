@@ -120,7 +120,7 @@ class Run extends BaseModel
 		if ($this->is_energy_data['elec']||$this->is_energy_data['gas']) {
 			// we should checkinputs and change units likely some functions here... 
 			$tempArray['api_input']['energy']['elec'] = $this->temp_energy_totals['elec']['energy'] * Ass::get('unit_kwh_mmbtu');
-			$tempArray['api_input']['utility_rate']['elec'] = $this->temp_energy_totals['elec']['cost'] / $tempArray['api_input']['energy']['elec'];
+			$tempArray['api_input']['utility_rate']['elec'] = [$this->temp_energy_totals['elec']['cost'] / $tempArray['api_input']['energy']['elec'],'$/mmBtu'];
 
 			if($this->is_energy_data['gas']){
 				$gas_unit = $this->run['user_input']['energy_data']['gas']['energy']['units'];
@@ -139,8 +139,8 @@ class Run extends BaseModel
 					break;	
 				}
 
-				$tempArray['api_input']['energy']['gas'] = $gas_total;
-				$tempArray['api_input']['utility_rate']['gas'] = $this->temp_energy_totals['gas']['cost'] / $gas_total;
+				$tempArray['api_input']['energy']['gas'] = ($gas_total);
+				$tempArray['api_input']['utility_rate']['gas'] = [$this->temp_energy_totals['gas']['cost'] / $gas_total, '$/mmBtu'];
 			}
 
 		} else {
@@ -163,16 +163,18 @@ class Run extends BaseModel
 		$c_gas = '';
 		if (array_key_exists('gas', $this->run['api_input']['energy'])) {
 			$e_gas = $this->run['api_input']['energy']['gas'];
-			$c_gas = $e_gas * $this->run['api_input']['utility_rate']['gas'];
+			$c_gas = $e_gas * $this->run['api_input']['utility_rate']['gas'][0];
 		}
 		
 
 		$dsi = ($this->run['api_input']['energy']['elec'] + $e_gas)/$this->run['api_input']['gross_flr_area']*1000;
-		$dec = $this->run['api_input']['energy']['elec']*$this->run['api_input']['utility_rate']['elec'] + $c_gas;
+		$dec = $this->run['api_input']['energy']['elec']*$this->run['api_input']['utility_rate']['elec'][0] + $c_gas;
 		$msi = $dsi;
 		$msc = $dec;
-		// this needs to be updated with EUI output
-
+		if ($this->run['api_output']['eui']) {
+			$msi = $this->run['api_output']['eui']['median_site_intensity'];
+			$msc = $this->run['api_output']['eui']['median_energy_cost'];
+		}
 
 		$tempArray['user_output']['eui'] = [
 			'design_site_intensity' => $dsi,
@@ -186,7 +188,7 @@ class Run extends BaseModel
 
 		// PV
 		$pv_cost = $this->run['api_input']['system_capacity'] * Ass::get('pv_installed_cost')*1000;
-		$pv_save = $this->run['api_output']['pv']['ac_annual'] * Ass::get('unit_kwh_mmbtu') * $this->run['api_input']['utility_rate']['elec'];
+		$pv_save = $this->run['api_output']['pv']['ac_annual'] * Ass::get('unit_kwh_mmbtu') * $this->run['api_input']['utility_rate']['elec'][0];
 		$tempArray['user_output']['pv']['roi'] = $pv_cost / $pv_save;
 		$tempArray['user_output']['pv']['percent_savings'] =$pv_save / $tempArray['user_output']['eui']['design_energy_cost'];
 		
@@ -207,6 +209,5 @@ class Run extends BaseModel
 			$message->to(Input::get('email'))->subject('Your Wattbott Results');
 			$message->attach($pathName);
 		});
-	dd('email sent!');
 	}
 }
