@@ -161,7 +161,7 @@
 		$('#'+data.month.toLowerCase()+'powercost').val(data.kwhcost);
 		if (data.gas !== '')
 		{
-			$('#'+data.month.toLowerCase()+'gas').val(data.kBTU);
+			$('#'+data.month.toLowerCase()+'gas').val(data.gas);
 		}
 		else
 		{
@@ -218,6 +218,12 @@
 			});
 			$('#kwhannual').keyup(function (){
 				$('#annualpower').val($(this).val());
+			});
+			$('#kBTUmonth').keyup(function (){
+				$('#annualgas').val($(this).val());
+			});
+			$('#gascostmonth').keyup(function (){
+			 	$('#annualgascost').val($(this).val());
 			});
 		});
 		$("#totalseg").ready(function(){
@@ -345,10 +351,6 @@
 				$('#costmonth').val('');
 			}
 		};
-	}
-	function hiddenInputs(data)
-	{
-
 	}
 	function graphPlot(data)
 	{

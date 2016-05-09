@@ -71,8 +71,10 @@
 		</div>
 	</div>
 	<div class="littlecontainer">
-		<p>Not satisfied with just one</p>
-		<a href="{{{ action('HomeController@testForm')}}}">Do another one!</a>
+		<p>Not satisfied?</p>
+		<a href="{{ action('RunsController@create')}}">Do another one!</a>
+		<a href="{{ action('RunsController@show',$run->id)}}">or Change your inputs!</a>
+
 	</div>
 </div>
 @stop
