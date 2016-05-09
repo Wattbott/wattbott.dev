@@ -7,7 +7,7 @@
 	{
 		var redValue = 255;
 		var greenValue = 128;
-		console.log(bar);
+		console.log(bar,bottomwidth,topwidth);
 		for (var i = 0; i < topwidth; i++)
 		{
 			var newRedValue = Math.round(redValue/100*(100-i));

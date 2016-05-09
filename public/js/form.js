@@ -317,7 +317,6 @@
 						}
 					}
 				}
-				hiddenInputs(monthsData);
 				graphPlot(monthsData);
 				charted(monthsData);
 			});
