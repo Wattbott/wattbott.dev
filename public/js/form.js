@@ -380,6 +380,8 @@
 				upAlready[i] = true;
 				console.log(checkBoolRadInserts[index]);
 				$(checkBoolRadInserts[index]).insertAfter("#annualormonthseg");
+				$('#kwhannual').val($('#annualpower').val());
+				$('#costannual').val($('#annualpowercost').val());
 			}
 			else
 			{
@@ -472,7 +474,6 @@
 						{
 							$(checkTwoInserts[0]).insertAfter('#monthcostseg');
 							$(checkTwoInserts[1]).insertAfter('#gasmonthseg');
-
 						}
 					}
 					else if($("#annformseg2").length > 0)
@@ -486,7 +487,10 @@
 							$(checkTwoInserts[0]).insertAfter('#annformseg2');
 							$('#kBTUmonth').attr('id','gasannualform');
 							$(checkTwoInserts[1]).insertAfter('#gasmonthseg');
+							$('#gasannualform').val($('#annualgas').val());
 							$('#gascostmonth').attr('id','gasannualcostform');
+							$('#gasannualcostform').val($('#annualgascost').val());
+							
 							$('#gasannualform').ready(function(){
 								console.log("Let's do this!");
 								$('#gasannualform').keyup(function (){
