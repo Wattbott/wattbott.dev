@@ -129,7 +129,7 @@
 		{{ $errors->first('buildtype', '<span class="alert"><br>:message<br></span>') }}
 	</div>
 	<div class="formsegment font3 fontmidlarge" id="ewwgrossseg">
-		{{ Form::label('grossfloorarea', 'Gross Floor Area', $attributes = [ 'class' => 'labeltext']) }}
+		{{ Form::label('grossfloorarea', 'Gross Floor Area (sq ft)', $attributes = [ 'class' => 'labeltext']) }}
 		{{ Form::text('grossfloorarea', $user_input['gross_flr_area'], $attributes = ['class' => 'coolformtext font3 fontmidlarge', 'id' => 'grossfloorarea'])}}
 		{{-- alert if input failed validation: --}}
 		{{ $errors->first('grossfloorarea', '<span class="alert">:message<br></span>') }}
@@ -150,7 +150,7 @@
 	</div>
 </div>
 <div class="mainformbody">
-	{{ Form::submit('Let\'s Go!',$attributes = ['class' => 'submitbutton']) }}
+	{{ Form::submit('Let\'s Go!',$attributes = ['class' => 'submitbutton', 'id' => 'submitbuttonID']) }}
 	{{ Form::close() }}
 </div>
 @stop
