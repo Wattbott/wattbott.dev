@@ -17,19 +17,19 @@
 	<div id="graph0" class="dagraph">
 		<span  class="graphlabel">EUI</span>
 		<div id="bar1" class="graphbar yourbar">
-			<span class="bartext">{{{ $run->run['user_output']['eui']['design_site_intensity'] }}}</span> kBtu/ft<sup>2</sup>
+			your building: <span class="bartext">{{{ $run->run['user_output']['eui']['design_site_intensity'] }}}</span> kBtu/ft<sup>2</sup>
 		</div>
 		<div id="bar3" class="graphbar theirbar">
-			<span class="bartext">{{{ $run->run['user_output']['eui']['median_site_intensity'] }}}</span> kBtu/ft<sup>2</sup>
+			median: <span class="bartext">{{{ $run->run['user_output']['eui']['median_site_intensity'] }}}</span> kBtu/ft<sup>2</sup>
 		</div>
 	</div>
 	<div id="graph1" class="dagraph">
 		<span class="graphlabel">Energy Cost</span>
 		<div id="bar2" class="graphbar yourbar">
-			$<span class="bartext">{{{ $run->run['user_output']['eui']['design_energy_cost'] }}}</span>
+			your building: $<span class="bartext">{{{ round($run->run['user_output']['eui']['design_energy_cost'],0) }}}</span>
 		</div>
 		<div id="bar4" class="graphbar theirbar">
-			$<span class="bartext">{{{ $run->run['user_output']['eui']['median_energy_cost'] }}}</span>
+			median: $<span class="bartext">{{{ round($run->run['user_output']['eui']['median_energy_cost'],0) }}}</span>
 		</div>
 	</div>
 	<div id="graph2" class="dagraph">
@@ -38,7 +38,7 @@
 			ROI: <span class="bartext">{{{ round($run->run['user_output']['pv']['roi'], 1) }}}</span> years
 		</div>
 		<div id="bar6" class="graphbar">
-			<span class="bartext">{{{ round($run->run['user_output']['pv']['percent_savings'], 1) }}}% annual savings
+			<span class="bartext">{{{ round(($run->run['user_output']['pv']['percent_savings'])*100, 1) }}} annual savings
 			</span>
 		</div>
 	</div>

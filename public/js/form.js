@@ -21,8 +21,8 @@
 	var monthsChartArray = [];
 	var inc = 0;
 
-	var checkBoolRadInserts = ['<div id="anntotalseg"><div class="formsegment font3 fontmidlarge" id="annformseg1"><label for="kwhannual" class="labeltext">kW/h</label><input name="kwhannual" id="kwhannual" class="coolformtext font3 fontmidlarge" type="text"></div><div class="formsegment font3 fontmidlarge" id="annformseg2"><label for="costannual" class="labeltext">Cost</label><input name="costannual" id="costannual" class="coolformtext font3 fontmidlarge" type="text"></div></div>','<div id="totalseg"><div class="formsegment font3 fontmidlarge" id="monthselectseg"><ul id="fakeselectB"><div id="fsnumtwo" class="fakeselectitem"></div><li>January</li><li>February</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li>September</li><li>October</li><li>November</li><li>December</li><span id="buildlisttri2" class="triangledown"></span></ul></div><div class="formsegment font3 fontmidlarge" id="monthitemseg"><label for="kwhmonth" class="labeltext">kW/h</label><input class="coolformtext font3 fontmidlarge" id="kwhmonth" name="kwhmonth" type="text"></div><div class="formsegment font3 fontmidlarge" id="monthcostseg"><label for="costmonth" class="labeltext">Cost</label><input class="coolformtext font3 fontmidlarge" id="costmonth" name="costmonth" type="text"></div><div id="enter">Submit Month</button></div>'];
-	var checkTwoInserts = ['<div class="formsegment font3 fontmidlarge" id="gasmonthseg"><label for="kBTUmonth" class="labeltext">kBTU</label><input class="coolformtext font3 fontmidlarge" id="kBTUmonth" name="kBTUmonth" type="text"></div>','<div class="formsegment font3 fontmidlarge" id="gasmonthcostseg"><label for="gascostmonth" class="labeltext">Cost</label><input class="coolformtext font3 fontmidlarge" id="gascostmonth" name="gascostmonth" type="text"></div>']
+	var checkBoolRadInserts = ['<div id="anntotalseg"><div class="formsegment font3 fontmidlarge" id="annformseg1"><label for="kwhannual" class="labeltext">kW/h</label><input name="kwhannual" id="kwhannual" class="coolformtext font3 fontmidlarge" type="text"></div><div class="formsegment font3 fontmidlarge" id="annformseg2"><label for="costannual" class="labeltext">Cost ($)</label><input name="costannual" id="costannual" class="coolformtext font3 fontmidlarge" type="text"></div></div>','<div id="totalseg"><div class="formsegment font3 fontmidlarge" id="monthselectseg"><ul id="fakeselectB"><div id="fsnumtwo" class="fakeselectitem"></div><li>January</li><li>February</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li>September</li><li>October</li><li>November</li><li>December</li><span id="buildlisttri2" class="triangledown"></span></ul></div><div class="formsegment font3 fontmidlarge" id="monthitemseg"><label for="kwhmonth" class="labeltext">kW/h</label><input class="coolformtext font3 fontmidlarge" id="kwhmonth" name="kwhmonth" type="text"></div><div class="formsegment font3 fontmidlarge" id="monthcostseg"><label for="costmonth" class="labeltext">Cost ($)</label><input class="coolformtext font3 fontmidlarge" id="costmonth" name="costmonth" type="text"></div><div id="enter">Submit Month</button></div>'];
+	var checkTwoInserts = ['<div class="formsegment font3 fontmidlarge" id="gasmonthseg"><label for="kBTUmonth" class="labeltext">kBTU</label><input class="coolformtext font3 fontmidlarge" id="kBTUmonth" name="kBTUmonth" type="text"></div>','<div class="formsegment font3 fontmidlarge" id="gasmonthcostseg"><label for="gascostmonth" class="labeltext">Cost ($)</label><input class="coolformtext font3 fontmidlarge" id="gascostmonth" name="gascostmonth" type="text"></div>']
 	var cbrid = ["#anntotalseg","#totalseg"];
 	function fakecheckVarPopulate(arr)
 	{
@@ -149,7 +149,7 @@
 				{
 					$('#'+monthgraph+'graph .bargraphgascost').animate({
 						"width":width4+"%"
-					}).text(data[i].gascost);
+					}).text(data[i].gascost + 'testshit');
 				}
 			}
 		}
@@ -407,7 +407,7 @@
 		{
 			if (bool == true)
 			{
-				$('<div class="formsegment font3 fontmidlarge" id="grossroofseg"><label for="grossroof" class="labeltext">Gross Total Roof Area</label><input name="grossroof" class="coolformtext font3 fontmidlarge" id="grossroof"></div>').insertAfter('#grosscheckseg');
+				$('<div class="formsegment font3 fontmidlarge" id="grossroofseg"><label for="grossroof" class="labeltext">Gross Roof Area (sq ft)</label><input name="grossroof" class="coolformtext font3 fontmidlarge" id="grossroof"></div>').insertAfter('#grosscheckseg');
 				$("#grossroofseg").css({
 					"visibility":"visible",
 					"opacity":"0"
