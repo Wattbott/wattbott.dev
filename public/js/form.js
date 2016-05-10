@@ -401,6 +401,7 @@
 			}
 		});
 	}
+
 	function doubleTake(index, bool)
 	{
 		if (index == 0)
