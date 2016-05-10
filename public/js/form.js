@@ -17,12 +17,12 @@
 	var fakenumkey = '';
 	var fakerkey = '';
 	var maxlength = 0;
-	var monthArray = ['January','february','March','April','May','June','July','August','September','October','November','December'];
+	var monthArray = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 	var monthsChartArray = [];
 	var inc = 0;
 
-	var checkBoolRadInserts = ['<div id="anntotalseg"><div class="formsegment font3 fontmidlarge" id="annformseg1"><label for="kwhannual" class="labeltext">kW/h</label><input name="kwhannual" id="kwhannual" class="coolformtext font3 fontmidlarge" type="text"></div><div class="formsegment font3 fontmidlarge" id="annformseg2"><label for="costannual" class="labeltext">Cost</label><input name="costannual" id="costannual" class="coolformtext font3 fontmidlarge" type="text"></div></div>','<div id="totalseg"><div class="formsegment font3 fontmidlarge" id="monthselectseg"><ul id="fakeselectB"><div id="fsnumtwo" class="fakeselectitem"></div><li>January</li><li>February</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li>September</li><li>October</li><li>November</li><li>December</li><span id="buildlisttri2" class="triangledown"></span></ul></div><div class="formsegment font3 fontmidlarge" id="monthitemseg"><label for="kwhmonth" class="labeltext">kW/h</label><input class="coolformtext font3 fontmidlarge" id="kwhmonth" name="kwhmonth" type="text"></div><div class="formsegment font3 fontmidlarge" id="monthcostseg"><label for="costmonth" class="labeltext">Cost</label><input class="coolformtext font3 fontmidlarge" id="costmonth" name="costmonth" type="text"></div><div id="enter">Submit Month</button></div>'];
-	var checkTwoInserts = ['<div class="formsegment font3 fontmidlarge" id="gasmonthseg"><label for="kBTUmonth" class="labeltext">kBTU</label><input class="coolformtext font3 fontmidlarge" id="kBTUmonth" name="kBTUmonth" type="text"></div>','<div class="formsegment font3 fontmidlarge" id="gasmonthcostseg"><label for="gascostmonth" class="labeltext">Cost</label><input class="coolformtext font3 fontmidlarge" id="gascostmonth" name="gascostmonth" type="text"></div>']
+	var checkBoolRadInserts = ['<div id="anntotalseg"><div class="formsegment font3 fontmidlarge" id="annformseg1"><label for="kwhannual" class="labeltext">kW/h</label><input name="kwhannual" id="kwhannual" class="coolformtext font3 fontmidlarge" type="text"></div><div class="formsegment font3 fontmidlarge" id="annformseg2"><label for="costannual" class="labeltext">Cost ($)</label><input name="costannual" id="costannual" class="coolformtext font3 fontmidlarge" type="text"></div></div>','<div id="totalseg"><div class="formsegment font3 fontmidlarge" id="monthselectseg"><ul id="fakeselectB"><div id="fsnumtwo" class="fakeselectitem"></div><li>January</li><li>February</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li>September</li><li>October</li><li>November</li><li>December</li><span id="buildlisttri2" class="triangledown"></span></ul></div><div class="formsegment font3 fontmidlarge" id="monthitemseg"><label for="kwhmonth" class="labeltext">kW/h</label><input class="coolformtext font3 fontmidlarge" id="kwhmonth" name="kwhmonth" type="text"></div><div class="formsegment font3 fontmidlarge" id="monthcostseg"><label for="costmonth" class="labeltext">Cost ($)</label><input class="coolformtext font3 fontmidlarge" id="costmonth" name="costmonth" type="text"></div><div id="enter">Submit Month</button></div>'];
+	var checkTwoInserts = ['<div class="formsegment font3 fontmidlarge" id="gasmonthseg"><label for="kBTUmonth" class="labeltext">kBTU</label><input class="coolformtext font3 fontmidlarge" id="kBTUmonth" name="kBTUmonth" type="text"></div>','<div class="formsegment font3 fontmidlarge" id="gasmonthcostseg"><label for="gascostmonth" class="labeltext">Cost ($)</label><input class="coolformtext font3 fontmidlarge" id="gascostmonth" name="gascostmonth" type="text"></div>']
 	var cbrid = ["#anntotalseg","#totalseg"];
 	function fakecheckVarPopulate(arr)
 	{
@@ -41,6 +41,29 @@
 			}
 		});
 	}
+	function runrunrun()
+	{
+		$('.bargraphkwh').hover(function(){
+			$(this).append('<div class="description">kW/h Amount</div>');
+		},function(){
+			$(this).children('.description').detach();
+		});
+		$('.bargraphkwhcost').hover(function(){
+			$(this).append('<div class="description">kW/h Cost (USD)</div>');
+		},function(){
+			$(this).children('.description').detach();
+		});
+		$('.bargraphgas').hover(function(){
+			$(this).append('<div class="description">Gas Amount</div>');
+		},function(){
+			$(this).children('.description').detach();
+		});
+		$('.bargraphgascost').hover(function(){
+			$(this).append('<div class="description">Gas Cost (USD)</div>');
+		},function(){
+			$(this).children('.description').detach();
+		});
+	}
 	function charted(data)
 	{	
 		if (fakerkey !== '' && fakenumkey !== '')
@@ -49,9 +72,23 @@
 			maxlength = data[fakenumkey][fakerkey];
 			console.log(maxlength);
 		}
+		if (data.length > 8)
+		{
+			$('#dachart').animate({
+				"height": data.length*5.2+"%"
+			});
 
+		}
 		for (var i = data.length -1; i >= 0; i--)
 		{
+			if (data.length > 8)
+		{
+			$('#dachart .graphbarpart').animate({
+				"font-size": 16-(data.length/2)+"px"
+			});
+			
+		}
+		
 			for (var key in data[i])
 			{
 				if ((data[i][key] > maxlength) && (key !== 'month'))
@@ -153,6 +190,7 @@
 				}
 			}
 		}
+		runrunrun();
 	}
 	function parseMonthsValue(data)
 	{
@@ -401,13 +439,14 @@
 			}
 		});
 	}
+
 	function doubleTake(index, bool)
 	{
 		if (index == 0)
 		{
 			if (bool == true)
 			{
-				$('<div class="formsegment font3 fontmidlarge" id="grossroofseg"><label for="grossroof" class="labeltext">Gross Total Roof Area</label><input name="grossroof" class="coolformtext font3 fontmidlarge" id="grossroof"></div>').insertAfter('#grosscheckseg');
+				$('<div class="formsegment font3 fontmidlarge" id="grossroofseg"><label for="grossroof" class="labeltext">Gross Roof Area (sq ft)</label><input name="grossroof" class="coolformtext font3 fontmidlarge" id="grossroof"></div>').insertAfter('#grosscheckseg');
 				$("#grossroofseg").css({
 					"visibility":"visible",
 					"opacity":"0"
@@ -593,7 +632,16 @@
 			});
 			doubleTake(indexch,checkBool[indexch]);
 		}
-	});	
+	});
+	$(document).ready(function (){
+		for (var i = 0; i < 12; i++)
+		{
+			monthsData[i] = {"month":monthArray[i],"kwh":$('#'+monthArray[i].toLowerCase()+"power").val(),"kwhcost":$('#'+monthArray[i].toLowerCase()+"powercost").val(),"gas":$('#'+monthArray[i].toLowerCase()+"gas").val(),"gascost":$('#'+monthArray[i].toLowerCase()+"gascost").val()}
+			console.log(monthsData);
+		}
+		charted(monthsData);
+	});
+	
 	fakecheckVarPopulate(checkBool);
 	fakecheckVarPopulate(checkBoolRad);
 })();
