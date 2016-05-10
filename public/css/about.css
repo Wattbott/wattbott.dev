@@ -5,78 +5,133 @@ html, body{
 	font-family: "Roboto";
 }
 #circlemodal{
-	width:400px;
-	height:400px;
-	border-radius: 50%;
+	width:500px;
+	height:500px;
+	left:5%;
 	background-color: white;
 	border: 4px solid white;
 	overflow: hidden;
-	position: relative;
-	visibility: hidden;
+	position: absolute;
+	z-index:2;
 }
 .whitestuff{
 	border: 4px solid white;
 	position: absolute;
 	overflow: hidden;
 }
-img{
+#circlemodal div{
 	width:100%;
-	height:100%;
-}
-#firstborder{
-	border-top-left-radius: 50%;
-	left: 0px;
-	width:50%;
-	z-index:4;
+	height:33.3%;
+	position: absolute;
 	overflow: hidden;
-
 }
-.fakedivide{
-	height:50%;
-	width:4px;
-	background-color: white;
+#circlemodal img{
+	width: 500px;
+	height:500px;
+}
+#anna{
+	top:0%;
 	position: absolute;
-	margin-left: auto;
-	margin-right: auto;
-	left: 0;
-	right: 0;
-	z-index: 10;
 }
-#firstborder img{
-
+#anna img{
+	position: relative;
+	top:-50%;
 }
-#secondborder{
-	right: 0px;
-	width:50%;
-	z-index:3;
-}
-#thirdborder img{
-	width:100%;
-	height:auto;
-}
-#thirdborder{
-	bottom: 0px;
-	right:0;
-	left:0;
-	width:100%;
-	margin-left: auto;
-	margin-right: auto;
-	z-index:2;
-}
-#infobox, #infobox > div{
+#margot{
+	top:33.3%;
 	position: absolute;
+}
+#margot img{
+	position: relative;
+	top:-50%;
+}
+#somerandomdude{
+	top:66.6%;
+	position: absolute;
+}
+#somerandomdude img{
+	position: relative;
+	top: -50%;
+}
+#infobox, #infobox .infopart{
+	position: absolute;
+	z-index: 2;
+}
+.textbox{
+	position: relative;
+	width: 80%
 }
 #infobox{
 	width:50%;
-	height:40%;
+	min-height: 500px;
 	border: 2px solid white;
 	right:10%;
-	top:60px;
+	position: absolute;
 }
 .infopart{
+	margin-left: auto;
+	margin-right: auto;
+	left:0;
+	right:0;
 	padding: 20px 10px;
+	height:90%;
+	width:90%;
+	visibility: hidden;
 }
 .fontcolor2 h1{
 	font-weight: 300;
 	text-decoration: underline;
+}
+.links{
+	position: absolute;
+	width:30%;
+	bottom: 0px;
+	height:64px;
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	left:0;
+	right:0;
+	justify-content:center;
+}
+.links a{
+	margin-left: auto;
+	margin-right: auto;
+}
+.linkedin{
+	width:64px;
+	height:64px;
+}
+#title{
+	font-size: 10vw;
+	position: relative;
+	min-width: 300px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+	font-weight: 300;
+}
+.buttonlink{
+	width:300px;
+	height:64px;
+	background-color: #f79646;
+	border-radius: 32px;
+	font-size: 42px;
+	color:white;
+}
+a .buttonlink, a{
+	text-align: center;
+	text-decoration: none;
+	font-weight: 300;
+	color: white;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+.fakemargin{
+	min-height:600px;
+	position: relative;
+	display: block;
+	width:100%; 
 }
