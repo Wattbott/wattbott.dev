@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Wattbott, Your Internet Neighbor For Energy Effincency</title>
+	<title>Wattbott</title>
 	<link rel="stylesheet" href="/css/base.css">
 	@yield('style')
 </head>
