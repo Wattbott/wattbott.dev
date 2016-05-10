@@ -14,7 +14,7 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-	public function hiya()
+	public function intro()
 	{
 		return View::make('hello');
 	}

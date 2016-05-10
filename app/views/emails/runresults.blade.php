@@ -297,7 +297,7 @@ td{font-family:sans-serif !important}.border{background-color:#b1c1d8}.layout--n
       
           <div style="Margin-left: 20px;Margin-right: 20px;Margin-bottom: 24px;">
       <div class="btn btn--flat" style="text-align:left;">
-        <![if !mso]><a style="border-radius: 4px;display: inline-block;font-weight: bold;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #f5f7fa !important;background-color: #00b0f0;font-family: Lato, Tahoma, sans-serif;font-size: 12px;line-height: 22px;padding: 10px 28px;" href="http://wattbott.createsend1.com/t/d-l-tytyuil-l-r/">Edit your property info</a><![endif]>
+        <![if !mso]><a style="border-radius: 4px;display: inline-block;font-weight: bold;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #f5f7fa !important;background-color: #00b0f0;font-family: Lato, Tahoma, sans-serif;font-size: 12px;line-height: 22px;padding: 10px 28px;" href="{{ action('RunsController@show',$results->id)}}">Edit your property info</a><![endif]>
       <!--[if mso]><p style="line-height:0;margin:0;">&nbsp;</p><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://wattbott.createsend1.com/t/d-l-tytyuil-l-r/" style="width:178px" arcsize="10%" fillcolor="#00B0F0" stroke="f"><v:textbox style="mso-fit-shape-to-text:t" inset="0px,9px,0px,9px"><center style="font-size:12px;line-height:22px;color:#F5F7FA;font-family:Tahoma,sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:4px">Edit your property info</center></v:textbox></v:roundrect><![endif]--></div>
     </div>
       
@@ -342,7 +342,7 @@ td{font-family:sans-serif !important}.border{background-color:#b1c1d8}.layout--n
       
           <div style="Margin-left: 20px;Margin-right: 20px;Margin-bottom: 24px;">
       <div class="btn btn--flat" style="text-align:left;">
-        <![if !mso]><a style="border-radius: 4px;display: inline-block;font-weight: bold;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #f5f7fa !important;background-color: #00b0f0;font-family: Lato, Tahoma, sans-serif;font-size: 12px;line-height: 22px;padding: 10px 28px;" href="http://wattbott.createsend1.com/t/d-l-tytyuil-l-y/">Find a solar provider in your area</a><![endif]>
+        <![if !mso]><a style="border-radius: 4px;display: inline-block;font-weight: bold;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #f5f7fa !important;background-color: #00b0f0;font-family: Lato, Tahoma, sans-serif;font-size: 12px;line-height: 22px;padding: 10px 28px;" href="http://dbhms.com/">Find a solar provider in your area</a><![endif]>
       <!--[if mso]><p style="line-height:0;margin:0;">&nbsp;</p><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://wattbott.createsend1.com/t/d-l-tytyuil-l-y/" style="width:231px" arcsize="10%" fillcolor="#00B0F0" stroke="f"><v:textbox style="mso-fit-shape-to-text:t" inset="0px,9px,0px,9px"><center style="font-size:12px;line-height:22px;color:#F5F7FA;font-family:Tahoma,sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:4px">Find a solar provider in your area</center></v:textbox></v:roundrect><![endif]--></div>
     </div>
       

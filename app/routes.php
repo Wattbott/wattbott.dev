@@ -12,12 +12,16 @@
 |
 */
 
-Route::get('/', 'HomeController@hiya');
+
 Route::get('/about', 'HomeController@about');
+
+Route::get('/', 'HomeController@intro');
+
 Route::get('/form{id?}', 'RunsController@create');
 Route::post('/store', 'RunsController@store');
 Route::get('/result{id}', 'RunsController@result');
 Route::get('/show{id}','RunsController@show');
+Route::get('/about', 'HomeController@about');
 Route::get('/garbagetest', function() {
 	
 	$run1 = new Run();

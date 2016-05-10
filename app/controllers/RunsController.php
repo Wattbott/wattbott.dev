@@ -21,7 +21,6 @@ class RunsController extends BaseController {
 	public function store() 
 	{
 		$run = new Run();
-
 		// validate email, zipcode and general run info
 		$validator = Validator::make(Input::all(), Run::$rules);
 		if ($validator->fails()) {
@@ -43,6 +42,7 @@ class RunsController extends BaseController {
 			} else {
 				$tempArray['user_input']['gross_roof_area'] = Input::get('grossfloorarea');
 			}
+		dd($tempArray['user_input']['energy_data']);
 			$run->run = $tempArray;
 
 			// check to see if the input has gas data

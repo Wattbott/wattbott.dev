@@ -12,7 +12,7 @@
 @section('content')
 
 <div class="mainresultscontainer">
-	<div id="resultstext">Alright the results are in for {{{ $run->run['user_input']['run_name']}}}!</div>
+	<div id="resultstext">Results for {{{ $run->run['user_input']['run_name'] }}}</div>
 	<div id="superselect"></div>
 	<div id="graph0" class="dagraph">
 		<span  class="graphlabel">EUI</span>
@@ -33,7 +33,7 @@
 		</div>
 	</div>
 	<div id="graph2" class="dagraph">
-		<span class="graphlabel">Savings from photovoltaic</span>
+		<span class="graphlabel">Savings from Photovoltaic</span>
 		<div id="bar5" class="graphbar">
 			<span class="bartext">{{{ $run->run['user_output']['pv']['roi'] }}}</span>
 		</div>
@@ -44,7 +44,7 @@
 	</div>
 	<div id="kewlkontainer">
 		<div class="infocontainer">
-			<p class="infoheader fontmidlarge">Energy Use Intensity</p>
+			<p class="infoheader fontmidlarge">Energy Use Intensity (EUI)</p>
 			<p class="kewlkontents fontmid">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -71,9 +71,8 @@
 		</div>
 	</div>
 	<div class="littlecontainer">
-		<p>Not satisfied?</p>
-		<a href="{{ action('RunsController@create')}}">Do another one!</a>
-		<a href="{{ action('RunsController@show',$run->id)}}">or Change your inputs!</a>
+		<a style="font-size:15px;"href="{{ action('RunsController@show',$run->id)}}">Edit this building</a>
+		<a style="font-size:15px;"href="{{ action('RunsController@create')}}">New building</a>
 
 	</div>
 </div>
