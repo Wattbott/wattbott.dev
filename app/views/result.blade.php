@@ -35,7 +35,7 @@
 	<div id="graph2" class="dagraph">
 		<span class="graphlabel">Savings from Photovoltaic</span>
 		<div id="bar5" class="graphbar">
-			<span class="bartext">{{{ round($run->run['user_output']['pv']['roi'], 1) }}}</span> years
+			ROI: <span class="bartext">{{{ round($run->run['user_output']['pv']['roi'], 1) }}}</span> years
 		</div>
 		<div id="bar6" class="graphbar">
 			<span class="bartext">{{{ round($run->run['user_output']['pv']['percent_savings'], 1) }}}% annual savings
