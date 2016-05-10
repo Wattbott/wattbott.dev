@@ -143,13 +143,14 @@ class Run extends BaseModel
 				$tempArray['api_input']['utility_rate']['gas'] = [$this->temp_energy_totals['gas']['cost'] / $gas_total, '$/mmBtu'];
 			}
 
-		} else {
+		} 
+		else {
 
-			dd('API set this to get the median building');
+			$tempArray['api_input']['energy']['elec'] = $this->temp_energy_totals['elec']['energy'];
+			$tempArray['api_input']['utility_rate']['elec'] = [Api::utilityRate($tempArray['api_input']['lat'], $tempArray['api_input']['lon']) / Ass::get('unit_kwh_mmbtu'),'$/mmBtu'];
 		}
 		
 		$this->run = $tempArray;	
-
 	}
 
 	public function userOuput()

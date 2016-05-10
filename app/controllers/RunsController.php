@@ -42,7 +42,6 @@ class RunsController extends BaseController {
 			} else {
 				$tempArray['user_input']['gross_roof_area'] = Input::get('grossfloorarea');
 			}
-		dd($tempArray['user_input']['energy_data']);
 			$run->run = $tempArray;
 
 			// check to see if the input has gas data
@@ -61,7 +60,8 @@ class RunsController extends BaseController {
 			} else {
 
 				// get median value from target finder
-				dd('get median values - this is broken, pre API');
+				$run->temp_energy_totals['elec']['energy'] = 1;
+				$run->temp_energy_totals['elec']['cost'] = 1;
 			}
 
 			// build API input
