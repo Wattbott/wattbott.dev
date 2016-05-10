@@ -22,5 +22,9 @@ class HomeController extends BaseController {
 	{
 		return View::make('testcase');
 	}
+	public function about()
+	{
+		return View::make('about');
+	}
 
 }

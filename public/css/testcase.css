@@ -120,6 +120,7 @@ body{
 input.coolformtext{
 	border:0px;
 	border-radius: 32px;
+	padding: 6px 8px;
 	text-align: center;
 	overflow: hidden;
 }
