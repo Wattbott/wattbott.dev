@@ -58,9 +58,8 @@
 		</div>
 	</div>
 	<div class="littlecontainer">
-		<a style="font-size:15px;"href="{{ action('RunsController@show',$run->id)}}">Edit this building</a>
-		<a style="font-size:15px;"href="{{ action('RunsController@create')}}">New building</a>
-
+		<a href="{{ action('RunsController@show',$run->id)}}"><div class="buttonlink"><p>Edit This Building</p></div></a>
+		<a href="{{ action('RunsController@create')}}"><div class="buttonlink"><p>New Building</p></div></a>
 	</div>
 </div>
 @stop

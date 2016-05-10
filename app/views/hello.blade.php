@@ -145,21 +145,16 @@
 			<p>$<span class="coolup">0</span></p>
 	</div>
 </div>
+<a href="{{{action('RunsController@create')}}}"><div class="buttonlink font3"><p>Get Started</p></div></a>
+
 			</li>
-			<li>
-				<p>and suggests green technologies that can help you save!</p>
-				<div id="solarpanel">
-					<div class="grid">
-					</div>
-				</div>
-			</li>
-			
 		</ul>
 	</div>
 </main>
 <div class="falsemargin"></div>
 
 <a href="{{{action('RunsController@create')}}}"><div class="buttonlink font3"><p>Get Started</p></div></a>
+<div class="falsemargin"></div>
 
 @stop
 
