@@ -37,7 +37,7 @@ body{
 	margin-right: auto;
 }
 #gassystuff{
-	top:15%;
+	top:5%;
 	position: relative;
 	width:90%;
 	margin-left: auto;
@@ -60,11 +60,11 @@ body{
 #dachart{
 	border-left:4px solid white;
 	border-bottom: 4px solid white;
-	height:37%;
+	height:40%;
 	width:60%;
 	position: absolute;
 	display: block;
-	bottom:60px;
+	top:35%;
 	left:0;
 	right:0;
 	margin-left: auto;
@@ -120,6 +120,7 @@ body{
 input.coolformtext{
 	border:0px;
 	border-radius: 32px;
+	padding: 6px 8px;
 	text-align: center;
 	overflow: hidden;
 }
@@ -174,13 +175,27 @@ input.coolformtext{
 	border-radius: 32px;
 	z-index:7;
 }
+.description{
+	position: absolute;
+	left:25%;
+	bottom:110%;
+	padding: 8px;
+	min-width: 100px;
+	background-color: inherit;
+	text-align:  center;
+	border: 1px solid white;
+	border-radius: 16px;
+	color:black;
+	font-size: 16px;
+}
+
 #fakeselectC{
 	position:relative;
 	display: block;
 	visibility: hidden;
 	opacity: 1;
 	list-style-type: none;
-	top:20%;
+	top:10%;
 	width:80%;
 	height:48px;
 	margin-left: auto;

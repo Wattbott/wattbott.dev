@@ -12,7 +12,11 @@
 |
 */
 
+
+Route::get('/about', 'HomeController@about');
+
 Route::get('/', 'HomeController@intro');
+
 Route::get('/form{id?}', 'RunsController@create');
 Route::post('/store', 'RunsController@store');
 Route::get('/result{id}', 'RunsController@result');

@@ -17,7 +17,7 @@
 	var fakenumkey = '';
 	var fakerkey = '';
 	var maxlength = 0;
-	var monthArray = ['January','february','March','April','May','June','July','August','September','October','November','December'];
+	var monthArray = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 	var monthsChartArray = [];
 	var inc = 0;
 
@@ -41,6 +41,29 @@
 			}
 		});
 	}
+	function runrunrun()
+	{
+		$('.bargraphkwh').hover(function(){
+			$(this).append('<div class="description">kW/h Amount</div>');
+		},function(){
+			$(this).children('.description').detach();
+		});
+		$('.bargraphkwhcost').hover(function(){
+			$(this).append('<div class="description">kW/h Cost (USD)</div>');
+		},function(){
+			$(this).children('.description').detach();
+		});
+		$('.bargraphgas').hover(function(){
+			$(this).append('<div class="description">Gas Amount</div>');
+		},function(){
+			$(this).children('.description').detach();
+		});
+		$('.bargraphgascost').hover(function(){
+			$(this).append('<div class="description">Gas Cost (USD)</div>');
+		},function(){
+			$(this).children('.description').detach();
+		});
+	}
 	function charted(data)
 	{	
 		if (fakerkey !== '' && fakenumkey !== '')
@@ -49,9 +72,23 @@
 			maxlength = data[fakenumkey][fakerkey];
 			console.log(maxlength);
 		}
+		if (data.length > 8)
+		{
+			$('#dachart').animate({
+				"height": data.length*5.2+"%"
+			});
 
+		}
 		for (var i = data.length -1; i >= 0; i--)
 		{
+			if (data.length > 8)
+		{
+			$('#dachart .graphbarpart').animate({
+				"font-size": 16-(data.length/2)+"px"
+			});
+			
+		}
+		
 			for (var key in data[i])
 			{
 				if ((data[i][key] > maxlength) && (key !== 'month'))
@@ -149,10 +186,11 @@
 				{
 					$('#'+monthgraph+'graph .bargraphgascost').animate({
 						"width":width4+"%"
-					}).text(data[i].gascost + 'testshit');
+					}).text(data[i].gascost);
 				}
 			}
 		}
+		runrunrun();
 	}
 	function parseMonthsValue(data)
 	{
@@ -594,7 +632,16 @@
 			});
 			doubleTake(indexch,checkBool[indexch]);
 		}
-	});	
+	});
+	$(document).ready(function (){
+		for (var i = 0; i < 12; i++)
+		{
+			monthsData[i] = {"month":monthArray[i],"kwh":$('#'+monthArray[i].toLowerCase()+"power").val(),"kwhcost":$('#'+monthArray[i].toLowerCase()+"powercost").val(),"gas":$('#'+monthArray[i].toLowerCase()+"gas").val(),"gascost":$('#'+monthArray[i].toLowerCase()+"gascost").val()}
+			console.log(monthsData);
+		}
+		charted(monthsData);
+	});
+	
 	fakecheckVarPopulate(checkBool);
 	fakecheckVarPopulate(checkBoolRad);
 })();
