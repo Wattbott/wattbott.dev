@@ -14,9 +14,11 @@ $assumptions = [
 	'unit_cff_mmbtu' => [0.1027, 'mmBtu/cff','assumes typical natural gas'],
 
 	// used for pv ROI 
-	'pv_installed_cost' => [5, '$/kWatt','cost for pv materials and installation'],
+	'pv_installed_cost' => [5, '$/Watt','cost for pv materials and installation'],
 	'pv_usable_roof' => [0.15, 'na','ratio of roof area where pv can be mounted'],	
 	'pv_sys_intensity' => [11, 'Watts/ft^2','power output per pv panel area'],
+
+	// default utility rates
 	
 
 ];
