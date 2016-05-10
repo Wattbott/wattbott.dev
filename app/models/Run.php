@@ -143,32 +143,38 @@ class Run extends BaseModel
 				$tempArray['api_input']['utility_rate']['gas'] = [$this->temp_energy_totals['gas']['cost'] / $gas_total, '$/mmBtu'];
 			}
 
-		} else {
+		} 
+		else {
 
-			dd('API set this to get the median building');
+			$tempArray['api_input']['energy']['elec'] = $this->temp_energy_totals['elec']['energy'];
+			$tempArray['api_input']['utility_rate']['elec'] = [Api::utilityRate($tempArray['api_input']['lat'], $tempArray['api_input']['lon']) / Ass::get('unit_kwh_mmbtu'),'$/mmBtu'];
 		}
 		
 		$this->run = $tempArray;	
-
 	}
 
 	public function userOuput()
 	{
 
-		$tempArray = $this->run;
 		// EUI
+		$tempArray = $this->run;
+		if ($this->run['api_input']['energy']['elec']==1) {
+			$tempArray['api_input']['energy']['elec'] = ($tempArray['api_output']['eui']['median_site_intensity']*$tempArray['api_input']['gross_flr_area'])/1000;
+			$dsi = $this->run['api_output']['eui']['median_site_intensity'];
+			$dec = $this->run['api_output']['eui']['median_energy_cost'];
+		} else {
 
-		// this needs to be updated with EUI output
-		$e_gas = '';
-		$c_gas = '';
-		if (array_key_exists('gas', $this->run['api_input']['energy'])) {
-			$e_gas = $this->run['api_input']['energy']['gas'];
-			$c_gas = $e_gas * $this->run['api_input']['utility_rate']['gas'][0];
+			// this needs to be updated with EUI output
+			$e_gas = '';
+			$c_gas = '';
+			if (array_key_exists('gas', $this->run['api_input']['energy'])) {
+				$e_gas = $this->run['api_input']['energy']['gas'];
+				$c_gas = $e_gas * $this->run['api_input']['utility_rate']['gas'][0];
+			}	
+			$dsi = ($this->run['api_input']['energy']['elec'] + $e_gas)/$this->run['api_input']['gross_flr_area']*1000;
+			$dec = $this->run['api_input']['energy']['elec']*$this->run['api_input']['utility_rate']['elec'][0] + $c_gas;
 		}
-		
 
-		$dsi = ($this->run['api_input']['energy']['elec'] + $e_gas)/$this->run['api_input']['gross_flr_area']*1000;
-		$dec = $this->run['api_input']['energy']['elec']*$this->run['api_input']['utility_rate']['elec'][0] + $c_gas;
 		$msi = $dsi;
 		$msc = $dec;
 		if ($this->run['api_output']['eui']) {

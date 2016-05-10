@@ -2,6 +2,7 @@
 
 class Api extends Eloquent {
 
+    static public $url_utility_rate = "http://api.data.gov/nrel/utility_rates/v3.json?";
     static public $url_pv = "http://api.data.gov/nrel/pvwatts/v5.json?";
     static public $url_eui = "https://portfoliomanager.energystar.gov/ws/targetFinder?measurementSystem=EPA";
 
@@ -22,6 +23,45 @@ class Api extends Eloquent {
 			Log::error('geocoder failed');
 		}
 		return $results;
+    }
+
+    public static function utilityRate($lat, $lon)
+    {
+    	// query string builder
+		$query = [
+		    "api_key"=> $_ENV['PV_PVwatts_APIkey'],
+		    "lat" => $lat,
+		    "lon" => $lon
+		];
+		$url_utility_rate = static::$url_utility_rate . http_build_query($query);
+
+    	// set variables for curl http request
+		$ch = curl_init();
+    	$options = [
+    		CURLOPT_URL => $url_utility_rate,
+    		CURLOPT_FAILONERROR => true,
+			CURLINFO_HEADER_OUT => true,
+			CURLOPT_RETURNTRANSFER => true,
+    	];
+    	curl_setopt_array($ch, $options);
+
+		//execute post
+		$result = curl_exec($ch);
+		$info = curl_getinfo($ch);
+		$error = curl_error($ch);
+
+		//close connection
+		curl_close($ch);
+		
+
+		if (!$error) {
+			$result = json_decode($result,true);
+			$result = $result['outputs']['commercial'];
+		} else {
+			$result = false;
+			Log::error('api utility rate:' . $error);
+		}
+		return $result;
     }
 
     public function pv()
