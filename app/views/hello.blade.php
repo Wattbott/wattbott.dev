@@ -158,7 +158,7 @@
 	</div>
 </main>
 <div class="falsemargin"></div>
-<a href="{{{action('HomeController@testForm')}}}"><div class="buttonlink font3"><p>Start Your Journey Here</p></div></a>
+<a href="{{{action('RunsController@create')}}}"><div class="buttonlink font3"><p>Start Your Journey Here</p></div></a>
 
 @stop
 
