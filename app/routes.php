@@ -28,6 +28,8 @@ Route::get('/garbagetest', function() {
 
 	return View::make('garbagetest')->with('junk',$request);
 });
+Route::get('/wait','RunsController@wait' );
+
 Route::get('/pdftest', function(){
 	$pdf = App::make('dompdf');
 	// $pdf->loadHTML('<h1>margoober</h1>');

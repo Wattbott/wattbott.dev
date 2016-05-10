@@ -65,43 +65,52 @@ class RunsController extends BaseController {
 			}
 
 			// build API input
-			$run->apiInput();
+			$run->apiInputPart1();
 
 			// maybe we don't want this here...?
 			$run->save();
+			return Redirect::action('RunsController@result',['id'=>$run->id]);
+
 		} //this curly closes the consequent of the validator conditional
-	return Redirect::action('RunsController@result',['id'=>$run->id]);
 	}
 	public function result($id) 
 	{
-		// change code to read this value in if run preset
-		if(true){
-			$run = Run::find($id);	
-		} 
+		View::creator('result', function($view){
+			$id = 2;
 
-		// need to check if we should re-run this code or just show results... or maybe this is another route?
-		// API calls, results are set to api_output on $run->run
-		
-		// Build API output through api calls
-		$tempArray = $run->run;
-		$api = new Api();
-		$api->input = $tempArray['api_input'];
-		$tempArray['api_output']['pv']['ac_annual'] = $api->pv();
-		$tempArray['api_output']['eui'] = $api->eui();
-		$run->run = $tempArray;
-		// create user output here
-		$run->userOuput();
+			// change code to read this value in if run preset
+			if(true){
+				$run = Run::find($id);	
+			} 
+			$run->apiInputPart2();
+			
+			// need to check if we should re-run this code or just show results... or maybe this is another route?
+			// API calls, results are set to api_output on $run->run
+			
+			// Build API output through api calls
+			$tempArray = $run->run;
+			$api = new Api();
+			$api->input = $tempArray['api_input'];
+			$tempArray['api_output']['pv']['ac_annual'] = $api->pv();
+			$tempArray['api_output']['eui'] = $api->eui();
+			$run->run = $tempArray;
+			// create user output here
+			$run->userOuput();
 
-		$run->save();
-		//MAYBE CALL THE EMAIL/PDF METHOD HERE! ALL PROPERTIES ON THE RUN OBJECT SHOULD BE AVAILABLE!
-		$run->sendEmailTo($run->run['user_input']['email'], $run);
+			$run->save();
+			//MAYBE CALL THE EMAIL/PDF METHOD HERE! ALL PROPERTIES ON THE RUN OBJECT SHOULD BE AVAILABLE!
+			$run->sendEmailTo($run->run['user_input']['email'], $run);
 
-		// dd($run->run['user_output']['pv']['roi']);
-		$data = [
-			'run' => $run,
-			'id' => $id
-		];
+			// dd($run->run['user_output']['pv']['roi']);
+			$data = [
+				'run' => $run,
+				'id' => $id
+			];
 
-		return View::make('result')->with($data);
+			$view->with($data);
+		});
+
+
+		return View::make('result');
 	}
 }
