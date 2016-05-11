@@ -32,12 +32,12 @@
 		</div>
 	</div>
 	<div id="graph2" class="dagraph">
-		<span class="graphlabel">Savings from Photovoltaic</span>
+		<span class="graphlabel">Green Tech ROI</span>
 		<div id="bar5" class="graphbar">
-			ROI: <span class="bartext">{{{ round($run->run['user_output']['pv']['roi'], 0) }}}</span> years
+			PV: <span class="bartext">{{{ round($run->run['user_output']['pv']['roi'], 0) }}}</span> years
 		</div>
 		<div id="bar6" class="graphbar">
-			<span class="bartext">{{{ round(($run->run['user_output']['pv']['percent_savings'])*100, 0) }}} annual savings
+			<span class="bartext"> future technology
 			</span>
 		</div>
 	</div>
@@ -52,7 +52,7 @@
 			<p class="kewlkontents fontmid">Here, we compare your annual energy expenses with the median for buildings of your type and size. How do you compare?</p>
 		</div>
 		<div class="infocontainer">
-			<p class="infoheader fontmidlarge">Photovoltaic</p>
+			<p class="infoheader fontmidlarge">Photovoltaic (PV)</p>
 			<p class="kewlkontents fontmid">A photovoltaic system on your building could save you ${{ round($run->run['user_output']['pv']['percent_savings'] * $run->run['user_output']['eui']['design_energy_cost'],0) }} per year, and pay for itself in {{{ round($run->run['user_output']['pv']['roi'], 0) }}} years.</p>
 		</div>
 	</div>
