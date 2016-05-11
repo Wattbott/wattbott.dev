@@ -49,7 +49,7 @@
 	</div>
 	<div id="margotinfo" class="infopart fontcolor2">
 		<h1 class="fontlarge">Margot McMahon</h1>
-		<p class="fontmid">Margot is nuts about design theory, queer advocacy, and nonprofit development. She is a front-end cat, but doesn't mind back-end work at all.</p>
+		<p class="fontmid">Margot is nuts about design theory, land management, and nonprofit development. She is a front-end cat, but doesn't mind back-end work at all.</p>
 		<div class="links">
 			<a href="https://github.com/margoober"><span class="mega-octicon octicon-mark-github"></span></a>
 			<a href="https://twitter.com/margoober"><img class="linkedin" src="/img/twit.png"></a>
