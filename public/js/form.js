@@ -556,6 +556,37 @@
 			}
 		}
 	}
+	// js for sunrotation
+	function getRotationDegrees(obj) {
+	    var matrix = obj.css("-webkit-transform") ||
+	    obj.css("-moz-transform")    ||
+	    obj.css("-ms-transform")     ||
+	    obj.css("-o-transform")      ||
+	    obj.css("transform");
+	    if(matrix !== 'none') {
+	        var values = matrix.split('(')[1].split(')')[0].split(',');
+	        var a = values[0];
+	        var b = values[1];
+	        var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+	    } else { var angle = 0; }
+	    return (angle < 0) ? angle : angle;
+	}
+	function visionCreationNewsun(){
+		setInterval(function(){
+			console.log
+			var elem = $(".suncorona");
+			$({deg: 0}).animate({deg: -360}, {
+				duration: 60,
+				easing: "linear",
+				step: function(now){
+	           		elem.css({
+	            	     transform: "rotate(" + now + "deg)"
+	            	});
+	        	}
+	    	});
+		},800);
+	}
+
 	$("#fakeselect").click(function(){
 		if (faketrue == false && ($(this).height() < listheight*1.5))
 		{
@@ -641,51 +672,19 @@
 		}
 		charted(monthsData);
 	});
-	// js for sunrotation
-	function getRotationDegrees(obj) {
-	    var matrix = obj.css("-webkit-transform") ||
-	    obj.css("-moz-transform")    ||
-	    obj.css("-ms-transform")     ||
-	    obj.css("-o-transform")      ||
-	    obj.css("transform");
-	    if(matrix !== 'none') {
-	        var values = matrix.split('(')[1].split(')')[0].split(',');
-	        var a = values[0];
-	        var b = values[1];
-	        var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
-	    } else { var angle = 0; }
-	    return (angle < 0) ? angle : angle;
-	}
-	function visionCreationNewsun(){
-		setInterval(function(){
-			var elem = $(".suncorona");
-			$({deg: 0}).animate({deg: -360}, {
-				duration: 60,
-				easing: "linear",
-				step: function(now){
-	           		elem.css({
-	            	     transform: "rotate(" + now + "deg)"
-	            	});
-	        	}
-	    	});
-		},1000);
-	}
-	
 	fakecheckVarPopulate(checkBool);
 	fakecheckVarPopulate(checkBoolRad);
 
 	// waiting page click event
 	$('#submitbuttonID').click(function (){
-		$('#formbody1').hide();
-		$('#formbody2').hide();
-		$('#formbody3').hide();
 		$(this).hide();
-		var happysun = '<div class="sun"><div class="happyface"><div class="eye eyeone"></div><div class="eye eyetwo"></div><div class="smiley"><div class="smileyoverlay"></div></div></div><div class="suncorona"><div class="coronapart lazycorona1"></div><div class="coronapart lazycorona2"></div></div><div class="sunbody"></div></div>';
+		var happysun = '<div id="magicplace"><div class = "suntext">calculating...</div><div class="sun"><div class="happyface"><div class="eye eyeone"></div><div class="eye eyetwo"></div><div class="smiley"><div class="smileyoverlay"></div></div></div><div class="suncorona"><div class="coronapart lazycorona1"></div><div class="coronapart lazycorona2"></div></div><div class="sunbody"></div></div></div>';
 		$(happysun).insertBefore($(this));
 		visionCreationNewsun();
-
+		$('#formbody1').hide();
+		$('#formbody2').remove();
+		$('#formbody3').remove();
 	});
-
 
 
 })();

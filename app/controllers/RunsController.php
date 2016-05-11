@@ -27,7 +27,7 @@ class RunsController extends BaseController {
 			Session::flash('errorMessage', "Unable to save post.");
 			return Redirect::back()->withInput()->withErrors($validator);
 		} else {
-
+					
 			// load data from form - unspcified values load as null or empty strings
 			$tempArray['user_input']= Input::get('user_input');
 			$tempArray['user_input']['run_name'] = Input::get('calcname');
@@ -66,9 +66,8 @@ class RunsController extends BaseController {
 
 			// build API input
 			$run->apiInputPart1();
-
-			// maybe we don't want this here...?
 			$run->save();
+
 			return Redirect::action('RunsController@result',['id'=>$run->id]);
 
 		} //this curly closes the consequent of the validator conditional
@@ -77,11 +76,10 @@ class RunsController extends BaseController {
 	{
 
 		// change code to read this value in if run preset
-		if(true){
-			$run = Run::find($id);	
-		} 
+		$run = Run::find($id);	
+
 		$run->apiInputPart2();
-		
+	
 		// need to check if we should re-run this code or just show results... or maybe this is another route?
 		// API calls, results are set to api_output on $run->run
 		
@@ -98,8 +96,7 @@ class RunsController extends BaseController {
 		$run->save();
 		//MAYBE CALL THE EMAIL/PDF METHOD HERE! ALL PROPERTIES ON THE RUN OBJECT SHOULD BE AVAILABLE!
 		$run->sendEmailTo($run->run['user_input']['email'], $run);
-
-		// dd($run->run['user_output']['pv']['roi']);
+	
 		$data = [
 			'run' => $run,
 			'id' => $id
