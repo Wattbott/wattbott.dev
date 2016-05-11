@@ -151,7 +151,7 @@
 	</div>
 </div>
 <div class="mainformbody">
-	{{ Form::submit('Let\'s Go!',$attributes = ['class' => 'submitbutton', 'id' => 'submitbuttonID']) }}
+	{{ Form::submit('Let\'s Go!',$attributes = ['class' => 'submitbutton buttonlink', 'id' => 'submitbuttonID']) }}
 	{{ Form::close() }}
 </div>
 @stop

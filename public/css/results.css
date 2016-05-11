@@ -114,11 +114,12 @@ html, body{
 }
 /* ETC */
 .littlecontainer{
-	width:60%;
+	width:90%;
 	height: 100px;
 	position: absolute;
 	bottom: 5%;
-	display: flex
+	display: flex;
+	justify-content:center;
 	margin-left: auto;
 	margin-right: auto;
 	left:0;
@@ -129,17 +130,20 @@ a .buttonlink, a{
 	text-align: center;
 	text-decoration: none;
 	color: white;
+	margin-left: auto;
+	margin-right: auto;
 }
 .buttonlink p{
 	position: relative;
+	top:0px;
 	margin: 30px auto;
 }
 .buttonlink{
-	font-size: 40px;
+	font-size: 38px;
 	font-weight: 300;
 	height:100px;
 	width:40%;
-	margin-top: 100px;
+	min-width: 350px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #f79646;
