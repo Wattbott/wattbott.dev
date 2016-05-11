@@ -2,6 +2,7 @@
 <head>
 	<title>Wattbott</title>
 	<link rel="stylesheet" href="/css/base.css">
+	 <link rel="shortcut icon" href="{{{ asset('img/favicon.png') }}}">
 	@yield('style')
 </head>
 <body>

@@ -49,10 +49,10 @@
 	</div>
 	<div id="margotinfo" class="infopart fontcolor2">
 		<h1 class="fontlarge">Margot McMahon</h1>
-		<p class="fontmid">Margot is nuts about design theory, land management, and nonprofit development. She is a front-end cat, but doesn't mind back-end work at all.</p>
+		<p class="fontmid">Margot is nuts about design theory, nonprofit development, and sociolinguistics. She is a UI/UX cat, but doesn't mind back-end challenges. She has strong aesthetic instincts and creates minimalist doodles.<br><br>Margot is looking for a job on the East Coast.</p>
 		<div class="links">
 			<a href="https://github.com/margoober"><span class="mega-octicon octicon-mark-github"></span></a>
-			<a href="https://twitter.com/margoober"><img class="linkedin" src="/img/twit.png"></a>
+			<a href="http://margot.dog"><img class = "linkedin" src="/img/margotlink.png"></a>
 		</div>
 	</div>
 	<div id="myinfo" class="infopart fontcolor2">
