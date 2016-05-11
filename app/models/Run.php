@@ -98,24 +98,9 @@ class Run extends BaseModel
 	}
 
 
-	public function apiInput()
+	public function apiInputPart1()
 	{
 		$tempArray = $this->run;
-
-		
-		// set location data
-		$zipcode = $this->run['user_input']['zipcode'];
-		if (true) {
-			// we need some conditional here to check if real zipcode
-			$tempArray['api_input'] = Api::setLocation($zipcode);
-			$tempArray['api_input']['zipcode'] = $zipcode;
-		}
-		$tempArray['api_input']['gross_flr_area'] = $this->run['user_input']['gross_flr_area'];
-		$tempArray['api_input']['bldg_type'] = $this->run['user_input']['bldg_type'];
-
-		//caluclate system_capacity
-		$tempArray['api_input']['system_capacity'] = $this->run['user_input']['gross_roof_area'] * Ass::get('pv_usable_roof') * Ass::get('pv_sys_intensity')/1000;
-		
 		// set total energy and calc utility rates
 		if ($this->is_energy_data['elec']||$this->is_energy_data['gas']) {
 			// we should checkinputs and change units likely some functions here... 
@@ -147,10 +132,32 @@ class Run extends BaseModel
 		else {
 
 			$tempArray['api_input']['energy']['elec'] = $this->temp_energy_totals['elec']['energy'];
+		}
+		$this->run = $tempArray;
+	}
+	public function apiInputPart2(){
+		$tempArray = $this->run;
+		// set location data
+		$zipcode = $this->run['user_input']['zipcode'];
+		if (true) {
+			// we need some conditional here to check if real zipcode
+			$geodata = Api::setLocation($zipcode);
+			foreach ($geodata as $key => $value) {
+				$tempArray['api_input'][$key] = $value;
+			}
+			$tempArray['api_input']['zipcode'] = $zipcode;
+		}
+		$tempArray['api_input']['gross_flr_area'] = $this->run['user_input']['gross_flr_area'];
+		$tempArray['api_input']['bldg_type'] = $this->run['user_input']['bldg_type'];
+
+		//caluclate system_capacity
+		$tempArray['api_input']['system_capacity'] = $this->run['user_input']['gross_roof_area'] * Ass::get('pv_usable_roof') * Ass::get('pv_sys_intensity')/1000;
+
+		// set for no energy inputs
+		if ($tempArray['api_input']['energy']['elec'] == 1) {
 			$tempArray['api_input']['utility_rate']['elec'] = [Api::utilityRate($tempArray['api_input']['lat'], $tempArray['api_input']['lon']) / Ass::get('unit_kwh_mmbtu'),'$/mmBtu'];
 		}
-		
-		$this->run = $tempArray;	
+		$this->run = $tempArray;
 	}
 
 	public function userOuput()
