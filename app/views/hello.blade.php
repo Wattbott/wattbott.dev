@@ -76,7 +76,7 @@
 		<div id="schoolroof" class="building"><div id="schooltop"></div></div>
 	</div>
 </div>
-<main>
+<main id="lazy">
 	<div class="cooltextcontainer font3 fontcolor2">
 		<p class="fontcenter fontlarge">Make Your Building Greener</p>
 		<p class="fontmid">Wattbott is a simple calculator designed to help you<br>save money with green technologies!</p>
@@ -146,14 +146,7 @@
 	</div>
 </div>
 <a href="{{{action('RunsController@create')}}}"><div class="buttonlink font3"><p>Get Started</p></div></a>
-
-			</li>
-		</ul>
-	</div>
 </main>
-<div class="falsemargin"></div>
-
-<a href="{{{action('RunsController@create')}}}"><div class="buttonlink font3"><p>Get Started</p></div></a>
 <div class="falsemargin"></div>
 
 @stop

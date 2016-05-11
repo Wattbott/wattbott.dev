@@ -1,15 +1,9 @@
 @keyframes cool{
 	0% {
-		width:40%;
-		height:100px;
+		background-color: #ffff33;
 	}
-	50%	{
-		width: 42%;
-		height: 125px;
-	}
-	100% {
-		width:40%;
-		height:100px;
+	100%{
+		background-color: #D33C7C;
 	}
 }
 html, body{
@@ -224,9 +218,10 @@ html, body{
 .buttonlink:hover{
 	animation-name:cool;
 	animation-duration:1.5s;
-	animation-iteration-count: infinite;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 }
-a .buttonlink, a{
+#lazy a .buttonlink, #lazy a{
 	text-align: center;
 	text-decoration: none;
 	color: white;

@@ -2,49 +2,77 @@
 
 (function(){
 
-var imageTrue = [false,false,false]
-$('#circlemodal div').click(function (){
+var imageTrue = [true,false,false];
+$('.selectcircle').click(function (){
 	var index = $(this).index();
 	console.log(index);
-	if (imageTrue[index] == false)
-	{
-		$(this).css({
-			"z-index":"2"
-		}).animate({
-			"top":"0px",
-			"height":"100%"
-		});
-		$(this).children().animate({
-			"top":"0%"
-		});
-		$('.infopart').eq(index).css({
-			"visibility":"visible",
-			"opacity":"0"
-		}).animate({
-			"opacity":"1"
-		});
-		imageTrue[index] = true;
-	}
-	else
-	{
-		$(this).css({
-			"z-index":"1"
-		}).animate({
-			"top": (index*33.3)+"%",
-			"height":"33.3%"
-		});
-		$(this).children().animate({
-			"top":"-50%"
-		});
-		$('.infopart').eq(index).animate({
-			"opacity":"0"
-		});
-		setTimeout(function(){
-			$('.infopart').eq(index).css({
-				"visibility":"hidden"
+	$('.persons').each(function (i){
+		if (index == i)
+		{
+			$(this).css({
+				"visibility":"visible",
+				"opacity":"0"
+			}).animate({
+				"opacity":"1"
 			});
-		},400);
-		imageTrue[index] = false;
-	}
+			$('.selectcircle').eq(i).children().animate({
+				"top":"5px",
+				"left":"5px",
+				"width":"30px",
+				"height":"30px"
+			});
+			$('.infopart').eq(i).css({
+				"visibility":"visible",
+				"opacity":"0"
+			}).animate({
+				"opacity":"1"
+			});
+			imageTrue[index] = true;
+		}
+		else
+		{
+			var that = $(this);
+			$(this).animate({
+				"opacity":"0"
+			});
+			$('.selectcircle').eq(i).children().animate({
+				"top":"20px",
+				"left":"20px",
+				"width":"0px",
+				"height":"0px"
+			});
+			$('.infopart').eq(i).animate({
+					"opacity":"0"
+			});
+			setTimeout(function (){
+				that.css({
+					"visibility":"hidden"
+				},400);
+				$('.infopart').eq(i).css({
+					"visibility":"hidden"
+				});
+			});
+			imageTrue[i] = false;
+		}
+	});
+});
+$(document).ready(function (){
+	for (var i = 0; i < imageTrue.length; i++) {
+		if (imageTrue[i] == true)
+		{
+			$('.persons').eq(i).css({
+				"visibility":"visible",
+				"opacity":"0"
+			}).animate({
+				"opacity":"1"
+			});
+			$('.infopart').eq(i).css({
+				"visibility":"visible",
+				"opacity":"0"
+			}).animate({
+				"opacity":"1"
+			});
+		}
+	};
 });
 })();
