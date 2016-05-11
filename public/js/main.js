@@ -3,21 +3,22 @@
 (function (){
 
 	var hiddenTimeout;
-	var navOn = true;
+	var navOn = false;
 	function callnav()
 	{
-		$('footer').animate({
-			"bottom":"0px"
-		},500);
+		hiddenTimeout = setTimeout(function (){
+			$('footer').animate({
+				"bottom":"0px"
+			},500);
+		},1000);
+		navOn = false;
 	}
 	function hidenav()
 	{
-		hiddenTimeout = setTimeout(function(){
-			$('footer').animate({
-				"bottom":"-80px"
-			},500);
-			navOn = false;
-		},8000);
+		$('footer').animate({
+			"bottom":"-80px"
+		},500);
+		
 	}
 	function navswap()
 	{
@@ -25,11 +26,10 @@
 			if (navOn == false)
 			{
 				navOn = true;
-			}
-				clearTimeout(hiddenTimeout);
-				callnav();
 				hidenav();
-			
+				clearTimeout(hiddenTimeout);
+			}
+				callnav();
 		});
 	}
 	navswap();
