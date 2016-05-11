@@ -8,15 +8,32 @@
 
 @section('content')
 <h1 id="title">ABOUT</h1>
-<div id="circlemodal">
-	<div id="anna">
+<div id="circlemodal" class="fontcolor2">
+	<div class="persons" id="anna">
 		<img src="/img/annaheadshot.jpg">
+		<p class="fontlarge">Anna Morton</p>
 	</div>
-	<div id="margot">
+	<div class="persons" id="margot">
 		<img src="/img/margotheadshot.jpg">
+		<p class="fontlarge">Margot McMannon</p>
 	</div>
-	<div id="somerandomdude">
+	<div class="persons" id="somerandomdude">
 		<img src="/img/hampton1-16_0175.jpg">
+		<p class="fontlarge">Joseph Acevedo</p>
+	</div>
+	<div id="selectcontainer">
+		<div class="selectcircle">
+			<div class="checkback">
+			</div>
+		</div>
+		<div class="selectcircle">
+			<div class="checkback">
+			</div>
+		</div>
+		<div class="selectcircle">
+			<div class="checkback">
+			</div>
+		</div>
 	</div>
 </div>
 <div id="infobox">
@@ -45,9 +62,11 @@
 			<a href="https://github.com/Yeasayer"><span class="mega-octicon octicon-mark-github"></span></a>
 		</div>
 	</div>
+
 </div>
 <div class="fakemargin"></div>
 <a href="{{{ action('HomeController@intro') }}}"><div class="buttonlink">Go Home</div></a>
+<div class="fakesmallmargin"></div>
 @stop
 
 @section('scripts')

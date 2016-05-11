@@ -268,7 +268,7 @@ function navanimate(move,move2,i)
 function lazyanimate()
 {
 	var scroll = $(window).scrollTop();
-	var bar = [$('li').eq(0).position(),$('li').eq(1).position(),$('li').eq(2).position()];
+	var bar = [$('li').eq(0).position(),$('li').eq(1).position()];
 	for (var i = 0; i < bar.length; i++) {
 		console.log(bar[i].top);
 		if (scroll > bar[i].top-50)
