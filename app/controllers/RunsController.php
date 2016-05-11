@@ -58,6 +58,8 @@ class RunsController extends BaseController {
 			if (!empty($run->missing_months)) {
 				$run->replaceMonths();
 				$run->totalMonths();
+				$run->wipeMonths();
+
 			} else if (!empty($run->run['user_input']['energy_data']['elec']['energy']['total'])){
 				$run->temp_energy_totals['elec']['energy'] = $run->run['user_input']['energy_data']['elec']['energy']['total'];
 				$run->temp_energy_totals['elec']['cost'] = $run->run['user_input']['energy_data']['elec']['cost']['total'];
