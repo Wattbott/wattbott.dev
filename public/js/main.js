@@ -7,6 +7,8 @@
 	function callnav()
 	{
 		hiddenTimeout = setTimeout(function (){
+			console.log("READY!");
+			$('footer').stop(true,true);
 			$('footer').animate({
 				"bottom":"0px"
 			},500);
@@ -15,6 +17,7 @@
 	}
 	function hidenav()
 	{
+		$('footer').stop(true,true);
 		$('footer').animate({
 			"bottom":"-80px"
 		},500);
@@ -27,8 +30,10 @@
 			{
 				navOn = true;
 				hidenav();
+				console.log("REMOVING!");
 				clearTimeout(hiddenTimeout);
 			}
+				console.log("CALLING!");
 				callnav();
 		});
 	}
