@@ -42,6 +42,12 @@ class RunsController extends BaseController {
 			} else {
 				$tempArray['user_input']['gross_roof_area'] = Input::get('grossfloorarea');
 			}
+			if ($tempArray['user_input']['gross_flr_area'] < 0) {
+				$tempArray['user_input']['gross_flr_area'] = $tempArray['user_input']['gross_flr_area'] * -1;
+			}
+			if ($tempArray['user_input']['gross_roof_area'] < 0) {
+				$tempArray['user_input']['gross_roof_area'] = $tempArray['user_input']['gross_roof_area'] * -1;
+			}
 			$run->run = $tempArray;
 
 			// check to see if the input has gas data

@@ -44,7 +44,7 @@
 	<div id="kewlkontainer">
 		<div class="infocontainer">
 			<p class="infoheader fontmidlarge">Energy Use Intensity (EUI)</p>
-			<p class="kewlkontents fontmid">EUI is expressed as energy per square foot per year. It’s calculated by dividing the total energy consumed by the building in one year (measured in kBtu) by the total gross floor area of the building. Generally, a low EUI signifies good energy performance.
+			<p class="kewlkontents fontmid">EUI is energy used per square foot per year. It’s calculated by dividing the total energy consumed by the building in one year by the total floor area of the building. The lower your EUI, the better your energy performance.
 			</p>
 		</div>
 		<div class="infocontainer">
