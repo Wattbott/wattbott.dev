@@ -15,7 +15,7 @@
 	</div>
 	<div class="persons" id="margot">
 		<img src="/img/margotheadshot.jpg">
-		<p class="fontlarge">Margot McMannon</p>
+		<p class="fontlarge">Margot McMahon</p>
 	</div>
 	<div class="persons" id="somerandomdude">
 		<img src="/img/hampton1-16_0175.jpg">
@@ -48,8 +48,8 @@
 		</div>
 	</div>
 	<div id="margotinfo" class="infopart fontcolor2">
-		<h1 class="fontlarge">Margot McMannon</h1>
-		<p class="fontmid">This is Margot McMannon!</p>
+		<h1 class="fontlarge">Margot McMahon</h1>
+		<p class="fontmid">Margot is nuts about design theory, land management, and nonprofit development. She is a front-end cat, but doesn't mind back-end work at all.</p>
 		<div class="links">
 			<a href="https://github.com/margoober"><span class="mega-octicon octicon-mark-github"></span></a>
 			<a href="https://twitter.com/margoober"><img class="linkedin" src="/img/twit.png"></a>
