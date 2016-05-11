@@ -1,3 +1,10 @@
+<?php  
+	
+	Redirect::action('RunsController@store');
+
+?>
+
+
 @extends('layouts.master')
 
 @section('style')

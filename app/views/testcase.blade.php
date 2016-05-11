@@ -6,11 +6,12 @@
 @section('style')
 <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,900' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/testcase.css">
+<link rel="stylesheet" href="/css/hello.css">
 @stop
 
 @section('content')
 
-<div class="sideformbody font3">
+<div class="sideformbody font3" id="formbody3">
 	<div id="accrating" class=" fontcolor1 fontlarge">Completeness:
 		<div>
 			<span id="accnumber">0</span>%
