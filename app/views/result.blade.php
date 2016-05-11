@@ -1,7 +1,6 @@
 
 <?php 	
-	// var_dump($run->run['user_input']['energy_data']);
-	// var_dump($run->run);
+	
 ?>
 
 @extends('layouts.master')
@@ -17,10 +16,10 @@
 	<div id="graph0" class="dagraph">
 		<span  class="graphlabel">EUI</span>
 		<div id="bar1" class="graphbar yourbar">
-			your building: <span class="bartext">{{{ $run->run['user_output']['eui']['design_site_intensity'] }}}</span> kBtu/ft<sup>2</sup>
+			your building: <span class="bartext">{{{ round($run->run['user_output']['eui']['design_site_intensity'],0) }}}</span> kBtu/ft<sup>2</sup>
 		</div>
 		<div id="bar3" class="graphbar theirbar">
-			median: <span class="bartext">{{{ $run->run['user_output']['eui']['median_site_intensity'] }}}</span> kBtu/ft<sup>2</sup>
+			median: <span class="bartext">{{{ round($run->run['user_output']['eui']['median_site_intensity'],0) }}}</span> kBtu/ft<sup>2</sup>
 		</div>
 	</div>
 	<div id="graph1" class="dagraph">
@@ -35,10 +34,10 @@
 	<div id="graph2" class="dagraph">
 		<span class="graphlabel">Savings from Photovoltaic</span>
 		<div id="bar5" class="graphbar">
-			ROI: <span class="bartext">{{{ round($run->run['user_output']['pv']['roi'], 1) }}}</span> years
+			ROI: <span class="bartext">{{{ round($run->run['user_output']['pv']['roi'], 0) }}}</span> years
 		</div>
 		<div id="bar6" class="graphbar">
-			<span class="bartext">{{{ round(($run->run['user_output']['pv']['percent_savings'])*100, 1) }}} annual savings
+			<span class="bartext">{{{ round(($run->run['user_output']['pv']['percent_savings'])*100, 0) }}} annual savings
 			</span>
 		</div>
 	</div>
@@ -54,7 +53,7 @@
 		</div>
 		<div class="infocontainer">
 			<p class="infoheader fontmidlarge">Photovoltaic</p>
-			<p class="kewlkontents fontmid">A photovoltaic system on your building could save you ${{ round($run->run['user_output']['pv']['percent_savings'] * $run->run['user_output']['eui']['design_energy_cost']) }} per year, and pay for itself in {{{ round($run->run['user_output']['pv']['roi'], 1) }}} years.</p>
+			<p class="kewlkontents fontmid">A photovoltaic system on your building could save you ${{ round($run->run['user_output']['pv']['percent_savings'] * $run->run['user_output']['eui']['design_energy_cost'],0) }} per year, and pay for itself in {{{ round($run->run['user_output']['pv']['roi'], 0) }}} years.</p>
 		</div>
 	</div>
 	<div class="littlecontainer">
