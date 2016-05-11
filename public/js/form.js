@@ -671,21 +671,20 @@
 			console.log(monthsData);
 		}
 		charted(monthsData);
+		
+		// waiting page click event
+		$('#submitbuttonID').click(function (){
+			// event.preventDefault();
+			$(this).hide();
+			var happysun = '<div id="magicplace"><div class = "suntext">calculating...</div><div class="sun"><div class="happyface"><div class="eye eyeone"></div><div class="eye eyetwo"></div><div class="smiley"><div class="smileyoverlay"></div></div></div><div class="suncorona"><div class="coronapart lazycorona1"></div><div class="coronapart lazycorona2"></div></div><div class="sunbody"></div></div></div>';
+			$(happysun).insertBefore($(this));
+			visionCreationNewsun();
+			$('#formbody1').hide();
+			$('#formbody2').remove();
+			$('#formbody3').remove();
+		});
 	});
 	fakecheckVarPopulate(checkBool);
 	fakecheckVarPopulate(checkBoolRad);
-
-	// waiting page click event
-	$('#submitbuttonID').click(function (){
-		$(this).hide();
-		console.log("IT WORKS!");
-		var happysun = '<div id="magicplace"><div class = "suntext">calculating...</div><div class="sun"><div class="happyface"><div class="eye eyeone"></div><div class="eye eyetwo"></div><div class="smiley"><div class="smileyoverlay"></div></div></div><div class="suncorona"><div class="coronapart lazycorona1"></div><div class="coronapart lazycorona2"></div></div><div class="sunbody"></div></div></div>';
-		$(happysun).insertBefore($(this));
-		visionCreationNewsun();
-		$('#formbody1').hide();
-		$('#formbody2').remove();
-		$('#formbody3').remove();
-	});
-
 
 })();
