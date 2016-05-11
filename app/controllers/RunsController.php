@@ -98,17 +98,20 @@ class RunsController extends BaseController {
 		$run->run = $tempArray;
 		// create user output here
 		$run->userOuput();
-
+		dd($run->run['api_input']['utility_rate']);
 		$run->save();
 		//MAYBE CALL THE EMAIL/PDF METHOD HERE! ALL PROPERTIES ON THE RUN OBJECT SHOULD BE AVAILABLE!
 		$run->sendEmailTo($run->run['user_input']['email'], $run);
-	
+
+		return Redirect::action('RunsController@display',['id'=>$run->id]);
+		
+	}
+	public function display($id){
+		$run = Run::find($id);	
 		$data = [
 			'run' => $run,
 			'id' => $id
 		];
-
 		return View::make('result')->with($data);
-		
 	}
 }
