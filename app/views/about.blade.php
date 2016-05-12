@@ -40,7 +40,7 @@
 	<div id="annainfo" class="infopart fontcolor2">
 		<div class="textbox">
 			<h1 class="fontlarge">Anna Morton</h1>
-			<p class="fontmid">Anna Morton is a talented individual and graduate from Codeup. She is responsible for crafting the idea of the website proper and creating the backend.</p>
+			<p class="fontmid">Anna Morton is an engineer turned developer with several years of experience in the building industry. She is passionate about making the built enviroment more sustainable.</p>
 		</div>
 		<div class="links">
 			<a href="https://github.com/annajmorton"><span class="mega-octicon octicon-mark-github"></span></a>

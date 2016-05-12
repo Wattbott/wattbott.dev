@@ -61,6 +61,24 @@ class Run extends BaseModel
 		}
 	}
 
+	public function wipeMonths()
+	{
+        $tempArray = $this->run;
+		foreach ($this->missing_months as $skey => &$source) {   
+            foreach ($source as $ce_key => &$c_or_e) {
+                foreach ($c_or_e as $month => &$value) {
+                   $value = "";
+                }
+                $level = $tempArray['user_input']['energy_data'][$skey][$ce_key];
+                $tempArray['user_input']['energy_data'][$skey][$ce_key] = array_replace($level, $this->missing_months[$skey][$ce_key]);
+            }
+        }
+        $this->run = $tempArray;
+
+
+	}
+
+
 	public function replaceMonths()
 	{
 		$this->totalMonths();
@@ -98,7 +116,7 @@ class Run extends BaseModel
 	}
 
 
-	public function apiInputPart1()
+	public function apiInput()
 	{
 		$tempArray = $this->run;
 		// set total energy and calc utility rates
@@ -133,10 +151,7 @@ class Run extends BaseModel
 
 			$tempArray['api_input']['energy']['elec'] = $this->temp_energy_totals['elec']['energy'];
 		}
-		$this->run = $tempArray;
-	}
-	public function apiInputPart2(){
-		$tempArray = $this->run;
+	
 		// set location data
 		$zipcode = $this->run['user_input']['zipcode'];
 		if (true) {
