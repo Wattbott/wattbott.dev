@@ -12,11 +12,11 @@
 @section('content')
 
 <div class="sideformbody font3" id="formbody3">
-	<div id="accrating" class=" fontcolor1 fontlarge">Completeness:
+	{{-- <div id="accrating" class=" fontcolor1 fontlarge">Completeness:
 		<div>
 			<span id="accnumber">0</span>%
 		</div>
-	</div>
+	</div> --}}
 	<div id="gassystuff" class="font3 fontcolor1 fontmidsmall">
 		<span>Does your building use gas?</span>
 		<div class="fakecheck" id="check2">

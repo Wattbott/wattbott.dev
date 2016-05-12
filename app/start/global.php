@@ -54,7 +54,7 @@ App::missing(function($exception)
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
-	return View::make('403');
+	// return View::make('403');
 });
 
 /*

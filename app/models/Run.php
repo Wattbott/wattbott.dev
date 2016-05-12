@@ -116,7 +116,7 @@ class Run extends BaseModel
 	}
 
 
-	public function apiInputPart1()
+	public function apiInput()
 	{
 		$tempArray = $this->run;
 		// set total energy and calc utility rates
@@ -151,10 +151,7 @@ class Run extends BaseModel
 
 			$tempArray['api_input']['energy']['elec'] = $this->temp_energy_totals['elec']['energy'];
 		}
-		$this->run = $tempArray;
-	}
-	public function apiInputPart2(){
-		$tempArray = $this->run;
+	
 		// set location data
 		$zipcode = $this->run['user_input']['zipcode'];
 		if (true) {

@@ -138,6 +138,7 @@ class Api extends Eloquent {
 		//close connection
 		curl_close($ch);
 
+
 		if (!$error) {
 	    	$result = [
 				'design_site_intensity' => (string)$response->metric[11]->value,
