@@ -1,6 +1,6 @@
 
 	body{
-		background-color: blue;
+		background-color: #00b0f0;
 	}
 	.mainformbody{
 		background-color: transparent;
@@ -15,12 +15,12 @@
 	}
 	.sideformbody{
 		background-color: #005D81;
-		z-index: 1;
+		z-index: 10;
 		position: fixed;
-		visibility: hidden;
-		right:0%;
+		visibility: visible;
+		right:-100%;
 		top:0%;
-		width:40%;
+		width:100%;
 		height:100%;
 		min-height: 300px;
 		border-left: 8px solid white;
@@ -40,11 +40,11 @@
 		margin-right: auto;
 	}
 	#gassystuff{
-		top:5%;
+		top:15%;
 		position: relative;
-		width:90%;
-		margin-left: auto;
-		margin-right: auto;
+		width:70%;
+		font-size: 42px;
+		left:150px;
 	}
 	#accrating{
 		text-align: center;
@@ -63,20 +63,18 @@
 	#dachart{
 		border-left:4px solid white;
 		border-bottom: 4px solid white;
-		height:40%;
+		height:30%;
 		width:60%;
-		position: absolute;
+		margin-top: 20px;
+		position: relative;
 		display: block;
-		top:35%;
-		left:0;
-		right:0;
-		margin-left: auto;
-		margin-right: auto;
+		top:28%;
+		left:25%;
 	}
 	.graphpartlabel{
 		top:44%;
-		font-size: 120%;
-		left:-90px;
+		font-size: 160%;
+		left:-180px;
 		display: inline-block;
 		position: absolute;
 	}
@@ -155,11 +153,11 @@
 	}
 	#fakeselect{
 		list-style-type: none;
-		right:7%;
-		top:-26px;
-		position: absolute;
+		position: relative;
 		width:35%;
 		height:48px;
+		top:10px;
+		margin: 10px auto;
 		padding-left: 4px;
 		background-color: white;
 		overflow: hidden;
@@ -181,7 +179,7 @@
 		z-index:7;
 	}
 	.description{
-		position: absolute;
+		position: relative;
 		left:25%;
 		bottom:110%;
 		padding: 8px;
@@ -200,7 +198,7 @@
 		visibility: hidden;
 		opacity: 1;
 		list-style-type: none;
-		top:10%;
+		top:25%;
 		width:80%;
 		height:48px;
 		margin-left: auto;
@@ -439,3 +437,18 @@
 		color:white;
 	}
 /* Mobile Stuff */
+#thisform{
+	max-width: 100%;
+}
+#coolmobileclick{
+	height:200px;
+	width:200px;
+	position: absolute;
+	display: block;
+	top:10%;
+	left:-112px;
+	z-index: 11;
+	border-radius: 50%;
+	background-color: red;
+	border: 8px solid white;
+}

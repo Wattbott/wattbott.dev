@@ -20,6 +20,7 @@
 	var monthArray = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 	var monthsChartArray = [];
 	var inc = 0;
+	var pcmobile = true;
 
 	var checkBoolRadInserts = ['<div id="anntotalseg"><div class="formsegment font3 fontmidlarge" id="annformseg1"><label for="kwhannual" class="labeltext">kW/h</label><input name="kwhannual" id="kwhannual" class="coolformtext font3 fontmidlarge" type="text"></div><div class="formsegment font3 fontmidlarge" id="annformseg2"><label for="costannual" class="labeltext">Cost ($)</label><input name="costannual" id="costannual" class="coolformtext font3 fontmidlarge" type="text"></div></div>','<div id="totalseg"><div class="formsegment font3 fontmidlarge" id="monthselectseg"><ul id="fakeselectB"><div id="fsnumtwo" class="fakeselectitem"></div><li>January</li><li>February</li><li>March</li><li>April</li><li>May</li><li>June</li><li>July</li><li>August</li><li>September</li><li>October</li><li>November</li><li>December</li><span id="buildlisttri2" class="triangledown"></span></ul></div><div class="formsegment font3 fontmidlarge" id="monthitemseg"><label for="kwhmonth" class="labeltext">kW/h</label><input class="coolformtext font3 fontmidlarge" id="kwhmonth" name="kwhmonth" type="text"></div><div class="formsegment font3 fontmidlarge" id="monthcostseg"><label for="costmonth" class="labeltext">Cost ($)</label><input class="coolformtext font3 fontmidlarge" id="costmonth" name="costmonth" type="text"></div><div id="enter" class="buttonlink">Submit Month</button></div>'];
 	var checkTwoInserts = ['<div class="formsegment font3 fontmidlarge" id="gasmonthseg"><label for="kBTUmonth" class="labeltext">kBTU</label><input class="coolformtext font3 fontmidlarge" id="kBTUmonth" name="kBTUmonth" type="text"></div>','<div class="formsegment font3 fontmidlarge" id="gasmonthcostseg"><label for="gascostmonth" class="labeltext">Cost ($)</label><input class="coolformtext font3 fontmidlarge" id="gascostmonth" name="gascostmonth" type="text"></div>']
@@ -29,13 +30,36 @@
 		if (/mobile/i.test(navigator.userAgent))
 		{
 			console.log("IT'S MOBILE!");
+			pcmobile = false;
+			$('#formbody3').prepend('<div id="coolmobileclick"></div>');
 			$('head').append('<link rel="stylesheet" href="/css/mobileform.css">');
+			mobileClick();
 		}
 		else
 		{
 			console.log("IT'S PC!");
 			$('head').append('<link rel="stylesheet" href="/css/testcase.css">');
 		}
+	}
+	function mobileClick()
+	{
+		var mobilecheck = false;
+			$('#coolmobileclick').click(function(){
+				if (mobilecheck == false)
+				{
+					$('.sideformbody').animate({
+						"right":"-8px"
+					},1000);
+					mobilecheck = true;
+				}
+				else
+				{
+					$('.sideformbody').animate({
+						"right":"-100%"
+					},1000);
+					mobilecheck = false;
+				}
+			});
 	}
 	function fakecheckVarPopulate(arr)
 	{
@@ -87,18 +111,37 @@
 		}
 		if (data.length > 8)
 		{
-			$('#dachart').animate({
-				"height": data.length*5.2+"%"
-			});
+			if (pcmobile == true)
+			{
+				$('#dachart').animate({
+					"height": data.length*5.2+"%"
+				});
+			}
+			else
+			{
+				$('#dachart').animate({
+					"height": data.length*4.2+"%"
+				});
+			}
+			
 
 		}
 		for (var i = data.length -1; i >= 0; i--)
 		{
 			if (data.length > 8)
 		{
-			$('#dachart .graphbarpart').animate({
-				"font-size": 16-(data.length/2)+"px"
-			});
+			if (pcmobile == true)
+			{
+				$('#dachart .graphbarpart').animate({
+					"font-size": 16-(data.length/2)+"px"
+				});
+			}
+			else
+			{
+				$('#dachart .graphbarpart').animate({
+					"font-size": 24-(data.length/2)+"px"
+				});
+			}
 			
 		}
 		
@@ -613,6 +656,7 @@
 		if (faketrue2 == false && ($(this).height() < listheight*1.5))
 		{
 			faketrue2 = true;
+			console.log(listoptions2,listheight2);
 			$("#fakeselectC").animate({
 				"height": (listheight2*(listoptions2+1))+12+"px"
 			},500);
