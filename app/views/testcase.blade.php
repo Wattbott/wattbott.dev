@@ -12,6 +12,7 @@
 @section('content')
 
 <div class="sideformbody font3" id="formbody3">
+
 	{{-- <div id="accrating" class=" fontcolor1 fontlarge">Completeness:
 		<div>
 			<span id="accnumber">0</span>%
@@ -150,8 +151,8 @@
 		</div>
 	</div>
 </div>
-<div class="mainformbody">
-	{{ Form::submit('Let\'s Go!',$attributes = ['class' => 'submitbutton buttonlink', 'id' => 'submitbuttonID']) }}
+<div class="mainformbody" id='cleanslate'>
+	{{ Form::submit(null,$attributes = ['class' => 'submitbutton buttonlink', 'id' => 'submitbuttonID']) }}
 	{{ Form::close() }}
 </div>
 @stop

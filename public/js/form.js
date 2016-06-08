@@ -29,22 +29,27 @@
 	{
 		if (/mobile/i.test(navigator.userAgent))
 		{
-			console.log("IT'S MOBILE!");
 			pcmobile = false;
 			$('#formbody3').prepend('<div id="coolmobileclick"></div>');
 			$('head').append('<link rel="stylesheet" href="/css/mobileform.css">');
+			mobileClean();
 			mobileClick();
+			
 		}
 		else
 		{
-			console.log("IT'S PC!");
 			$('head').append('<link rel="stylesheet" href="/css/testcase.css">');
 		}
+	}
+	function mobileClean()
+	{
+		$('#submitbuttonID').text("Let's Go!");
 	}
 	function mobileClick()
 	{
 		var mobilecheck = false;
-			$('#coolmobileclick').click(function(){
+			console.log("HolyCOW!");
+			$('#coolmobileclick').on('swipeleft',function(){
 				if (mobilecheck == false)
 				{
 					$('.sideformbody').animate({
@@ -52,7 +57,9 @@
 					},1000);
 					mobilecheck = true;
 				}
-				else
+			});
+			$('#coolmobileclick').on('swiperight',function(){
+				if (mobilecheck == true)
 				{
 					$('.sideformbody').animate({
 						"right":"-100%"
@@ -658,7 +665,7 @@
 			faketrue2 = true;
 			console.log(listoptions2,listheight2);
 			$("#fakeselectC").animate({
-				"height": (listheight2*(listoptions2+1))+12+"px"
+				"height": (38*(listoptions2+1))+12+"px"
 			},500);
 		}
 	});
@@ -728,7 +735,8 @@
 			console.log(monthsData);
 		}
 		charted(monthsData);
-		
+		listheight = $('#fakeselect li').height();
+		listheight2 = $('#fakeselectC li').height();
 		// waiting page click event
 		$('#submitbuttonID').click(function (){
 			// event.preventDefault();
