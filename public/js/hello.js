@@ -75,7 +75,6 @@ function treeDance(tr1,tr2)
 				{
 					var rotate = tr1;
 					var that = $(this);
-					console.log($(this),rotate,index);
 					$({deg: rotate}).animate({deg: tr2}, {
 						duration: 2000,
 						easing: "linear",
@@ -90,7 +89,6 @@ function treeDance(tr1,tr2)
 				{
 					var rotate = tr2;
 					var that = $(this);
-					console.log($(this),rotate,index);
 					$({deg: rotate}).animate({deg: tr1}, {
 						duration: 2000,
 						easing: "linear",
@@ -112,7 +110,6 @@ function treeDance(tr1,tr2)
 				{
 					var rotate = tr2;
 					var that = $(this);
-					console.log($(this),rotate,index);
 					$({deg: rotate}).animate({deg: tr1}, {
 						duration: 2000,
 						easing: "linear",
@@ -127,7 +124,6 @@ function treeDance(tr1,tr2)
 				{
 					var rotate = tr1;
 					var that = $(this);
-					console.log($(this),rotate,index);
 					$({deg: rotate}).animate({deg: tr2}, {
 						duration: 2000,
 						easing: "linear",
@@ -198,10 +194,8 @@ function liAnimation(i)
 {
 	if (i == 0)
 	{
-		console.log("HERE!",i);
 		$('.bars').each(function (index){
 			var width = $(this).width();
-			console.log(width);
 			$(this).css({
 				"width":"0px"
 			}).animate({

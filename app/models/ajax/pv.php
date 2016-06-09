@@ -15,7 +15,7 @@
 
 	<body>
 		<h1>Some stuff - this is gonna be great!</h1>
-		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script   src="https://code.jquery.com/jquery-1.12.3.min.js"   integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="   crossorigin="anonymous"></script>
 		<script type="text/javascript">
 			"use strict"
 			$.ajax({
@@ -31,10 +31,10 @@
 				    "azimuth" : "180",
 				    "lat" : "40",
 				    "lon" : "-105"
-				}
+				},
+				async: true
 
 			}).done(function(data){
-				console.log("this is the shit!");
 				console.log(data);
 
 			});

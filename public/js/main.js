@@ -2,6 +2,9 @@
 
 (function (){
 
+	$(document).bind("mobileinit", function() {
+  		$.mobile.ajaxEnabled = false;
+	});
 	var hiddenTimeout;
 	var navOn = false;
 	function callnav()
